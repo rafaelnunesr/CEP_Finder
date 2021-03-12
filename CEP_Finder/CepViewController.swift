@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CepViewController.swift
 //  CEP_Finder
 //
 //  Created by Rafael Nunes Rios on 3/10/21.
@@ -8,11 +8,15 @@
 import UIKit
 import MapKit
 import SwiftMaskTextfield
+import SideMenu
 
-class ViewController: UIViewController {
+class CepViewController: UIViewController {
+    
+    var sideMenu: SideMenuNavigationController?
     
     let regionRadius: CLLocationDistance = 1000
     
+    // components
     let map: MKMapView = MKMapView()
     let headerView: UIView = UIView()
     let headerView2: UIView = UIView()
@@ -20,16 +24,21 @@ class ViewController: UIViewController {
     let searchField: SwiftMaskTextfield = SwiftMaskTextfield()
     let searchButton: UIButton = UIButton()
     let footerView: UIView = UIView()
+    let favoriteButton: UIButton = UIButton()
     let addressLabel: UILabel = UILabel()
     let address: UILabel = UILabel()
     let cityStateLabel: UILabel = UILabel()
     let cityState: UILabel = UILabel()
-    let infoButton: UIButton = UIButton()
     let lastFooterView: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        
+        self.sideMenu = SideMenuNavigationController(rootViewController: MenuViewController())
+        SideMenuManager.default.leftMenuNavigationController = self.sideMenu
+        self.sideMenu?.leftSide = true
+
     }
     
     private func setup() {
@@ -46,11 +55,11 @@ class ViewController: UIViewController {
         self.view.addSubview(self.searchField)
         self.view.addSubview(self.searchButton)
         self.view.addSubview(self.footerView)
+        self.view.addSubview(self.favoriteButton)
         self.view.addSubview(self.addressLabel)
         self.view.addSubview(self.address)
         self.view.addSubview(self.cityStateLabel)
         self.view.addSubview(self.cityState)
-        self.view.addSubview(self.infoButton)
         self.view.addSubview(self.lastFooterView)
     }
     
@@ -66,11 +75,11 @@ class ViewController: UIViewController {
         self.setupSearchField()
         self.setupSearchButton()
         self.setupFooterView()
+        self.setupFavoriteButton()
         self.setupAddressLabel()
         self.setupAddress()
         self.setupCityLabel()
         self.setupCityState()
-        self.setupInfoButton()
         self.setupLastFooterView()
     }
     
@@ -132,7 +141,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func menuTapped() {
-        
+        present(sideMenu!, animated: true)
     }
     
     private func setupSearchField() {
@@ -236,6 +245,30 @@ class ViewController: UIViewController {
         
     }
     
+    private func setupFavoriteButton() {
+        
+        self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .selected)
+        self.favoriteButton.tintColor = .white
+        self.favoriteButton.imageView?.contentMode = .scaleAspectFill
+        
+        self.favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+        
+        self.favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        self.favoriteButton.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10).isActive = true
+        self.favoriteButton.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20).isActive = true
+        self.favoriteButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.favoriteButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    @objc private func favoriteButtonTapped() {
+        if self.favoriteButton.isSelected {
+            self.favoriteButton.isSelected = false
+        }else {
+            self.favoriteButton.isSelected = true
+        }
+    }
+    
     private func setupAddressLabel() {
         self.addressLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addressLabel.text = "Street / Avenue"
@@ -283,27 +316,6 @@ class ViewController: UIViewController {
         
     }
     
-    private func setupInfoButton() {
-        let btnImage = UIImage(systemName: "info.circle")
-        self.infoButton.setImage(btnImage, for: .normal)
-        self.infoButton.contentMode = .scaleAspectFit
-        self.infoButton.tintColor = .black
-        
-        self.infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
-        
-        
-        self.infoButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.infoButton.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -60).isActive = true
-        self.infoButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-        self.infoButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.infoButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-    }
-    
-    @objc private func infoButtonTapped() {
-        
-    }
-    
     private func setupLastFooterView() {
         self.lastFooterView.translatesAutoresizingMaskIntoConstraints = false
         self.lastFooterView.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
@@ -316,7 +328,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITextFieldDelegate {
+extension CepViewController: UITextFieldDelegate {
     override class func didChangeValue(forKey key: String) {
         
     }

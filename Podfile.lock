@@ -1,0 +1,16 @@
+PODS:
+  - SwiftMaskTextfield (1.1.0)
+
+DEPENDENCIES:
+  - SwiftMaskTextfield (~> 1.1)
+
+SPEC REPOS:
+  trunk:
+    - SwiftMaskTextfield
+
+SPEC CHECKSUMS:
+  SwiftMaskTextfield: 8c792e56f25779939d1fd5cf6153ba439b1be761
+
+PODFILE CHECKSUM: 562a58d4ec5bd461f3e736fc1f371fe76c61b8fd
+
+COCOAPODS: 1.10.0

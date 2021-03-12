@@ -11,13 +11,12 @@ import SwiftMaskTextfield
 
 class ViewController: UIViewController {
     
-    //url = "https://viacep.com.br/ws/07143510/json/"
-    
     let regionRadius: CLLocationDistance = 1000
     
     let map: MKMapView = MKMapView()
     let headerView: UIView = UIView()
     let headerView2: UIView = UIView()
+    let menu: UIButton = UIButton()
     let searchField: SwiftMaskTextfield = SwiftMaskTextfield()
     let searchButton: UIButton = UIButton()
     let footerView: UIView = UIView()
@@ -43,6 +42,7 @@ class ViewController: UIViewController {
         self.view.addSubview(self.map)
         self.view.addSubview(self.headerView)
         self.view.addSubview(self.headerView2)
+        self.view.addSubview(self.menu)
         self.view.addSubview(self.searchField)
         self.view.addSubview(self.searchButton)
         self.view.addSubview(self.footerView)
@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         self.setupMap()
         self.setupHeaderView()
         self.setupHeaderView2()
+        self.setupMenu()
         self.setupSearchField()
         self.setupSearchButton()
         self.setupFooterView()
@@ -116,6 +117,24 @@ class ViewController: UIViewController {
         self.headerView2.heightAnchor.constraint(equalToConstant: 240).isActive = true
     }
     
+    private func setupMenu() {
+        
+        self.menu.tintColor = .black
+        let btnImage = UIImage(systemName: "line.horizontal.3")
+        self.menu.setImage(btnImage, for: .normal)
+        self.menu.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
+        
+        self.menu.translatesAutoresizingMaskIntoConstraints = false
+        self.menu.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        self.menu.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 2).isActive = true
+        self.menu.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        self.menu.widthAnchor.constraint(equalToConstant: 52).isActive = true
+    }
+    
+    @objc private func menuTapped() {
+        
+    }
+    
     private func setupSearchField() {
         self.searchField.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
         self.searchField.layer.cornerRadius = 4
@@ -140,7 +159,7 @@ class ViewController: UIViewController {
         self.searchField.translatesAutoresizingMaskIntoConstraints = false
         
         self.searchField.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        self.searchField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 24).isActive = true
+        self.searchField.leadingAnchor.constraint(equalTo: self.menu.trailingAnchor, constant: 2).isActive = true
         self.searchField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
         self.searchField.heightAnchor.constraint(equalToConstant: 52).isActive = true
     }
@@ -169,9 +188,37 @@ class ViewController: UIViewController {
         
         guard let cep = searchField.text else { return }
         
-        let s = cep.filter { $0 != "-" } 
+        let s = cep.filter { $0 != "-" }
+        
+        let session = URLSession.shared
+        let url = URL(string: "https://viacep.com.br/ws/\(s)/json/")
+        
+        guard let _url = url else { return }
+        
+        let task = session.dataTask(with: _url) { (data, response, error) in
+            
+            guard let _data = data else { return }
+            
+            do{
+                let result = try JSONDecoder().decode(CEP.self, from: _data)
+                
+                self.updateLabels(result: result)
+
+            }catch {
+                
+            }
+            
+        }
+        task.resume()
         
         
+    }
+    
+    private func updateLabels(result: CEP) {
+        DispatchQueue.main.async {
+            self.address.text = result.logradouro
+            self.cityState.text = result.localidade + " / " + result.uf
+        }
         
     }
     
@@ -202,7 +249,7 @@ class ViewController: UIViewController {
     
     private func setupAddress() {
         self.address.translatesAutoresizingMaskIntoConstraints = false
-        self.address.text = "Avenida Paulista"
+        self.address.text = "No valid CEP provied"
         self.address.textColor = .white
         self.address.font = UIFont.recursiveMedium(size: 20)
         
@@ -225,7 +272,7 @@ class ViewController: UIViewController {
     
     private func setupCityState() {
         self.cityState.translatesAutoresizingMaskIntoConstraints = false
-        self.cityState.text = "São Paulo / São Paulo"
+        self.cityState.text = "No valid CEP provied"
         self.cityState.textColor = .white
         self.cityState.font = UIFont.recursiveMedium(size: 20)
         

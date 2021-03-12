@@ -15,6 +15,7 @@
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
 		1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7025FA2E16002A1C9E /* ViewModel.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
+		1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */; };
 		1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */; };
 		1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */; };
 		1BD7AE1525F9B31B0036A743 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1425F9B31B0036A743 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		1BAD11C125FABFF800FD700E /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		1BB15B7025FA2E16002A1C9E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPModel.swift; sourceTree = "<group>"; };
 		1BD7AE0D25F9B31B0036A743 /* CEP_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEP_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1BBCD3CE25FBB6E400F4F4FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1BD7AE0425F9B31B0036A743 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +165,7 @@
 		1BD7AE0F25F9B31B0036A743 /* CEP_Finder */ = {
 			isa = PBXGroup;
 			children = (
+				1BBCD3CE25FBB6E400F4F4FE /* Model */,
 				1BAD11B825FABEC200FD700E /* Fonts */,
 				1BB15B7825FA2EC4002A1C9E /* Extensions */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
@@ -464,6 +475,7 @@
 			files = (
 				1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */,
 				1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */,
+				1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */,
 				1BD7AE1525F9B31B0036A743 /* ViewController.swift in Sources */,
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,
 				1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */,

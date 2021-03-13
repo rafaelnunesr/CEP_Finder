@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: RecursiveFonts
 enum RecursiveFonts: String {
     case black = "Recursive-Black"
     case bold = "Recursive-Bold"
@@ -15,9 +16,9 @@ enum RecursiveFonts: String {
     case regular = "Recursive-Regular"
 }
 
-
 extension UIFont {
     
+    // MARK: RecursiveBlack
     static func recursiveBlack(size: CGFloat) -> UIFont {
         guard let recursive = UIFont(name: RecursiveFonts.black.rawValue, size: size) else {
             fatalError("Error loading Recursive-Black font.")
@@ -26,6 +27,7 @@ extension UIFont {
         return recursive
     }
     
+    // MARK: RecursiveBold
     static func recursiveBold(size: CGFloat) -> UIFont {
         guard let recursive = UIFont(name: RecursiveFonts.bold.rawValue, size: size) else {
             fatalError("Error loading Recursive-Bold font.")
@@ -34,6 +36,7 @@ extension UIFont {
         return recursive
     }
     
+    // MARK: RecursiveLight
     static func recursiveLight(size: CGFloat) -> UIFont {
         guard let recursive = UIFont(name: RecursiveFonts.light.rawValue, size: size) else {
             fatalError("Error loading Recursive-Light font.")
@@ -42,6 +45,7 @@ extension UIFont {
         return recursive
     }
     
+    // MARK: RecursiveMedium
     static func recursiveMedium(size: CGFloat) -> UIFont {
         guard let recursive = UIFont(name: RecursiveFonts.medium.rawValue, size: size) else {
             fatalError("Error loading Recursive-Medium font.")
@@ -50,6 +54,7 @@ extension UIFont {
         return recursive
     }
     
+    // MARK: RecursiveRegular
     static func recursiveRegular(size: CGFloat) -> UIFont {
         guard let recursive = UIFont(name: RecursiveFonts.regular.rawValue, size: size) else {
             fatalError("Error loading Recursive-Regular font.")
@@ -57,6 +62,5 @@ extension UIFont {
         
         return recursive
     }
-    
-    
+
 }

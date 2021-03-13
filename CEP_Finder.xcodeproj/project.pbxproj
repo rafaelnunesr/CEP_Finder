@@ -23,6 +23,18 @@
 		1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7025FA2E16002A1C9E /* ViewModel.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
 		1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */; };
+		1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */; };
+		1BCEA1B525FCDB2800D1A2AB /* CepWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */; };
+		1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */; };
+		1BCEA1C025FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */; };
+		1BCEA1C825FCEC3C00D1A2AB /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */; };
+		1BCEA1C925FCEC3C00D1A2AB /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */; };
+		1BCEA1CD25FCEC4100D1A2AB /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */; };
+		1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */; };
+		1BCEA1D325FCF01300D1A2AB /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */; };
+		1BCEA1D425FCF01300D1A2AB /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */; };
+		1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D825FD04FC00D1A2AB /* Address.swift */; };
+		1BCEA1DA25FD04FC00D1A2AB /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D825FD04FC00D1A2AB /* Address.swift */; };
 		1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */; };
 		1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */; };
 		1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1425F9B31B0036A743 /* CepViewController.swift */; };
@@ -67,6 +79,11 @@
 		1BB15B7025FA2E16002A1C9E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPModel.swift; sourceTree = "<group>"; };
+		1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepWorker.swift; sourceTree = "<group>"; };
+		1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
+		1BCEA1D825FD04FC00D1A2AB /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1BD7AE0D25F9B31B0036A743 /* CEP_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEP_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */,
+				1BCEA1D825FD04FC00D1A2AB /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +208,10 @@
 				1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */,
 				1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */,
 				1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */,
+				1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */,
+				1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */,
+				1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */,
+				1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */,
 			);
 			path = CEP_Finder;
 			sourceTree = "<group>";
@@ -498,7 +520,12 @@
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,
 				1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */,
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
+				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
+				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
+				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */,
+				1BCEA1C825FCEC3C00D1A2AB /* FooterView.swift in Sources */,
+				1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,8 +533,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BCEA1B525FCDB2800D1A2AB /* CepWorker.swift in Sources */,
+				1BCEA1C025FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
+				1BCEA1D325FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1B7E2A8325FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
+				1BCEA1C925FCEC3C00D1A2AB /* FooterView.swift in Sources */,
 				1BD7AE2B25F9B31C0036A743 /* CEP_FinderTests.swift in Sources */,
+				1BCEA1DA25FD04FC00D1A2AB /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +547,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BCEA1CD25FCEC4100D1A2AB /* FooterView.swift in Sources */,
 				1B7E2A8425FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
+				1BCEA1D425FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1BD7AE3625F9B31C0036A743 /* CEP_FinderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

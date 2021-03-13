@@ -7,9 +7,8 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UITableViewController {
     
-    let tableView: UITableView = UITableView()
     let menuItens = ["Favorites", "History", "About"]
 
     override func viewDidLoad() {
@@ -17,65 +16,37 @@ class MenuViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(red: 0.99, green: 0.64, blue: 0.27, alpha: 1.00)
         
-        navigationController?.navigationBar.isHidden = true
-        
-        self.setup()
-    }
-
-    private func setup() {
-        self.setupSubviews()
-        self.setupComponents()
-    }
-    
-    private func setupSubviews() {
-        self.view.addSubview(tableView)
-    }
-    
-    private func setupComponents() {
-        self.setupTableView()
-    }
-    
-    private func setupTableView() {
-        
-        self.tableView.backgroundColor = UIColor(red: 0.99, green: 0.64, blue: 0.27, alpha: 1.00)
-        
         self.tableView.register(MenuTableViewCell.nib(), forCellReuseIdentifier: MenuTableViewCell.identifier)
-        
-        self.tableView.delegate = self
-        self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.showsHorizontalScrollIndicator = false
         self.tableView.separatorStyle = .none
         
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        self.tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        self.tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
+        self.navigationController?.navigationBar.isHidden = true
     }
-
-}
-
-extension MenuViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItens.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as? MenuTableViewCell
         
         cell?.cellLabel.text = menuItens[indexPath.row]
         
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        cell?.selectedBackgroundView = backgroundView
+        
         return cell ?? UITableViewCell()
         
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+
 }
 
-extension MenuViewController: UITableViewDelegate {
-    
-}

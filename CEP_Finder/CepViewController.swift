@@ -10,134 +10,98 @@ import MapKit
 import SwiftMaskTextfield
 import SideMenu
 
+protocol UpdateInfo {
+    func updateView(address: Address)
+}
+
 class CepViewController: UIViewController {
     
     var sideMenu: SideMenuNavigationController?
+    var delegate: UpdateInfo?
     
     let regionRadius: CLLocationDistance = 1000
     
     // components
     let map: MKMapView = MKMapView()
-    let headerView: UIView = UIView()
-    let headerView2: UIView = UIView()
-    let menu: UIButton = UIButton()
+    let backHeaderView: UIView = UIView()
+    let topHeaderView: UIView = UIView()
+    let menuButton: UIButton = UIButton()
     let searchField: SwiftMaskTextfield = SwiftMaskTextfield()
     let searchButton: UIButton = UIButton()
-    let footerView: UIView = UIView()
-    let favoriteButton: UIButton = UIButton()
-    let addressLabel: UILabel = UILabel()
-    let address: UILabel = UILabel()
-    let cityStateLabel: UILabel = UILabel()
-    let cityState: UILabel = UILabel()
-    let lastFooterView: UIView = UIView()
+    let footerView: FooterView = FooterView()
+    let footerLine: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
         
         self.sideMenu = SideMenuNavigationController(rootViewController: MenuViewController())
-        SideMenuManager.default.leftMenuNavigationController = self.sideMenu
         self.sideMenu?.leftSide = true
-
+        
     }
     
     private func setup() {
         self.setupSubviews()
-        self.setupDelegates()
         self.setupComponents()
     }
     
     private func setupSubviews() {
         self.view.addSubview(self.map)
-        self.view.addSubview(self.headerView)
-        self.view.addSubview(self.headerView2)
-        self.view.addSubview(self.menu)
+        self.view.addSubview(self.backHeaderView)
+        self.view.addSubview(self.topHeaderView)
+        self.view.addSubview(self.menuButton)
         self.view.addSubview(self.searchField)
         self.view.addSubview(self.searchButton)
         self.view.addSubview(self.footerView)
-        self.view.addSubview(self.favoriteButton)
-        self.view.addSubview(self.addressLabel)
-        self.view.addSubview(self.address)
-        self.view.addSubview(self.cityStateLabel)
-        self.view.addSubview(self.cityState)
-        self.view.addSubview(self.lastFooterView)
-    }
-    
-    private func setupDelegates() {
-        self.searchField.delegate = self
+        self.view.addSubview(self.footerLine)
     }
     
     private func setupComponents() {
         self.setupMap()
-        self.setupHeaderView()
-        self.setupHeaderView2()
+        self.setupBackHeaderView()
+        self.setupTopHeaderView()
         self.setupMenu()
         self.setupSearchField()
         self.setupSearchButton()
         self.setupFooterView()
-        self.setupFavoriteButton()
-        self.setupAddressLabel()
-        self.setupAddress()
-        self.setupCityLabel()
-        self.setupCityState()
-        self.setupLastFooterView()
     }
     
     private func setupMap() {
         
+        self.setupMapConstraints()
+        
         let initialLocation = CLLocation(latitude: -23.565163997932217, longitude: -46.652365089520536)
         let coordinaRegion = MKCoordinateRegion(center: initialLocation.coordinate, latitudinalMeters: self.regionRadius, longitudinalMeters: self.regionRadius)
         self.map.setRegion(coordinaRegion, animated: true)
-        
-        self.map.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.map.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.map.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.map.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.map.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
-    private func setupHeaderView() {
-        self.headerView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
-        
-        self.headerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.headerView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+    private func setupBackHeaderView() {
+        self.setupBackHeaderViewConstraints()
+        self.backHeaderView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
     }
     
-    private func setupHeaderView2() {
-        self.headerView2.translatesAutoresizingMaskIntoConstraints = false
-        self.headerView2.backgroundColor = .white
-        self.headerView2.alpha = 0.8
-        self.headerView2.layer.cornerRadius = 8
+    private func setupTopHeaderView() {
+        self.topHeaderView.backgroundColor = .white
+        self.topHeaderView.alpha = 0.8
+        self.topHeaderView.layer.cornerRadius = 8
         
         
-        self.headerView2.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.headerView2.layer.shadowColor = UIColor.black.cgColor
-        self.headerView2.layer.shadowRadius = 4
-        self.headerView2.layer.shadowOpacity = 0.4
+        self.topHeaderView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.topHeaderView.layer.shadowColor = UIColor.black.cgColor
+        self.topHeaderView.layer.shadowRadius = 4
+        self.topHeaderView.layer.shadowOpacity = 0.4
         
-        self.headerView2.bottomAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 20).isActive = true
-        self.headerView2.leadingAnchor.constraint(equalTo: self.headerView.leadingAnchor, constant: 4).isActive = true
-        self.headerView2.trailingAnchor.constraint(equalTo: self.headerView.trailingAnchor, constant: -4).isActive = true
-        self.headerView2.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        self.setupTopHeaderViewConstraints()
     }
     
     private func setupMenu() {
         
-        self.menu.tintColor = .black
+        self.menuButton.tintColor = .black
         let btnImage = UIImage(systemName: "line.horizontal.3")
-        self.menu.setImage(btnImage, for: .normal)
-        self.menu.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
+        self.menuButton.setImage(btnImage, for: .normal)
+        self.menuButton.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
         
-        self.menu.translatesAutoresizingMaskIntoConstraints = false
-        self.menu.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        self.menu.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 2).isActive = true
-        self.menu.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        self.menu.widthAnchor.constraint(equalToConstant: 52).isActive = true
+        self.setupMenuButtonConstraints()
     }
     
     @objc private func menuTapped() {
@@ -149,7 +113,6 @@ class CepViewController: UIViewController {
         self.searchField.layer.cornerRadius = 4
         self.searchField.alpha = 0.7
         
-        //self.searchField.placeholder = "Type CEP"
         self.searchField.rightPadding
         self.searchField.keyboardType = .numberPad
         self.searchField.formatPattern = "#####-###"
@@ -165,12 +128,7 @@ class CepViewController: UIViewController {
         self.searchField.layer.shadowRadius = 4
         self.searchField.layer.shadowOpacity = 0.3
         
-        self.searchField.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.searchField.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        self.searchField.leadingAnchor.constraint(equalTo: self.menu.trailingAnchor, constant: 2).isActive = true
-        self.searchField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
-        self.searchField.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        self.setupSearchFieldConstraints()
     }
     
     private func setupSearchButton() {
@@ -183,13 +141,7 @@ class CepViewController: UIViewController {
         
         self.searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         
-        self.searchButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.searchButton.centerYAnchor.constraint(equalTo: self.searchField.centerYAnchor).isActive = true
-        self.searchButton.topAnchor.constraint(equalTo: self.searchField.topAnchor, constant: 2).isActive = true
-        self.searchButton.bottomAnchor.constraint(equalTo: self.searchField.bottomAnchor, constant: -2).isActive = true
-        self.searchButton.trailingAnchor.constraint(equalTo: self.searchField.trailingAnchor, constant: -2).isActive = true
-        self.searchButton.widthAnchor.constraint(equalTo: self.searchField.heightAnchor, constant: -2).isActive = true
+        self.setupSearchButtonConstraints()
     }
     
     @objc private func searchButtonTapped() {
@@ -199,138 +151,128 @@ class CepViewController: UIViewController {
         
         let s = cep.filter { $0 != "-" }
         
-        let session = URLSession.shared
-        let url = URL(string: "https://viacep.com.br/ws/\(s)/json/")
+        let add = CepWorker()
+        add.cep = s
         
-        guard let _url = url else { return }
-        
-        let task = session.dataTask(with: _url) { (data, response, error) in
+        add.getAddress { (result, error) in
             
-            guard let _data = data else { return }
-            
-            do{
-                let result = try JSONDecoder().decode(CEP.self, from: _data)
-                
-                self.updateLabels(result: result)
-
-            }catch {
-                
+            guard let _result = result else {
+                DispatchQueue.main.async {
+                    self.alertUser()
+                }
+                return
             }
             
+            self.updateLabels(result: _result)
         }
-        task.resume()
         
+    }
+    
+    private func alertUser() {
+        let alert = UIAlertController(title: "Cep Invalid", message: "Sorry, the cep you request doesn't exist.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
         
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
     }
     
     private func updateLabels(result: CEP) {
         DispatchQueue.main.async {
-            self.address.text = result.logradouro
-            self.cityState.text = result.localidade + " / " + result.uf
+            
+            print("&&&&&&&&&&&&&&&&&")
+            let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
+            
+            print(address.cityState)
+            
+            self.delegate?.updateView(address: address)
         }
         
     }
     
     
     private func setupFooterView() {
-        
-        self.footerView.translatesAutoresizingMaskIntoConstraints = false
         self.footerView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
         self.footerView.alpha = 0.8
-        
-        self.footerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        self.footerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        self.footerView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -130).isActive = true
-        self.footerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        
-    }
-    
-    private func setupFavoriteButton() {
-        
-        self.favoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
-        self.favoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .selected)
-        self.favoriteButton.tintColor = .white
-        self.favoriteButton.imageView?.contentMode = .scaleAspectFill
-        
-        self.favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
-        
-        self.favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        self.favoriteButton.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10).isActive = true
-        self.favoriteButton.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20).isActive = true
-        self.favoriteButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.favoriteButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
-    @objc private func favoriteButtonTapped() {
-        if self.favoriteButton.isSelected {
-            self.favoriteButton.isSelected = false
-        }else {
-            self.favoriteButton.isSelected = true
-        }
-    }
-    
-    private func setupAddressLabel() {
-        self.addressLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.addressLabel.text = "Street / Avenue"
-        self.addressLabel.textColor = .black
-        self.addressLabel.font = UIFont.recursiveRegular(size: 15)
-        
-        self.addressLabel.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10).isActive = true
-        self.addressLabel.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20).isActive = true
-        self.addressLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-    }
-    
-    private func setupAddress() {
-        self.address.translatesAutoresizingMaskIntoConstraints = false
-        self.address.text = "No valid CEP provied"
-        self.address.textColor = .white
-        self.address.font = UIFont.recursiveMedium(size: 20)
-        
-        self.address.topAnchor.constraint(equalTo: self.addressLabel.bottomAnchor).isActive = true
-        self.address.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20).isActive = true
-        self.address.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20).isActive = true
-        self.address.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
-    private func setupCityLabel() {
-        self.cityStateLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.cityStateLabel.text = "City / State"
-        self.cityStateLabel.textColor = .black
-        self.cityStateLabel.font = UIFont.recursiveRegular(size: 15)
-        
-        self.cityStateLabel.topAnchor.constraint(equalTo: self.address.bottomAnchor, constant: 4).isActive = true
-        self.cityStateLabel.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20).isActive = true
-        self.cityStateLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-    }
-    
-    private func setupCityState() {
-        self.cityState.translatesAutoresizingMaskIntoConstraints = false
-        self.cityState.text = "No valid CEP provied"
-        self.cityState.textColor = .white
-        self.cityState.font = UIFont.recursiveMedium(size: 20)
-        
-        self.cityState.topAnchor.constraint(equalTo: self.cityStateLabel.bottomAnchor).isActive = true
-        self.cityState.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20).isActive = true
-        self.cityState.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20).isActive = true
-        self.cityState.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.setupFooterViewConstraints()
         
     }
     
     private func setupLastFooterView() {
-        self.lastFooterView.translatesAutoresizingMaskIntoConstraints = false
-        self.lastFooterView.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
-        
-        self.lastFooterView.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor).isActive = true
-        self.lastFooterView.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor).isActive = true
-        self.lastFooterView.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        self.lastFooterView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
+        self.footerLine.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
+        setupFooterLineConstraints()
     }
 
 }
 
-extension CepViewController: UITextFieldDelegate {
-    override class func didChangeValue(forKey key: String) {
+extension CepViewController {
+    func setupMapConstraints() {
+        map.translatesAutoresizingMaskIntoConstraints = false
         
+        map.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        map.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        map.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        map.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func setupBackHeaderViewConstraints() {
+        backHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        
+        backHeaderView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        backHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        backHeaderView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+    }
+    
+    func setupTopHeaderViewConstraints() {
+        topHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        
+        topHeaderView.bottomAnchor.constraint(equalTo: backHeaderView.bottomAnchor, constant: 20).isActive = true
+        topHeaderView.leadingAnchor.constraint(equalTo: backHeaderView.leadingAnchor, constant: 4).isActive = true
+        topHeaderView.trailingAnchor.constraint(equalTo: backHeaderView.trailingAnchor, constant: -4).isActive = true
+        topHeaderView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+    }
+    
+    func setupMenuButtonConstraints() {
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
+        menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        menuButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 2).isActive = true
+        menuButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        menuButton.widthAnchor.constraint(equalToConstant: 52).isActive = true
+    }
+    
+    func setupSearchFieldConstraints() {
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        
+        searchField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        searchField.leadingAnchor.constraint(equalTo: menuButton.trailingAnchor, constant: 2).isActive = true
+        searchField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
+        searchField.heightAnchor.constraint(equalToConstant: 52).isActive = true
+    }
+    
+    func setupSearchButtonConstraints() {
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        searchButton.centerYAnchor.constraint(equalTo: searchField.centerYAnchor).isActive = true
+        searchButton.topAnchor.constraint(equalTo: searchField.topAnchor, constant: 2).isActive = true
+        searchButton.bottomAnchor.constraint(equalTo: searchField.bottomAnchor, constant: -2).isActive = true
+        searchButton.trailingAnchor.constraint(equalTo: searchField.trailingAnchor, constant: -2).isActive = true
+        searchButton.widthAnchor.constraint(equalTo: searchField.heightAnchor, constant: -2).isActive = true
+    }
+    
+    func setupFooterViewConstraints() {
+        
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        footerView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -130).isActive = true
+        footerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+    
+    func setupFooterLineConstraints() {
+        footerLine.translatesAutoresizingMaskIntoConstraints = false
+        footerLine.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
+        footerLine.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
+        footerLine.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        footerLine.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -5).isActive = true
     }
 }
-

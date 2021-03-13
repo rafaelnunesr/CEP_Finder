@@ -20,9 +20,10 @@ class MenuTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.superview?.addSubview(self.cellLabel)
+        self.contentView.addSubview(self.cellLabel)
         self.setupCell()
     
+        self.backgroundColor = UIColor(red: 0.99, green: 0.64, blue: 0.27, alpha: 1.00)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,12 +31,15 @@ class MenuTableViewCell: UITableViewCell {
     }
     
     private func setupCell() {
+        self.cellLabel.textAlignment = .left
         self.cellLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.cellLabel.textColor = .white
         
-        guard let _superview = superview else { return }
-        self.cellLabel.topAnchor.constraint(equalTo: _superview.topAnchor).isActive = true
-        self.cellLabel.leadingAnchor.constraint(equalTo: _superview.leadingAnchor).isActive = true
-        self.cellLabel.trailingAnchor.constraint(equalTo: _superview.trailingAnchor).isActive = true
-        self.cellLabel.bottomAnchor.constraint(equalTo: _superview.bottomAnchor).isActive = true
+        self.cellLabel.font = UIFont.recursiveMedium(size: 18)
+        
+        self.cellLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        self.cellLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20).isActive = true
+        self.cellLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        self.cellLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
     }
 }

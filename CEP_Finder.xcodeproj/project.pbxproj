@@ -168,6 +168,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1BCEA1EA25FD2F1600D1A2AB /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */,
+				1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
 		1BD7AE0425F9B31B0036A743 = {
 			isa = PBXGroup;
 			children = (
@@ -197,8 +206,9 @@
 				1BAD11B825FABEC200FD700E /* Fonts */,
 				1BB15B7825FA2EC4002A1C9E /* Extensions */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
-				1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */,
+				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
 				1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */,
+				1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */,
 				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
 				1BB15B7025FA2E16002A1C9E /* ViewModel.swift */,
 				1BD7AE1C25F9B31C0036A743 /* Assets.xcassets */,
@@ -210,8 +220,6 @@
 				1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */,
 				1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */,
 				1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */,
-				1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */,
-				1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */,
 			);
 			path = CEP_Finder;
 			sourceTree = "<group>";

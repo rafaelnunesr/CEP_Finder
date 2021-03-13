@@ -16,12 +16,12 @@ protocol UpdateInfo {
 
 class CepViewController: UIViewController {
     
-    var sideMenu: SideMenuNavigationController?
     var delegate: UpdateInfo?
     
     let regionRadius: CLLocationDistance = 1000
     
-    // components
+    // MARK: Components
+    var sideMenu: SideMenuNavigationController?
     let map: MKMapView = MKMapView()
     let backHeaderView: UIView = UIView()
     let topHeaderView: UIView = UIView()
@@ -31,20 +31,20 @@ class CepViewController: UIViewController {
     let footerView: FooterView = FooterView()
     let footerLine: UIView = UIView()
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-        
-        self.sideMenu = SideMenuNavigationController(rootViewController: MenuViewController())
-        self.sideMenu?.leftSide = true
-        
     }
     
+    // MARK: Setup()
     private func setup() {
         self.setupSubviews()
+        self.setupSideMenu()
         self.setupComponents()
     }
     
+    // MARK: SetupSubviews
     private func setupSubviews() {
         self.view.addSubview(self.map)
         self.view.addSubview(self.backHeaderView)
@@ -56,6 +56,13 @@ class CepViewController: UIViewController {
         self.view.addSubview(self.footerLine)
     }
     
+    // MARK: SetupSideMenu
+    private func setupSideMenu() {
+        self.sideMenu = SideMenuNavigationController(rootViewController: MenuViewController())
+        self.sideMenu?.leftSide = true
+    }
+    
+    // MARK: SetupComponents
     private func setupComponents() {
         self.setupMap()
         self.setupBackHeaderView()
@@ -66,6 +73,7 @@ class CepViewController: UIViewController {
         self.setupFooterView()
     }
     
+    // MARK: SetupMap
     private func setupMap() {
         
         self.setupMapConstraints()
@@ -75,11 +83,13 @@ class CepViewController: UIViewController {
         self.map.setRegion(coordinaRegion, animated: true)
     }
     
+    // MARK: SetupBackHeaderView
     private func setupBackHeaderView() {
         self.setupBackHeaderViewConstraints()
         self.backHeaderView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
     }
     
+    // MARK: SetupTopHeaderView
     private func setupTopHeaderView() {
         self.topHeaderView.backgroundColor = .white
         self.topHeaderView.alpha = 0.8
@@ -94,6 +104,7 @@ class CepViewController: UIViewController {
         self.setupTopHeaderViewConstraints()
     }
     
+    // MARK: SetupMenu
     private func setupMenu() {
         
         self.menuButton.tintColor = .black
@@ -104,10 +115,12 @@ class CepViewController: UIViewController {
         self.setupMenuButtonConstraints()
     }
     
+    // MARK: MenuTapped
     @objc private func menuTapped() {
         present(sideMenu!, animated: true)
     }
     
+    // MARK: SetupSearchField
     private func setupSearchField() {
         self.searchField.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
         self.searchField.layer.cornerRadius = 4
@@ -131,6 +144,7 @@ class CepViewController: UIViewController {
         self.setupSearchFieldConstraints()
     }
     
+    // MARK: SetupSearchButton
     private func setupSearchButton() {
         let btnImage = UIImage(systemName: "magnifyingglass")
         self.searchButton.setImage(btnImage, for: .normal)
@@ -144,6 +158,7 @@ class CepViewController: UIViewController {
         self.setupSearchButtonConstraints()
     }
     
+    // MARK: SearchButtonTapped
     @objc private func searchButtonTapped() {
         self.searchField.resignFirstResponder()
         
@@ -158,16 +173,18 @@ class CepViewController: UIViewController {
             
             guard let _result = result else {
                 DispatchQueue.main.async {
+                    self.footerView.isHidden = true
                     self.alertUser()
                 }
                 return
             }
             
+            self.footerView.isHidden = false
             self.updateLabels(result: _result)
         }
         
     }
-    
+    // MARK: AlertUser
     private func alertUser() {
         let alert = UIAlertController(title: "Cep Invalid", message: "Sorry, the cep you request doesn't exist.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel)
@@ -176,27 +193,21 @@ class CepViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    // MARK: UpdateLabels
     private func updateLabels(result: CEP) {
-        DispatchQueue.main.async {
-            
-            print("&&&&&&&&&&&&&&&&&")
-            let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
-            
-            print(address.cityState)
-            
-            self.delegate?.updateView(address: address)
-        }
         
+        self.delegate?.updateView(address: Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf))
     }
     
-    
+    // MARK: SetupFooterView
     private func setupFooterView() {
+        self.footerView.isHidden = true
         self.footerView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
         self.footerView.alpha = 0.8
         self.setupFooterViewConstraints()
         
     }
-    
+    // MARK: SetupLastFooterView
     private func setupLastFooterView() {
         self.footerLine.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
         setupFooterLineConstraints()
@@ -205,6 +216,8 @@ class CepViewController: UIViewController {
 }
 
 extension CepViewController {
+    
+    // MARK: setupMapConstraints
     func setupMapConstraints() {
         map.translatesAutoresizingMaskIntoConstraints = false
         
@@ -214,6 +227,7 @@ extension CepViewController {
         map.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
+    // MARK: SetupBackHeaderViewConstraints
     func setupBackHeaderViewConstraints() {
         backHeaderView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -223,6 +237,7 @@ extension CepViewController {
         backHeaderView.heightAnchor.constraint(equalToConstant: 120).isActive = true
     }
     
+    // MARK: SetupTopHeaderViewConstraints
     func setupTopHeaderViewConstraints() {
         topHeaderView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -232,6 +247,7 @@ extension CepViewController {
         topHeaderView.heightAnchor.constraint(equalToConstant: 240).isActive = true
     }
     
+    // MARK: SetupMenuButtonConstraints
     func setupMenuButtonConstraints() {
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
@@ -240,6 +256,7 @@ extension CepViewController {
         menuButton.widthAnchor.constraint(equalToConstant: 52).isActive = true
     }
     
+    // MARK: SetupSearchFieldConstraints
     func setupSearchFieldConstraints() {
         searchField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -249,6 +266,7 @@ extension CepViewController {
         searchField.heightAnchor.constraint(equalToConstant: 52).isActive = true
     }
     
+    // MARK: SetupSearchButtonConstraints
     func setupSearchButtonConstraints() {
         searchButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -259,6 +277,7 @@ extension CepViewController {
         searchButton.widthAnchor.constraint(equalTo: searchField.heightAnchor, constant: -2).isActive = true
     }
     
+    // MARK: SetupFooterViewConstraints
     func setupFooterViewConstraints() {
         
         footerView.translatesAutoresizingMaskIntoConstraints = false
@@ -268,6 +287,7 @@ extension CepViewController {
         footerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
     }
     
+    // MARK: SetupFooterLineConstraints
     func setupFooterLineConstraints() {
         footerLine.translatesAutoresizingMaskIntoConstraints = false
         footerLine.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true

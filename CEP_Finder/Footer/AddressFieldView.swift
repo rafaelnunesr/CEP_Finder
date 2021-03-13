@@ -7,11 +7,13 @@
 
 import UIKit
 
+// MARK: AddressSearchResult
 enum AddressSearchResult: String {
     case streetTitle = "Street / Avenue"
     case stateCityTitle = "City / State"
 }
 
+// MARK: AddressField
 struct AddressField {
     var title: AddressSearchResult
     var addressInfo: String
@@ -22,8 +24,10 @@ struct AddressField {
     }
 }
 
+// MARK: AddressFieldView
 class AddressFieldView: UIView {
     
+    // MARK: Components
     private let titleLabel: UILabel = UILabel()
     private let label: UILabel = UILabel()
     
@@ -37,21 +41,25 @@ class AddressFieldView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Setup
     func setup() {
         self.setupSubviews()
         self.setupComponents()
     }
     
+    // MARK: SetupSubviews
     private func setupSubviews() {
         self.addSubview(self.titleLabel)
         self.addSubview(self.label)
     }
     
+    // MARK: SetupComponents
     private func setupComponents() {
         self.setupTitleLabel()
         self.setupLabel()
     }
     
+    // MARK: SetupTitleLabel
     private func setupTitleLabel() {
         
         guard let _address = address else { return }
@@ -63,6 +71,7 @@ class AddressFieldView: UIView {
         setupTitleLabelConstraints()
     }
     
+    // MARK: SetupLabel
     private func setupLabel() {
         guard let _address = address else { return }
         
@@ -76,6 +85,7 @@ class AddressFieldView: UIView {
 
 extension AddressFieldView {
     
+    // MARK: SetupTitleLabelConstraints
     private func setupTitleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -84,6 +94,7 @@ extension AddressFieldView {
         titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
     
+    // MARK: SetupLabelConstraints
     private func setupLabelConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true

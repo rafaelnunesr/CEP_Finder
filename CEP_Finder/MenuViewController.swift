@@ -46,6 +46,23 @@ class MenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        switch indexPath.row {
+        case 0:
+            let vc = HistoryViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        case 1:
+            let vc = HistoryViewController()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        case 2:
+            let vc = AboutViewController()
+            present(vc, animated: true)
+        default:
+            return
+        }
+        
     }
 
 }

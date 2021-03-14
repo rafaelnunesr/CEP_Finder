@@ -167,13 +167,13 @@ class CepViewController: UIViewController {
             
             guard let _result = result else {
                 DispatchQueue.main.async {
-                    self.footerView.isHidden = true
+                    //self.footerView.isHidden = true
                     self.alertUser()
                 }
                 return
             }
             
-            self.footerView.isHidden = false
+            //self.footerView.isHidden = false
             self.updateLabels(result: _result)
         }
         
@@ -198,7 +198,7 @@ class CepViewController: UIViewController {
     
     // MARK: SetupFooterView
     private func setupFooterView() {
-        self.footerView.isHidden = true
+        //self.footerView.isHidden = true
         self.footerView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
         self.footerView.alpha = 0.8
         self.setupFooterViewConstraints()

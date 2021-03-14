@@ -7,11 +7,7 @@
 
 import UIKit
 
-class FooterView: UIView, UpdateInfo {
-    
-    func updateView(address: Address) {
-        print("&&&&&&&")
-    }
+class FooterView: UIView {
 
     // MARK: Components
     let myLeadingAnchor: CGFloat = 20
@@ -22,15 +18,30 @@ class FooterView: UIView, UpdateInfo {
     private let cityStateView: AddressFieldView = AddressFieldView()
     
     var address: String?
+    var city: String?
     
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateView), name: NSNotification.Name("updateAddress"), object: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func updateView(_ notification: Notification) {
+        let newAddress = notification.object as? Address
+        
+        DispatchQueue.main.async {
+            self.address = newAddress?.logradouro
+            self.city = newAddress?.cityState
+            
+            self.setupAddressView()
+            self.setupStateCityView()
+        }
+        
     }
     
     // MARK: Setup
@@ -84,7 +95,7 @@ class FooterView: UIView, UpdateInfo {
 
     // MARK: SetupStateCityView
     private func setupStateCityView() {
-        self.cityStateView.address = AddressField(title: AddressSearchResult.stateCityTitle, addressInfo: self.address ?? "")
+        self.cityStateView.address = AddressField(title: AddressSearchResult.stateCityTitle, addressInfo: self.city ?? "")
         self.cityStateView.setup()
         self.setupCityStateConstraints()
     }

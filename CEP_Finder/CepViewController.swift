@@ -10,13 +10,7 @@ import MapKit
 import SwiftMaskTextfield
 import SideMenu
 
-protocol UpdateInfo {
-    func updateView(address: Address)
-}
-
 class CepViewController: UIViewController {
-    
-    var delegate: UpdateInfo?
     
     let regionRadius: CLLocationDistance = 1000
     
@@ -196,7 +190,10 @@ class CepViewController: UIViewController {
     // MARK: UpdateLabels
     private func updateLabels(result: CEP) {
         
-        self.delegate?.updateView(address: Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf))
+        let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
+        
+        NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
+        
     }
     
     // MARK: SetupFooterView

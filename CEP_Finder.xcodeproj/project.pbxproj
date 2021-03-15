@@ -31,6 +31,7 @@
 		1B7E2A8525FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B7E2A8625FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B7E2A8725FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
+		1B93303425FFB04400C43011 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93303325FFB04400C43011 /* HeaderView.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
 		1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7025FA2E16002A1C9E /* ViewModel.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
@@ -88,6 +89,7 @@
 		1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		1B93303325FFB04400C43011 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1BAD11B925FABED000FD700E /* Recursive-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Light.ttf"; sourceTree = "<group>"; };
 		1BAD11BA25FABED000FD700E /* Recursive-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Bold.ttf"; sourceTree = "<group>"; };
 		1BAD11BB25FABED000FD700E /* Recursive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Regular.ttf"; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B93303225FFB02200C43011 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				1B93303325FFB04400C43011 /* HeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		1BAD11B825FABEC200FD700E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +230,7 @@
 		1BD7AE0F25F9B31B0036A743 /* CEP_Finder */ = {
 			isa = PBXGroup;
 			children = (
+				1B93303225FFB02200C43011 /* Header */,
 				1BBCD3CE25FBB6E400F4F4FE /* Model */,
 				1BAD11B825FABEC200FD700E /* Fonts */,
 				1BB15B7825FA2EC4002A1C9E /* Extensions */,
@@ -557,6 +568,7 @@
 				1B40F55325FE92D0008E1096 /* HistoryTableViewCell.swift in Sources */,
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
 				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
+				1B93303425FFB04400C43011 /* HeaderView.swift in Sources */,
 				1B40F56125FE943A008E1096 /* HistoryComponentCell.swift in Sources */,
 				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,

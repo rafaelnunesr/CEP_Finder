@@ -49,7 +49,7 @@ class MenuViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            let vc = HistoryViewController()
+            let vc = FavoritesViewController()
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         case 1:

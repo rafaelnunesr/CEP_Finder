@@ -9,9 +9,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
-    let header: UIView = UIView()
-    let homeButton: UIButton = UIButton()
-    let clearHistoryButton: UIButton = UIButton()
+    let header: HeaderView = HeaderView()
     let tableView: UITableView = UITableView()
     
     override func viewDidLoad() {
@@ -28,21 +26,18 @@ class FavoritesViewController: UIViewController {
     
     private func setupSubviews() {
         self.view.addSubview(self.header)
-        self.view.addSubview(self.homeButton)
-        self.view.addSubview(self.clearHistoryButton)
         self.view.addSubview(self.tableView)
     }
     
     private func setupComponents() {
         self.setupHeader()
         self.setupHomeButton()
+        self.setupTitleLabel()
         self.setupClearHistory()
         self.setupTableView()
     }
     
     private func setupHeader() {
-        self.header.backgroundColor = UIColor(red: 0.99, green: 0.64, blue: 0.27, alpha: 1.00)
-        
         header.translatesAutoresizingMaskIntoConstraints = false
         header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         header.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -51,47 +46,27 @@ class FavoritesViewController: UIViewController {
     }
     
     private func setupHomeButton() {
-        let btnImage = UIImage(systemName: "house.fill")
-        self.homeButton.setImage(btnImage, for: .normal)
-        self.homeButton.contentMode = .scaleAspectFill
-        self.homeButton.tintColor = .white
-        self.homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
-        self.homeButton.layer.cornerRadius = 4
-        
-        homeButton.translatesAutoresizingMaskIntoConstraints = false
-        homeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        homeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24).isActive = true
-        homeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        homeButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.header.homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
     }
     
     @objc private func homeButtonTapped() {
-        let vc = CepViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+            dismiss(animated: true, completion: nil)
+    }
+    
+    private func setupTitleLabel() {
+        self.header.titleLabel.text = "Favorites"
     }
     
     private func setupClearHistory() {
-        let btnImage = UIImage(systemName: "trash.fill")
-        self.clearHistoryButton.setImage(btnImage, for: .normal)
-        self.clearHistoryButton.contentMode = .scaleAspectFill
-        self.clearHistoryButton.tintColor = .white
-        self.clearHistoryButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
-        self.clearHistoryButton.layer.cornerRadius = 4
-        
-        clearHistoryButton.translatesAutoresizingMaskIntoConstraints = false
-        clearHistoryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        clearHistoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24).isActive = true
-        clearHistoryButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        clearHistoryButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.header.clearHistoryButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
     }
     
     @objc private func clearButtonTapped() {
         let alert = UIAlertController(title: "Delete All History", message: "Are you sure you want to delete all history data?", preferredStyle: .alert)
-        let deleteButton = UIAlertAction(title: "DELETE", style: .destructive) { (UIAlertAction) in
+        let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
             print("deleted")
         }
-        let cancelButton = UIAlertAction(title: "CANCEL", style: .cancel) { (UIAlertAction) in
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
             print("cancel")
         }
         
@@ -132,9 +107,13 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell
         
-        return cell
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        cell?.selectedBackgroundView = backgroundView
+        
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

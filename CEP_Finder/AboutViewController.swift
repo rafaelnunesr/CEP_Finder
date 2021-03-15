@@ -52,11 +52,17 @@ class AboutViewController: UIViewController {
     private func setupDismissButton() {
         dismissButton.setTitle("Dismiss", for: .normal)
         dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
-        dismissButton.tintColor = .black
+        dismissButton.setTitleColor(.black, for: .normal)
+        dismissButton.titleLabel?.font = UIFont.recursiveRegular(size: 20)
         
         dismissButton.layer.cornerRadius = 4
-        dismissButton.backgroundColor = .white
-        dismissButton.alpha = 0.3
+        dismissButton.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        
+        
+        dismissButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        dismissButton.layer.shadowColor = UIColor.black.cgColor
+        dismissButton.layer.shadowRadius = 4
+        dismissButton.layer.shadowOpacity = 0.3
         
         dismissButton.translatesAutoresizingMaskIntoConstraints = false
         dismissButton.topAnchor.constraint(equalTo: aboutLabel.bottomAnchor, constant: 4).isActive = true

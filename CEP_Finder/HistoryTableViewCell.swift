@@ -60,7 +60,6 @@ class HistoryTableViewCell: UITableViewCell {
         addressLabel.titleLabel.text = "Address"
         addressLabel.label.text = "Avenida São Francisco Sales, Guarulhos / SP"
         
-        
         addressLabel.translatesAutoresizingMaskIntoConstraints = false
         addressLabel.topAnchor.constraint(equalTo: cepLabel.bottomAnchor, constant: 4).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true

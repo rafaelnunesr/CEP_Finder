@@ -23,7 +23,7 @@ class MenuTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.cellLabel)
         self.setupCell()
     
-        self.backgroundColor = UIColor(red: 0.99, green: 0.64, blue: 0.27, alpha: 1.00)
+        self.backgroundColor = Colors.lightOrange
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

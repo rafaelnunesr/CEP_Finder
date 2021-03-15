@@ -28,11 +28,12 @@ struct AddressField {
 class AddressFieldView: UIView {
     
     // MARK: Components
-    private let titleLabel: UILabel = UILabel()
-    private let label: UILabel = UILabel()
+    let titleLabel: UILabel = UILabel()
+    let label: UILabel = UILabel()
     
     var address: AddressField?
 
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -43,12 +44,12 @@ class AddressFieldView: UIView {
     
     // MARK: Setup
     func setup() {
-        self.setupSubviews()
+        self.buildViewHierarchy()
         self.setupComponents()
     }
     
     // MARK: SetupSubviews
-    private func setupSubviews() {
+    private func buildViewHierarchy() {
         self.addSubview(self.titleLabel)
         self.addSubview(self.label)
     }
@@ -67,7 +68,7 @@ class AddressFieldView: UIView {
         self.titleLabel.text = _address.title.rawValue
         self.titleLabel.textColor = .black
         self.titleLabel.font = UIFont.recursiveRegular(size: 15)
-        
+    
         setupTitleLabelConstraints()
     }
     
@@ -81,26 +82,4 @@ class AddressFieldView: UIView {
         
         setupLabelConstraints()
     }
-}
-
-extension AddressFieldView {
-    
-    // MARK: SetupTitleLabelConstraints
-    private func setupTitleLabelConstraints() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-    }
-    
-    // MARK: SetupLabelConstraints
-    private func setupLabelConstraints() {
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
 }

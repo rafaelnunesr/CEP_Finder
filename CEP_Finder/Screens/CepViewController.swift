@@ -33,13 +33,13 @@ class CepViewController: UIViewController {
     
     // MARK: Setup()
     private func setup() {
-        self.setupSubviews()
+        self.buildViewHierarchy()
         self.setupSideMenu()
         self.setupComponents()
     }
     
     // MARK: SetupSubviews
-    private func setupSubviews() {
+    private func buildViewHierarchy() {
         self.view.addSubview(self.map)
         self.view.addSubview(self.backHeaderView)
         self.view.addSubview(self.topHeaderView)
@@ -65,6 +65,7 @@ class CepViewController: UIViewController {
         self.setupSearchField()
         self.setupSearchButton()
         self.setupFooterView()
+        self.setupLastFooterView()
     }
     
     // MARK: SetupMap
@@ -80,7 +81,7 @@ class CepViewController: UIViewController {
     // MARK: SetupBackHeaderView
     private func setupBackHeaderView() {
         self.setupBackHeaderViewConstraints()
-        self.backHeaderView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
+        self.backHeaderView.backgroundColor = Colors.mainOrange
     }
     
     // MARK: SetupTopHeaderView
@@ -90,10 +91,7 @@ class CepViewController: UIViewController {
         self.topHeaderView.layer.cornerRadius = 8
         
         
-        self.topHeaderView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.topHeaderView.layer.shadowColor = UIColor.black.cgColor
-        self.topHeaderView.layer.shadowRadius = 4
-        self.topHeaderView.layer.shadowOpacity = 0.4
+        self.topHeaderView.applyShadow()
         
         self.setupTopHeaderViewConstraints()
     }
@@ -116,7 +114,7 @@ class CepViewController: UIViewController {
     
     // MARK: SetupSearchField
     private func setupSearchField() {
-        self.searchField.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
+        self.searchField.backgroundColor = Colors.mainOrange
         self.searchField.layer.cornerRadius = 4
         self.searchField.alpha = 0.7
         
@@ -130,10 +128,7 @@ class CepViewController: UIViewController {
         ])
         
         
-        self.searchField.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.searchField.layer.shadowColor = UIColor.black.cgColor
-        self.searchField.layer.shadowRadius = 4
-        self.searchField.layer.shadowOpacity = 0.3
+        self.searchField.applyShadow()
         
         self.setupSearchFieldConstraints()
     }
@@ -143,7 +138,7 @@ class CepViewController: UIViewController {
         let btnImage = UIImage(systemName: "magnifyingglass")
         self.searchButton.setImage(btnImage, for: .normal)
         self.searchButton.tintColor = .white
-        self.searchButton.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
+        self.searchButton.backgroundColor = Colors.mainOrange
         
         self.searchButton.layer.cornerRadius = 4
         
@@ -167,13 +162,11 @@ class CepViewController: UIViewController {
             
             guard let _result = result else {
                 DispatchQueue.main.async {
-                    //self.footerView.isHidden = true
                     self.alertUser()
                 }
                 return
             }
             
-            //self.footerView.isHidden = false
             self.updateLabels(result: _result)
         }
         
@@ -198,8 +191,7 @@ class CepViewController: UIViewController {
     
     // MARK: SetupFooterView
     private func setupFooterView() {
-        //self.footerView.isHidden = true
-        self.footerView.backgroundColor = UIColor(red: 1.00, green: 0.53, blue: 0.00, alpha: 1.00)
+        self.footerView.backgroundColor = Colors.mainOrange
         self.footerView.alpha = 0.8
         self.setupFooterViewConstraints()
         

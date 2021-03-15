@@ -15,7 +15,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 1.00, green: 0.93, blue: 0.86, alpha: 1.00)
+        self.view.backgroundColor = Colors.ligherOrange
         self.setup()
     }
     
@@ -78,7 +78,7 @@ class FavoritesViewController: UIViewController {
     }
     
     private func setupTableView() {
-        self.tableView.backgroundColor = UIColor(red: 1.00, green: 0.93, blue: 0.86, alpha: 1.00)
+        self.tableView.backgroundColor = Colors.ligherOrange
         self.tableView.delegate = self
         self.tableView.dataSource = self
         

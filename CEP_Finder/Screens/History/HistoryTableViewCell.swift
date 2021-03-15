@@ -20,7 +20,7 @@ class HistoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor(red: 1.00, green: 0.93, blue: 0.86, alpha: 1.00)
+        self.backgroundColor = Colors.ligherOrange
         self.setup()
     }
 

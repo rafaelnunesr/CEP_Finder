@@ -24,6 +24,11 @@
 		1B5FC0B625FAD0C300C8CE2E /* Recursive-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11B925FABED000FD700E /* Recursive-Light.ttf */; };
 		1B5FC0BA25FAD0C500C8CE2E /* Recursive-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11BC25FABED000FD700E /* Recursive-Medium.ttf */; };
 		1B5FC0BE25FAD0C800C8CE2E /* Recursive-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11BB25FABED000FD700E /* Recursive-Regular.ttf */; };
+		1B680CF9260101C300166FD3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680CF8260101C300166FD3 /* BaseViewController.swift */; };
+		1B680CFA260101C300166FD3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680CF8260101C300166FD3 /* BaseViewController.swift */; };
+		1B680D022601020400166FD3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680D012601020400166FD3 /* LoadingView.swift */; };
+		1B680D032601020400166FD3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680D012601020400166FD3 /* LoadingView.swift */; };
+		1B680D11260106D300166FD3 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B680D10260106D300166FD3 /* loading.json */; };
 		1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */; };
 		1B7E2A8225FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */; };
 		1B7E2A8325FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */; };
@@ -98,6 +103,9 @@
 		1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryComponentCell.swift; sourceTree = "<group>"; };
 		1B40F56525FE9803008E1096 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		1B680CF8260101C300166FD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1B680D012601020400166FD3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1B680D10260106D300166FD3 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -180,6 +188,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B680CF7260101A200166FD3 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				1B680CF8260101C300166FD3 /* BaseViewController.swift */,
+				1B680D012601020400166FD3 /* LoadingView.swift */,
+				1B680D10260106D300166FD3 /* loading.json */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
 		1B93303225FFB02200C43011 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +400,7 @@
 		1BE4B25826000F2600902D47 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1B680CF7260101A200166FD3 /* BaseView */,
 				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
 				1BB15B7025FA2E16002A1C9E /* ViewModel.swift */,
 				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
@@ -540,6 +559,7 @@
 				1BD7AE2025F9B31C0036A743 /* LaunchScreen.storyboard in Resources */,
 				1B5FC0AE25FAD0BD00C8CE2E /* Recursive-Black.ttf in Resources */,
 				1B5FC0BA25FAD0C500C8CE2E /* Recursive-Medium.ttf in Resources */,
+				1B680D11260106D300166FD3 /* loading.json in Resources */,
 				1B5FC0B625FAD0C300C8CE2E /* Recursive-Light.ttf in Resources */,
 				1B5FC0B225FAD0C000C8CE2E /* Recursive-Bold.ttf in Resources */,
 				1B40F55425FE92D0008E1096 /* HistoryTableViewCell.xib in Resources */,
@@ -688,6 +708,8 @@
 				1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */,
 				1BFA5E192600355B007FDDFE /* HistoryWorker.swift in Sources */,
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,
+				1B680CF9260101C300166FD3 /* BaseViewController.swift in Sources */,
+				1B680D022601020400166FD3 /* LoadingView.swift in Sources */,
 				1BE4B23926000B1800902D47 /* FooterViewConstraints.swift in Sources */,
 				1BFA5E0A26003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift in Sources */,
 				1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */,
@@ -718,11 +740,13 @@
 				1BCEA1C025FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D325FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1B40F56725FE9803008E1096 /* AboutViewController.swift in Sources */,
+				1B680CFA260101C300166FD3 /* BaseViewController.swift in Sources */,
 				1B7E2A8325FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
 				1BCEA1C925FCEC3C00D1A2AB /* FooterView.swift in Sources */,
 				1BD7AE2B25F9B31C0036A743 /* CEP_FinderTests.swift in Sources */,
 				1BCEA1DA25FD04FC00D1A2AB /* Address.swift in Sources */,
 				1B40F57825FEA5AD008E1096 /* FavoritesViewController.swift in Sources */,
+				1B680D032601020400166FD3 /* LoadingView.swift in Sources */,
 				1B40F54125FE89DB008E1096 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@ target 'CEP_Finder' do
   # Pods for CEP_Finder
   pod 'SwiftMaskTextfield', '~> 1.1'
   pod 'SideMenu'
+  pod 'lottie-ios', '~> 3.1'
 
 
   target 'CEP_FinderTests' do

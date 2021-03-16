@@ -1,20 +1,24 @@
 PODS:
+  - lottie-ios (3.1.9)
   - SideMenu (6.5.0)
   - SwiftMaskTextfield (1.1.0)
 
 DEPENDENCIES:
+  - lottie-ios (~> 3.1)
   - SideMenu
   - SwiftMaskTextfield (~> 1.1)
 
 SPEC REPOS:
   trunk:
+    - lottie-ios
     - SideMenu
     - SwiftMaskTextfield
 
 SPEC CHECKSUMS:
+  lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftMaskTextfield: 8c792e56f25779939d1fd5cf6153ba439b1be761
 
-PODFILE CHECKSUM: bf118bb5fe1cdad2cd461832ae89cb4134b76240
+PODFILE CHECKSUM: 55de2c9ee38414569b7e3bb72eabb40846cc663c
 
 COCOAPODS: 1.10.0

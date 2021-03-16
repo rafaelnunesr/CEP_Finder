@@ -10,21 +10,21 @@ import CoreData
 
 class HistoryWorker {
     
-    var cepp: String = ""
-    var logradouro: String = ""
-    var city_state: String = ""
+    var zipCode: String = ""
+    var streetName: String = ""
+    var cityState: String = ""
     
-    func getHistory() -> History? {
+    func getHistory() -> CoreHistory? {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let request: NSFetchRequest<History> = History.fetchRequest()
+        let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
         request.returnsObjectsAsFaults = false
         
         do {
-            let ceps = try context.fetch(request)
-            return ceps.first ?? nil
+            let addresses = try context.fetch(request)
+            return addresses.first ?? nil
         } catch  {
-            print("Error getting bank from CoreBank \(error)")
+            print("Error getting bank from CoreHistory \(error)")
         }
         
         return nil
@@ -36,22 +36,22 @@ class HistoryWorker {
 
             if let address = self.getHistory() {
                 
-                address.setValue(self.cepp, forKey: "cep")
+                address.setValue(self.zipCode, forKey: "zipCode")
                 
             }else {
                 
-                let address = History(context: context)
+                let address = CoreHistory(context: context)
                 
-                if self.cepp != nil {
-                    address.cep = self.cepp
-                    address.logradouro = self.logradouro
-                    address.city_state = self.city_state
+                if self.zipCode != nil {
+                    address.zipCode = self.zipCode
+                    address.streetName = self.streetName
+                    address.cityState = self.cityState
                 }
                 
                 do {
                     try context.save()
                 } catch {
-                    print("erro ao salvar o usuario \(error)")
+                    print("Error saving address to CoreHistory \(error)")
                 }
             }
             

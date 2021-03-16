@@ -31,6 +31,11 @@ class CepViewController: UIViewController {
         self.setup()
     }
     
+    // MARK: StatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
+    
     // MARK: Setup()
     private func setup() {
         self.buildViewHierarchy()
@@ -118,7 +123,7 @@ class CepViewController: UIViewController {
         self.searchField.layer.cornerRadius = 4
         self.searchField.alpha = 0.7
         
-        self.searchField.rightPadding
+        self.searchField.applyRightPadding()
         self.searchField.keyboardType = .numberPad
         self.searchField.formatPattern = "#####-###"
         self.searchField.font = UIFont.recursiveMedium(size: 18)

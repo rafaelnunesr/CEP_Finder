@@ -99,9 +99,9 @@ class CepViewController: UIViewController {
     // MARK: SetupMenu
     private func setupMenu() {
         
+        self.menuButton.buttonWithIcon(systemImage: ButtonIcons.menu)
+        
         self.menuButton.tintColor = .black
-        let btnImage = UIImage(systemName: "line.horizontal.3")
-        self.menuButton.setImage(btnImage, for: .normal)
         self.menuButton.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
         
         self.setupMenuButtonConstraints()
@@ -135,9 +135,8 @@ class CepViewController: UIViewController {
     
     // MARK: SetupSearchButton
     private func setupSearchButton() {
-        let btnImage = UIImage(systemName: "magnifyingglass")
-        self.searchButton.setImage(btnImage, for: .normal)
-        self.searchButton.tintColor = .white
+        self.searchButton.buttonWithIcon(systemImage: ButtonIcons.search)
+        
         self.searchButton.backgroundColor = Colors.mainOrange
         
         self.searchButton.layer.cornerRadius = 4

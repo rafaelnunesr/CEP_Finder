@@ -12,14 +12,16 @@ enum ButtonIcons: String {
     case trash = "trash.fill"
     case emptyHeart = "suit.heart"
     case fullHeart = "suit.heart.fill"
+    case menu = "line.horizontal.3"
+    case search = "magnifyingglass"
 }
 
 extension UIButton {
     
     // MARK: ButtonDefaultSettings
     private func buttonDefaultSettings() {
-        self.contentMode = .scaleAspectFill
         self.tintColor = .white
+        self.contentMode = .scaleAspectFill
     }
     
     // MARK: ButtonWithIcon

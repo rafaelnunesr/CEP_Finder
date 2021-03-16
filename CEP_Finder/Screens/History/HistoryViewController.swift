@@ -38,11 +38,7 @@ class HistoryViewController: UIViewController {
     }
     
     private func setupHeader() {
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        header.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        header.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        header.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        setupHeaderConstraints()
     }
     
     private func setupHomeButton() {
@@ -84,39 +80,7 @@ class HistoryViewController: UIViewController {
         
         self.tableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: HistoryTableViewCell.identifier)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
-    }
-}
-
-extension HistoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-extension HistoryViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        setupTableViewConstraints()
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)
-        cell?.selectedBackgroundView = backgroundView
-        
-        return cell ?? UITableViewCell()
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-
 }

@@ -20,6 +20,8 @@
 		1B40F57725FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
 		1B40F57825FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
 		1B40F57925FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
+		1B47266A26026AD400FD9067 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47266926026AD400FD9067 /* MapView.swift */; };
+		1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */; };
 		1B5FC0AE25FAD0BD00C8CE2E /* Recursive-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11BD25FABED000FD700E /* Recursive-Black.ttf */; };
 		1B5FC0B225FAD0C000C8CE2E /* Recursive-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11BA25FABED000FD700E /* Recursive-Bold.ttf */; };
 		1B5FC0B625FAD0C300C8CE2E /* Recursive-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11B925FABED000FD700E /* Recursive-Light.ttf */; };
@@ -41,7 +43,6 @@
 		1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FD626018EFF001385AC /* HistoryController.swift */; };
 		1B9D1FDC26019881001385AC /* CepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepController.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
-		1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7025FA2E16002A1C9E /* ViewModel.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
 		1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */; };
 		1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */; };
@@ -106,6 +107,8 @@
 		1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryComponentCell.swift; sourceTree = "<group>"; };
 		1B40F56525FE9803008E1096 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		1B47266926026AD400FD9067 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1B680CF8260101C300166FD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B680D012601020400166FD3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1B680D10260106D300166FD3 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
@@ -121,7 +124,6 @@
 		1BAD11BC25FABED000FD700E /* Recursive-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Medium.ttf"; sourceTree = "<group>"; };
 		1BAD11BD25FABED000FD700E /* Recursive-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Black.ttf"; sourceTree = "<group>"; };
 		1BAD11C125FABFF800FD700E /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		1BB15B7025FA2E16002A1C9E /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPModel.swift; sourceTree = "<group>"; };
 		1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepWorker.swift; sourceTree = "<group>"; };
@@ -193,6 +195,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B47266426026A7E00FD9067 /* Cep */ = {
+			isa = PBXGroup;
+			children = (
+				1BAB09692602724F001D52B0 /* ViewController */,
+				1BAB096826027241001D52B0 /* Controller */,
+				1B4726712602716800FD9067 /* Extensions */,
+				1B47266826026ABE00FD9067 /* Map */,
+				1BE4B25326000EE800902D47 /* SideMenu */,
+				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
+			);
+			path = Cep;
+			sourceTree = "<group>";
+		};
+		1B47266826026ABE00FD9067 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				1B47266926026AD400FD9067 /* MapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1B4726712602716800FD9067 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1B680CF7260101A200166FD3 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +241,64 @@
 				1BE4B2252600042200902D47 /* HeaderViewConstraints.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		1BAB096826027241001D52B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B9D1FDB26019881001385AC /* CepController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1BAB09692602724F001D52B0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1BAB096A2602729F001D52B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B9D1FD626018EFF001385AC /* HistoryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1BAB096B260272AE001D52B0 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				1BAB096C260272C0001D52B0 /* Cell */,
+				1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */,
+				1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		1BAB096C260272C0001D52B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1BAB096D260272CF001D52B0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1BAB096E2602731D001D52B0 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				1BD7AE1925F9B31B0036A743 /* CEP_Finder.xcdatamodeld */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		1BAD11B825FABEC200FD700E /* Fonts */ = {
@@ -279,6 +368,7 @@
 		1BD7AE0F25F9B31B0036A743 /* CEP_Finder */ = {
 			isa = PBXGroup;
 			children = (
+				1BAB096E2602731D001D52B0 /* DataBase */,
 				1BE4B25026000EBB00902D47 /* Utils */,
 				1BE4B24F26000EAD00902D47 /* Worker */,
 				1BE4B24B26000E8400902D47 /* Supporting Files */,
@@ -286,9 +376,8 @@
 				1BBCD3CE25FBB6E400F4F4FE /* Model */,
 				1BAD11B825FABEC200FD700E /* Fonts */,
 				1BB15B7825FA2EC4002A1C9E /* Extensions */,
-				1BD7AE2125F9B31C0036A743 /* Info.plist */,
-				1BD7AE1925F9B31B0036A743 /* CEP_Finder.xcdatamodeld */,
 				1BE4B25826000F2600902D47 /* Screens */,
+				1BD7AE2125F9B31C0036A743 /* Info.plist */,
 			);
 			path = CEP_Finder;
 			sourceTree = "<group>";
@@ -393,12 +482,10 @@
 		1BE4B25726000F0200902D47 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				1BAB096D260272CF001D52B0 /* ViewController */,
+				1BAB096B260272AE001D52B0 /* TableView */,
+				1BAB096A2602729F001D52B0 /* Controller */,
 				1BFA5E0826003212007FDDFE /* Extensions */,
-				1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */,
-				1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */,
-				1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */,
-				1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */,
-				1B9D1FD626018EFF001385AC /* HistoryController.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -406,16 +493,12 @@
 		1BE4B25826000F2600902D47 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1B47266426026A7E00FD9067 /* Cep */,
 				1B680CF7260101A200166FD3 /* BaseView */,
-				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
-				1B9D1FDB26019881001385AC /* CepController.swift */,
-				1BB15B7025FA2E16002A1C9E /* ViewModel.swift */,
-				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
 				1B93303225FFB02200C43011 /* Header */,
 				1BE4B25126000ECB00902D47 /* About */,
 				1BE4B25226000EDB00902D47 /* Favorites */,
-				1BE4B25326000EE800902D47 /* SideMenu */,
 				1BE4B25726000F0200902D47 /* History */,
 			);
 			path = Screens;
@@ -702,7 +785,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */,
 				1B9D1FDC26019881001385AC /* CepController.swift in Sources */,
 				1BE4B22F260005CC00902D47 /* Colors.swift in Sources */,
 				1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */,
@@ -713,6 +795,7 @@
 				1BFA5E0F2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift in Sources */,
 				1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */,
 				1BE4B2262600042200902D47 /* HeaderViewConstraints.swift in Sources */,
+				1B47266A26026AD400FD9067 /* MapView.swift in Sources */,
 				1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */,
 				1BFA5E192600355B007FDDFE /* CoreDataManager.swift in Sources */,
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,
@@ -728,6 +811,7 @@
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
 				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
 				1B93303425FFB04400C43011 /* HeaderView.swift in Sources */,
+				1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */,
 				1B40F56125FE943A008E1096 /* HistoryComponentCell.swift in Sources */,
 				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,

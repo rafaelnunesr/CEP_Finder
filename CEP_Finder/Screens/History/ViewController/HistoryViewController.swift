@@ -11,7 +11,7 @@ class HistoryViewController: UIViewController {
 
     let header: HeaderView = HeaderView()
     let tableView: UITableView = UITableView()
-    var controller: HistoryController?
+    var controller: HistoryController = HistoryController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,8 @@ class HistoryViewController: UIViewController {
     }
     
     private func setup() {
-        self.setupSubviews()
         self.loadHistoryController()
+        self.setupSubviews()
         self.setupComponents()
     }
     
@@ -31,9 +31,10 @@ class HistoryViewController: UIViewController {
     }
     
     private func loadHistoryController() {
-        
-        self.controller?.getAllAddresses(completionHandler: { (result) in
-            self.tableView.reloadData()
+        self.controller.getAllAddresses(completionHandler: { (result) in
+            if result {
+                self.tableView.reloadData()
+            }
         })
     }
     

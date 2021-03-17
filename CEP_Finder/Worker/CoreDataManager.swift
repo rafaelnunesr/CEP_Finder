@@ -27,6 +27,8 @@ struct CoreDataManager {
         
         do {
             let addresses = try context.fetch(request)
+            print("$$$$$$$$$$$$$$$$$$$")
+            print(addresses[0])
             completion(addresses, nil)
         } catch  {
             completion(nil, ErrorHandler(title: "Error All History", code: 400, errorDescription: error.localizedDescription))
@@ -63,13 +65,13 @@ struct CoreDataManager {
         }else {
             
             let address = CoreHistory(context: context)
-            
+
             if self.data != nil {
                 address.zipCode = self.data?.zipCode
                 address.streetName = self.data?.streeName
                 address.cityState = self.data?.cityState
             }
-            
+
             do {
                 try context.save()
             } catch {

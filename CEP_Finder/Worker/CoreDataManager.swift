@@ -52,33 +52,33 @@ struct CoreDataManager {
     }
     
     func persistCoreDataHistory() {
-            
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         if let address = self.getElementHistory(zipCode: self.data?.zipCode ?? "") {
-                
-                address.setValue(self.data?.zipCode, forKey: "zipCode")
-                address.setValue(self.data?.streeName, forKey: "streetName")
-                address.setValue(self.data?.cityState, forKey: "cityState")
-                
-            }else {
-                
-                let address = CoreHistory(context: context)
-                
-                if self.data != nil {
-                    address.zipCode = self.data?.zipCode
-                    address.streetName = self.data?.streeName
-                    address.cityState = self.data?.cityState
-                }
-                
-                do {
-                    try context.save()
-                } catch {
-                    print("Error saving address to CoreHistory \(error)")
-                }
+            
+            address.setValue(self.data?.zipCode, forKey: "zipCode")
+            address.setValue(self.data?.streeName, forKey: "streetName")
+            address.setValue(self.data?.cityState, forKey: "cityState")
+            
+        }else {
+            
+            let address = CoreHistory(context: context)
+            
+            if self.data != nil {
+                address.zipCode = self.data?.zipCode
+                address.streetName = self.data?.streeName
+                address.cityState = self.data?.cityState
             }
             
+            do {
+                try context.save()
+            } catch {
+                print("Error saving address to CoreHistory \(error)")
+            }
         }
+        
+    }
     
     func deleteElementHistory(zipCode: String) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -150,33 +150,33 @@ extension CoreDataManager {
     }
     
     func persistCoreDataFavorite() {
-            
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         if let address = self.getElementFavorite(zipCode: self.data?.zipCode ?? "") {
-                
-                address.setValue(self.data?.zipCode, forKey: "zipCode")
-                address.setValue(self.data?.streeName, forKey: "streetName")
-                address.setValue(self.data?.cityState, forKey: "cityState")
-                
-            }else {
-                
-                let address = CoreFavorites(context: context)
-                
-                if self.data != nil {
-                    address.zipCode = self.data?.zipCode
-                    address.streetName = self.data?.streeName
-                    address.cityState = self.data?.cityState
-                }
-                
-                do {
-                    try context.save()
-                } catch {
-                    print("Error saving address to CoreHistory \(error)")
-                }
+            
+            address.setValue(self.data?.zipCode, forKey: "zipCode")
+            address.setValue(self.data?.streeName, forKey: "streetName")
+            address.setValue(self.data?.cityState, forKey: "cityState")
+            
+        } else {
+            
+            let address = CoreFavorites(context: context)
+            
+            if self.data != nil {
+                address.zipCode = self.data?.zipCode
+                address.streetName = self.data?.streeName
+                address.cityState = self.data?.cityState
             }
             
+            do {
+                try context.save()
+            } catch {
+                print("Error saving address to CoreHistory \(error)")
+            }
         }
+        
+    }
     
     func deleteElementFavorite(zipCode: String) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

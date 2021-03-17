@@ -11,23 +11,27 @@ class HistoryViewController: UIViewController {
 
     let header: HeaderView = HeaderView()
     let tableView: UITableView = UITableView()
-    var coreData = CoreDataManager(data: nil)
+    var controller: HistoryController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = Colors.ligherOrange
         self.setup()
     }
     
     private func setup() {
         self.setupSubviews()
+        self.loadHistoryController()
         self.setupComponents()
     }
     
     private func setupSubviews() {
         self.view.addSubview(self.header)
         self.view.addSubview(self.tableView)
+    }
+    
+    private func loadHistoryController() {
+        self.controller?.getAllAddresses()
     }
     
     private func setupComponents() {

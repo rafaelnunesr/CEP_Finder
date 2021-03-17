@@ -14,6 +14,8 @@ class CepViewController: UIViewController {
     
     let regionRadius: CLLocationDistance = 1000
     
+    var controller = CepController()
+    
     // MARK: Components
     var sideMenu: SideMenuNavigationController?
     let map: MKMapView = MKMapView()
@@ -170,8 +172,15 @@ class CepViewController: UIViewController {
                 }
                 return
             }
+        
+            DispatchQueue.main.async {
+                let cityState = _result.localidade + " / " + _result.uf
+                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
+                self.controller.addNewAddressToHistory()
+                
+                self.updateLabels(result: _result)
+            }
             
-            self.updateLabels(result: _result)
         }
         
     }
@@ -205,7 +214,7 @@ class CepViewController: UIViewController {
         self.footerLine.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
         setupFooterLineConstraints()
     }
-
+    
 }
 
 extension CepViewController {

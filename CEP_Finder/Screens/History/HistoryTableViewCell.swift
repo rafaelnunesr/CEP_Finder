@@ -46,7 +46,6 @@ class HistoryTableViewCell: UITableViewCell {
     private func setupCepLabel() {
         
         cepLabel.titleLabel.text = "CEP"
-        cepLabel.label.text = "07143-510"
         
         cepLabel.translatesAutoresizingMaskIntoConstraints = false
         cepLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 4).isActive = true

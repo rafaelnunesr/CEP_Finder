@@ -38,6 +38,8 @@
 		1B7E2A8625FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B7E2A8725FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B93303425FFB04400C43011 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93303325FFB04400C43011 /* HeaderView.swift */; };
+		1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FD626018EFF001385AC /* HistoryController.swift */; };
+		1B9D1FDC26019881001385AC /* CepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepController.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
 		1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7025FA2E16002A1C9E /* ViewModel.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
@@ -111,6 +113,8 @@
 		1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		1B93303325FFB04400C43011 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1B9D1FD626018EFF001385AC /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
+		1B9D1FDB26019881001385AC /* CepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepController.swift; sourceTree = "<group>"; };
 		1BAD11B925FABED000FD700E /* Recursive-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Light.ttf"; sourceTree = "<group>"; };
 		1BAD11BA25FABED000FD700E /* Recursive-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Bold.ttf"; sourceTree = "<group>"; };
 		1BAD11BB25FABED000FD700E /* Recursive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Regular.ttf"; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 				1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */,
 				1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */,
 				1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */,
+				1B9D1FD626018EFF001385AC /* HistoryController.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 			children = (
 				1B680CF7260101A200166FD3 /* BaseView */,
 				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
+				1B9D1FDB26019881001385AC /* CepController.swift */,
 				1BB15B7025FA2E16002A1C9E /* ViewModel.swift */,
 				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
@@ -697,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BB15B7125FA2E16002A1C9E /* ViewModel.swift in Sources */,
+				1B9D1FDC26019881001385AC /* CepController.swift in Sources */,
 				1BE4B22F260005CC00902D47 /* Colors.swift in Sources */,
 				1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */,
 				1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */,
@@ -726,6 +733,7 @@
 				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1BE4B234260008E500902D47 /* UIViewExtension.swift in Sources */,
 				1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */,
+				1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */,
 				1BCEA1C825FCEC3C00D1A2AB /* FooterView.swift in Sources */,
 				1B40F57725FEA5AD008E1096 /* FavoritesViewController.swift in Sources */,
 				1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */,

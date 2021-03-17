@@ -18,7 +18,8 @@ struct CoreDataManager {
     
     var data: AddressCoreData?
     
-    func getAllHistory() -> [CoreHistory]? {
+    func getAllHistory(completion: @escaping (_ result: [CoreHistory]?, _ error: ErrorHandler?) -> Void) {
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
@@ -26,12 +27,10 @@ struct CoreDataManager {
         
         do {
             let addresses = try context.fetch(request)
-            return addresses
+            completion(addresses, nil)
         } catch  {
-            print("Error getting bank from CoreHistory \(error)")
+            completion(nil, ErrorHandler(title: "Error All History", code: 400, errorDescription: error.localizedDescription))
         }
-        
-        return nil
     }
     
     func getElementHistory(zipCode: String) -> CoreHistory? {

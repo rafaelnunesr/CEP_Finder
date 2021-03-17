@@ -31,7 +31,10 @@ class HistoryViewController: UIViewController {
     }
     
     private func loadHistoryController() {
-        self.controller?.getAllAddresses()
+        
+        self.controller?.getAllAddresses(completionHandler: { (result) in
+            self.tableView.reloadData()
+        })
     }
     
     private func setupComponents() {

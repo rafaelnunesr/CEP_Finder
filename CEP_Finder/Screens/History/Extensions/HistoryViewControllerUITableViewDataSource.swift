@@ -17,9 +17,9 @@ extension HistoryViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell
         
-        cell?.cepLabel.label.text = controller?.arrayHistory[indexPath.row]?.zipCode
+        cell?.cepLabel.label.text = controller?.arrayHistory?[indexPath.row].zipCode
         
-        cell?.addressLabel.label.text = controller?.arrayHistory[indexPath.row]?.cityState
+        cell?.addressLabel.label.text = controller?.arrayHistory?[indexPath.row].cityState
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)

@@ -7,19 +7,17 @@
 
 import Foundation
 
-struct HistoryController {
+class HistoryController {
     
     var coreData = CoreDataManager(data: nil)
-    var arrayHistory: [CoreHistory?]
+    var arrayHistory: [CoreHistory]?
     var quantity: Int = 0
     var address: AddressCoreData?
     
-    mutating func saveNewAddress() {
-        
+    func saveNewAddress() {
         guard let _address = self.address else { return }
         self.coreData.data = _address
         self.coreData.persistCoreDataHistory()
-        
     }
     
     func deleteSpecificAddress() {
@@ -28,12 +26,19 @@ struct HistoryController {
         
     }
     
-    mutating func getAllAddresses() {
-        
-        guard let addresses = self.coreData.getAllHistory() else { return }
-        self.arrayHistory = addresses
-        self.quantity = addresses.count
-        
+    func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
+    
+        self.coreData.getAllHistory { (result, error) in
+            
+            guard let _result = result else {
+                completionHandler(false)
+                return
+            }
+            self.arrayHistory = _result
+            self.quantity = _result.count
+            
+            completionHandler(true)
+        }
     }
     
 }

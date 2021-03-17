@@ -372,7 +372,7 @@
 				1BE4B25026000EBB00902D47 /* Utils */,
 				1BE4B24F26000EAD00902D47 /* Worker */,
 				1BE4B24B26000E8400902D47 /* Supporting Files */,
-				1BE4B22D260005BF00902D47 /* Colors */,
+				1BE4B22D260005BF00902D47 /* Style */,
 				1BBCD3CE25FBB6E400F4F4FE /* Model */,
 				1BAD11B825FABEC200FD700E /* Fonts */,
 				1BB15B7825FA2EC4002A1C9E /* Extensions */,
@@ -408,12 +408,12 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		1BE4B22D260005BF00902D47 /* Colors */ = {
+		1BE4B22D260005BF00902D47 /* Style */ = {
 			isa = PBXGroup;
 			children = (
 				1BE4B22E260005CC00902D47 /* Colors.swift */,
 			);
-			path = Colors;
+			path = Style;
 			sourceTree = "<group>";
 		};
 		1BE4B24226000E5700902D47 /* FooterField */ = {

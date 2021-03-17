@@ -11,6 +11,7 @@ class HistoryViewController: UIViewController {
 
     let header: HeaderView = HeaderView()
     let tableView: UITableView = UITableView()
+    var coreData = CoreDataManager(data: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

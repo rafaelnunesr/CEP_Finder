@@ -9,7 +9,7 @@ import UIKit
 class AddressViewController: UIViewController {
     
     // MARK: Components
-    let header: HeaderView = HeaderView()
+    let header: HistoryAndFavoriteHeaderView = HistoryAndFavoriteHeaderView()
     let tableView: UITableView = UITableView()
     var emptyView: EmptyView = EmptyView()
     

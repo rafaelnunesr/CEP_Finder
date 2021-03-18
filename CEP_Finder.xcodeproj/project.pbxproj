@@ -44,7 +44,7 @@
 		1B7E2A8525FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B7E2A8625FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B7E2A8725FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
-		1B93303425FFB04400C43011 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93303325FFB04400C43011 /* HeaderView.swift */; };
+		1B93303425FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93303325FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift */; };
 		1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FD626018EFF001385AC /* HistoryController.swift */; };
 		1B9D1FDC26019881001385AC /* CepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepController.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
@@ -72,7 +72,6 @@
 		1BD7AE2B25F9B31C0036A743 /* CEP_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE2A25F9B31C0036A743 /* CEP_FinderTests.swift */; };
 		1BD7AE3625F9B31C0036A743 /* CEP_FinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE3525F9B31C0036A743 /* CEP_FinderUITests.swift */; };
 		1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B2202600024400902D47 /* UIButtonExtension.swift */; };
-		1BE4B2262600042200902D47 /* HeaderViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B2252600042200902D47 /* HeaderViewConstraints.swift */; };
 		1BE4B22F260005CC00902D47 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B22E260005CC00902D47 /* Colors.swift */; };
 		1BE4B234260008E500902D47 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B233260008E500902D47 /* UIViewExtension.swift */; };
 		1BE4B23926000B1800902D47 /* FooterViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B23826000B1800902D47 /* FooterViewConstraints.swift */; };
@@ -126,7 +125,7 @@
 		1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
-		1B93303325FFB04400C43011 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1B93303325FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAndFavoriteHeaderView.swift; sourceTree = "<group>"; };
 		1B9D1FD626018EFF001385AC /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		1B9D1FDB26019881001385AC /* CepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepController.swift; sourceTree = "<group>"; };
 		1BAD11B925FABED000FD700E /* Recursive-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Light.ttf"; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 		1BD7AE3525F9B31C0036A743 /* CEP_FinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEP_FinderUITests.swift; sourceTree = "<group>"; };
 		1BD7AE3725F9B31C0036A743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BE4B2202600024400902D47 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		1BE4B2252600042200902D47 /* HeaderViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConstraints.swift; sourceTree = "<group>"; };
 		1BE4B22E260005CC00902D47 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1BE4B233260008E500902D47 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		1BE4B23826000B1800902D47 /* FooterViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewConstraints.swift; sourceTree = "<group>"; };
@@ -296,13 +294,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1B93303225FFB02200C43011 /* Header */ = {
+		1B93303225FFB02200C43011 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				1B93303325FFB04400C43011 /* HeaderView.swift */,
-				1BE4B2252600042200902D47 /* HeaderViewConstraints.swift */,
+				1B93303325FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift */,
 			);
-			path = Header;
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 		1BAB096826027241001D52B0 /* Controller */ = {
@@ -561,7 +558,7 @@
 				1B47266426026A7E00FD9067 /* Cep */,
 				1B680CF7260101A200166FD3 /* BaseView */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
-				1B93303225FFB02200C43011 /* Header */,
+				1B93303225FFB02200C43011 /* HeaderView */,
 				1BE4B25126000ECB00902D47 /* About */,
 				1BE4B25226000EDB00902D47 /* Favorites */,
 				1BE4B25726000F0200902D47 /* History */,
@@ -861,7 +858,6 @@
 				1BFA5E0F2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift in Sources */,
 				1B7B60892603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift in Sources */,
 				1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */,
-				1BE4B2262600042200902D47 /* HeaderViewConstraints.swift in Sources */,
 				1B47266A26026AD400FD9067 /* MapView.swift in Sources */,
 				1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */,
 				1BFA5E192600355B007FDDFE /* CoreDataManager.swift in Sources */,
@@ -880,7 +876,7 @@
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
 				1B0A71612602D456009FB7A5 /* EmptyView.swift in Sources */,
 				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
-				1B93303425FFB04400C43011 /* HeaderView.swift in Sources */,
+				1B93303425FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift in Sources */,
 				1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */,
 				1B40F56125FE943A008E1096 /* AddressComponentCell.swift in Sources */,
 				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,

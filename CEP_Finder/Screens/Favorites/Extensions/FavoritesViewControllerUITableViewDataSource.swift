@@ -1,5 +1,5 @@
 //
-//  HistoryViewControllerUITableViewDataSource.swift
+//  FavoritesViewController.swift
 //  CEP_Finder
 //
 //  Created by Rafael Nunes Rios on 3/15/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension HistoryViewController: UITableViewDataSource {
+extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -15,7 +15,7 @@ extension HistoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         controller.deleteSpecificAddress(withIndex: indexPath.row)
-        controller.arrayHistory?.remove(at: indexPath.row)
+        controller.arrayFavorite?.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
@@ -27,10 +27,10 @@ extension HistoryViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as? AddressTableViewCell
         
-        cell?.cepLabel.label.text = controller.arrayHistory?[indexPath.row].zipCode
+        cell?.cepLabel.label.text = controller.arrayFavorite?[indexPath.row].zipCode
         
-        let address = controller.arrayHistory?[indexPath.row].streetName ?? ""
-        let cityState = controller.arrayHistory?[indexPath.row].cityState ?? ""
+        let address = controller.arrayFavorite?[indexPath.row].streetName ?? ""
+        let cityState = controller.arrayFavorite?[indexPath.row].cityState ?? ""
         
         cell?.addressLabel.label.text = "\(address), \(cityState)"
 

@@ -11,7 +11,7 @@ class AddressViewController: UIViewController {
     // MARK: Components
     let header: HeaderView = HeaderView()
     let tableView: UITableView = UITableView()
-    var emptyView: EmptyDataView = EmptyDataView()
+    var emptyView: EmptyView = EmptyView()
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {

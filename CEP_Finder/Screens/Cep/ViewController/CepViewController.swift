@@ -11,6 +11,7 @@ import SideMenu
 
 class CepViewController: UIViewController {
     
+    // MARK: Controller
     var controller = CepController()
     
     // MARK: Components
@@ -44,15 +45,19 @@ class CepViewController: UIViewController {
     }
     
     private func setupObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteStatus), name: NSNotification.Name("updateFavoriteStatus"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteStatus), name: NSNotification.Name("updateFavorite"), object: nil)
     }
     
     @objc private func updateFavoriteStatus(_ notification: Notification) {
         
-        let newAddress = notification.object as? Bool
+        let result = notification.object as? Bool
         
         DispatchQueue.main.async {
-            self.controller.updateFavoriteAddressStatus()
+            if result == true {
+                self.controller.addFavoriteAddress()
+            }else {
+                self.controller.removeFavoriteAddress()
+            }
         }
     }
     
@@ -160,8 +165,8 @@ class CepViewController: UIViewController {
         
         let s = cep.filter { $0 != "-" }
         
-        let add = CepWorker()
-        add.cep = s
+        let add = CepNetwork()
+        add.zipCode = s
         
         add.getAddress { (result, error) in
             
@@ -174,8 +179,14 @@ class CepViewController: UIViewController {
         
             DispatchQueue.main.async {
                 let cityState = _result.localidade + " / " + _result.uf
-                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState, isFavorite: false)
+                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
                 self.controller.addNewAddressToHistory()
+                
+                
+                if self.controller.checkIfAddressIsFavorited() {
+                    self.footerView.favoriteButton.isSelected = true
+                }
+                
                 
                 self.updateLabels(result: _result)
             }
@@ -193,7 +204,7 @@ class CepViewController: UIViewController {
     }
     
     // MARK: UpdateLabels
-    private func updateLabels(result: CEP) {
+    private func updateLabels(result: CepModel) {
         
         let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
         

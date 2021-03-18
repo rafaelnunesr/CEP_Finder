@@ -1,5 +1,5 @@
 //
-//  CEPModel.swift
+//  CepModel.swift
 //  CEP_Finder
 //
 //  Created by Rafael Nunes Rios on 3/12/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CEP: Codable {
+struct CepModel: Codable {
     let cep: String
     let logradouro: String
     let complemento: String

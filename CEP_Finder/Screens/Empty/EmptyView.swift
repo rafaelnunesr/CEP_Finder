@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmptyDataView: UIView {
+class EmptyView: UIView {
     
     let imageView: UIImageView = UIImageView()
     let messageLabel: UILabel = UILabel()
@@ -58,7 +58,7 @@ class EmptyDataView: UIView {
     }
 }
 
-extension EmptyDataView {
+extension EmptyView {
     
     func setupImageViewConstraints() {
         let imageSize: CGFloat = 80

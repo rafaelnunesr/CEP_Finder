@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B0329072603752F00960DF8 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0329062603752F00960DF8 /* FavoriteController.swift */; };
-		1B0A71612602D456009FB7A5 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71602602D456009FB7A5 /* EmptyDataView.swift */; };
+		1B0A71612602D456009FB7A5 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71602602D456009FB7A5 /* EmptyView.swift */; };
 		1B3EC69F260176E0008C1AB3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E182600355B007FDDFE /* CoreDataManager.swift */; };
 		1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
 		1B40F54125FE89DB008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
@@ -19,9 +19,6 @@
 		1B40F56625FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
 		1B40F56725FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
 		1B40F56825FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
-		1B40F57725FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
-		1B40F57825FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
-		1B40F57925FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
 		1B46DCD02602ECEE00B56AF2 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */; };
 		1B46DCD52602EEA500B56AF2 /* AddressViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */; };
 		1B47266A26026AD400FD9067 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47266926026AD400FD9067 /* MapView.swift */; };
@@ -36,6 +33,10 @@
 		1B680D022601020400166FD3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680D012601020400166FD3 /* LoadingView.swift */; };
 		1B680D032601020400166FD3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B680D012601020400166FD3 /* LoadingView.swift */; };
 		1B680D11260106D300166FD3 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B680D10260106D300166FD3 /* loading.json */; };
+		1B70590C2603C9B30054FBB7 /* AddressCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B70590B2603C9B30054FBB7 /* AddressCoreData.swift */; };
+		1B7B607F2603EDFE00753A37 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B607E2603EDFE00753A37 /* FavoritesViewController.swift */; };
+		1B7B60892603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B60882603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift */; };
+		1B7B608E2603EF3700753A37 /* FavoritesViewControllerUITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B608D2603EF3700753A37 /* FavoritesViewControllerUITableViewDelegate.swift */; };
 		1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */; };
 		1B7E2A8225FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */; };
 		1B7E2A8325FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */; };
@@ -48,9 +49,9 @@
 		1B9D1FDC26019881001385AC /* CepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepController.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
-		1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */; };
-		1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */; };
-		1BCEA1B525FCDB2800D1A2AB /* CepWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */; };
+		1BBCD3D025FBB6F300F4F4FE /* CepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CepModel.swift */; };
+		1BCEA1B425FCDB2800D1A2AB /* CepNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepNetwork.swift */; };
+		1BCEA1B525FCDB2800D1A2AB /* CepNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1B325FCDB2800D1A2AB /* CepNetwork.swift */; };
 		1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */; };
 		1BCEA1C025FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */; };
 		1BCEA1C825FCEC3C00D1A2AB /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */; };
@@ -105,13 +106,12 @@
 
 /* Begin PBXFileReference section */
 		1B0329062603752F00960DF8 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
-		1B0A71602602D456009FB7A5 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
+		1B0A71602602D456009FB7A5 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1B40F55125FE92D0008E1096 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		1B40F55225FE92D0008E1096 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
 		1B40F56025FE943A008E1096 /* AddressComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponentCell.swift; sourceTree = "<group>"; };
 		1B40F56525FE9803008E1096 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1B47266926026AD400FD9067 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -119,6 +119,10 @@
 		1B680CF8260101C300166FD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B680D012601020400166FD3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1B680D10260106D300166FD3 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		1B70590B2603C9B30054FBB7 /* AddressCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCoreData.swift; sourceTree = "<group>"; };
+		1B7B607E2603EDFE00753A37 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		1B7B60882603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerUITableViewDataSource.swift; sourceTree = "<group>"; };
+		1B7B608D2603EF3700753A37 /* FavoritesViewControllerUITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerUITableViewDelegate.swift; sourceTree = "<group>"; };
 		1B7E2A7B25FC1C9300F55AB8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1B7E2A8025FC217E00F55AB8 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
@@ -132,8 +136,8 @@
 		1BAD11BD25FABED000FD700E /* Recursive-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Black.ttf"; sourceTree = "<group>"; };
 		1BAD11C125FABFF800FD700E /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPModel.swift; sourceTree = "<group>"; };
-		1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepWorker.swift; sourceTree = "<group>"; };
+		1BBCD3CF25FBB6F300F4F4FE /* CepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepModel.swift; sourceTree = "<group>"; };
+		1BCEA1B325FCDB2800D1A2AB /* CepNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepNetwork.swift; sourceTree = "<group>"; };
 		1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
@@ -204,7 +208,7 @@
 		1B0A715F2602D40E009FB7A5 /* Empty */ = {
 			isa = PBXGroup;
 			children = (
-				1B0A71602602D456009FB7A5 /* EmptyDataView.swift */,
+				1B0A71602602D456009FB7A5 /* EmptyView.swift */,
 			);
 			path = Empty;
 			sourceTree = "<group>";
@@ -257,6 +261,39 @@
 				1B680D10260106D300166FD3 /* loading.json */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		1B70590A2603C9810054FBB7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1BCEA1B325FCDB2800D1A2AB /* CepNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1B7B607D2603EDD800753A37 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1B7B607E2603EDFE00753A37 /* FavoritesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		1B7B60862603EECE00753A37 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B0329062603752F00960DF8 /* FavoriteController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1B7B60872603EED900753A37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B7B60882603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift */,
+				1B7B608D2603EF3700753A37 /* FavoritesViewControllerUITableViewDelegate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1B93303225FFB02200C43011 /* Header */ = {
@@ -351,7 +388,7 @@
 		1BBCD3CE25FBB6E400F4F4FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1BBCD3CF25FBB6F300F4F4FE /* CEPModel.swift */,
+				1BBCD3CF25FBB6F300F4F4FE /* CepModel.swift */,
 				1BCEA1D825FD04FC00D1A2AB /* Address.swift */,
 			);
 			path = Model;
@@ -392,6 +429,7 @@
 		1BD7AE0F25F9B31B0036A743 /* CEP_Finder */ = {
 			isa = PBXGroup;
 			children = (
+				1B70590A2603C9810054FBB7 /* Network */,
 				1BAB096E2602731D001D52B0 /* DataBase */,
 				1BE4B25026000EBB00902D47 /* Utils */,
 				1BE4B24F26000EAD00902D47 /* Worker */,
@@ -464,7 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				1BFA5E182600355B007FDDFE /* CoreDataManager.swift */,
-				1BCEA1B325FCDB2800D1A2AB /* CepWorker.swift */,
+				1B70590B2603C9B30054FBB7 /* AddressCoreData.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -488,8 +526,9 @@
 		1BE4B25226000EDB00902D47 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */,
-				1B0329062603752F00960DF8 /* FavoriteController.swift */,
+				1B7B60872603EED900753A37 /* Extensions */,
+				1B7B60862603EECE00753A37 /* Controller */,
+				1B7B607D2603EDD800753A37 /* ViewController */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -818,8 +857,9 @@
 				1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */,
 				1B7E2A8225FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
 				1BE4B23E26000E0200902D47 /* AddressFieldViewConstraints.swift in Sources */,
-				1BBCD3D025FBB6F300F4F4FE /* CEPModel.swift in Sources */,
+				1BBCD3D025FBB6F300F4F4FE /* CepModel.swift in Sources */,
 				1BFA5E0F2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift in Sources */,
+				1B7B60892603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift in Sources */,
 				1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */,
 				1BE4B2262600042200902D47 /* HeaderViewConstraints.swift in Sources */,
 				1B47266A26026AD400FD9067 /* MapView.swift in Sources */,
@@ -827,6 +867,7 @@
 				1BFA5E192600355B007FDDFE /* CoreDataManager.swift in Sources */,
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,
 				1B680CF9260101C300166FD3 /* BaseViewController.swift in Sources */,
+				1B7B607F2603EDFE00753A37 /* FavoritesViewController.swift in Sources */,
 				1B680D022601020400166FD3 /* LoadingView.swift in Sources */,
 				1BE4B23926000B1800902D47 /* FooterViewConstraints.swift in Sources */,
 				1BFA5E0A26003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift in Sources */,
@@ -835,8 +876,9 @@
 				1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */,
 				1B40F56625FE9803008E1096 /* AboutViewController.swift in Sources */,
 				1B40F55325FE92D0008E1096 /* AddressTableViewCell.swift in Sources */,
+				1B70590C2603C9B30054FBB7 /* AddressCoreData.swift in Sources */,
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
-				1B0A71612602D456009FB7A5 /* EmptyDataView.swift in Sources */,
+				1B0A71612602D456009FB7A5 /* EmptyView.swift in Sources */,
 				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
 				1B93303425FFB04400C43011 /* HeaderView.swift in Sources */,
 				1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */,
@@ -844,11 +886,11 @@
 				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1BE4B234260008E500902D47 /* UIViewExtension.swift in Sources */,
+				1B7B608E2603EF3700753A37 /* FavoritesViewControllerUITableViewDelegate.swift in Sources */,
 				1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */,
 				1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */,
 				1BCEA1C825FCEC3C00D1A2AB /* FooterView.swift in Sources */,
-				1B40F57725FEA5AD008E1096 /* FavoritesViewController.swift in Sources */,
-				1BCEA1B425FCDB2800D1A2AB /* CepWorker.swift in Sources */,
+				1BCEA1B425FCDB2800D1A2AB /* CepNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,7 +899,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BE4B24426000E6D00902D47 /* AddressFieldViewConstraints.swift in Sources */,
-				1BCEA1B525FCDB2800D1A2AB /* CepWorker.swift in Sources */,
+				1BCEA1B525FCDB2800D1A2AB /* CepNetwork.swift in Sources */,
 				1BCEA1C025FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D325FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1B40F56725FE9803008E1096 /* AboutViewController.swift in Sources */,
@@ -866,7 +908,6 @@
 				1BCEA1C925FCEC3C00D1A2AB /* FooterView.swift in Sources */,
 				1BD7AE2B25F9B31C0036A743 /* CEP_FinderTests.swift in Sources */,
 				1BCEA1DA25FD04FC00D1A2AB /* Address.swift in Sources */,
-				1B40F57825FEA5AD008E1096 /* FavoritesViewController.swift in Sources */,
 				1B680D032601020400166FD3 /* LoadingView.swift in Sources */,
 				1B3EC69F260176E0008C1AB3 /* CoreDataManager.swift in Sources */,
 				1B40F54125FE89DB008E1096 /* HistoryViewController.swift in Sources */,
@@ -879,7 +920,6 @@
 			files = (
 				1B40F56825FE9803008E1096 /* AboutViewController.swift in Sources */,
 				1BCEA1CD25FCEC4100D1A2AB /* FooterView.swift in Sources */,
-				1B40F57925FEA5AD008E1096 /* FavoritesViewController.swift in Sources */,
 				1BE4B24326000E6D00902D47 /* AddressFieldViewConstraints.swift in Sources */,
 				1B7E2A8425FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
 				1BCEA1D425FCF01300D1A2AB /* AddressFieldView.swift in Sources */,

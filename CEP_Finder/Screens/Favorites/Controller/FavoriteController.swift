@@ -1,17 +1,17 @@
 //
-//  HistoryController.swift
+//  FavoriteController.swift
 //  CEP_Finder
 //
-//  Created by Rafael Nunes Rios on 3/16/21.
+//  Created by Rafael Nunes Rios on 3/18/21.
 //
 
 import Foundation
 
-class HistoryController {
+class FavoriteController {
     
     var coreData = CoreDataManager(addressData: nil)
     
-    var arrayHistory: [CoreHistory]?
+    var arrayFavorite: [CoreFavorites]?
     var address: AddressCoreData?
     var quantityHistory: Int?
     
@@ -22,20 +22,20 @@ class HistoryController {
     }
     
     func deleteSpecificAddress(withIndex index: Int) {
-        let zipCode = self.arrayHistory?[index].zipCode
+        let zipCode = self.arrayFavorite?[index].zipCode
         guard let _zipCode = zipCode else { return }
         self.coreData.deleteOneAddressFromHistory(zipCode: _zipCode)
     }
     
     func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
     
-        self.coreData.getAllHistory { (result, error) in
+        self.coreData.getAllFavorites { (result, error) in
             
             guard let _result = result else {
                 completionHandler(false)
                 return
             }
-            self.arrayHistory = _result
+            self.arrayFavorite = _result
             self.quantityHistory = _result.count
             
             completionHandler(true)
@@ -43,11 +43,10 @@ class HistoryController {
     }
     
     func deleteAllAddresses() {
-        self.coreData.deleteAllAddressesFromHistory()
+        self.coreData.deleteAllAddressesFromFavorites()
     }
     
     var quantity: Int {
-        return self.arrayHistory?.count ?? 0
+        return self.arrayFavorite?.count ?? 0
     }
-    
 }

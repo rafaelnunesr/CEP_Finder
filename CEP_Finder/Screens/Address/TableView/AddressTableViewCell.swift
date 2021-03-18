@@ -78,10 +78,13 @@ class AddressTableViewCell: UITableViewCell {
     
     // MARK: FavoriteButtonTapped
     @objc private func favoriteButtonTapped() {
+        
         if self.favoriteButton.isSelected {
             self.favoriteButton.isSelected = false
+            NotificationCenter.default.post(name: Notification.Name("updateFavorite"), object: false)
         }else {
             self.favoriteButton.isSelected = true
+            NotificationCenter.default.post(name: Notification.Name("updateFavorite"), object: true)
         }
     }
     

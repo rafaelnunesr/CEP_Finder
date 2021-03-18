@@ -8,36 +8,56 @@
 import UIKit
 import CoreData
 
-struct AddressCoreData {
-    let zipCode: String
-    let streeName: String
-    let cityState: String
-    var isFavorite: Bool
+enum CoreDataKeys: String {
+    case zipCode = "zipCode"
+    case streetName = "streetName"
+    case cityState = "cityState"
+    case isFavorite = "isFavorite"
 }
 
 struct CoreDataManager {
     
-    var data: AddressCoreData?
+    // MARK: Components
+    var addressData: AddressCoreData?
     
-    func getAllAddresses(completion: @escaping (_ result: [CoreAddresses]?, _ error: ErrorHandler?) -> Void) {
-        
+    typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void    
+    
+    // MARK: GetAllHistory
+    func getAllHistory(completion: @escaping completion<[CoreHistory]?>) {
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let request: NSFetchRequest<CoreAddresses> = CoreAddresses.fetchRequest()
+        let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
         request.returnsObjectsAsFaults = false
-        
+
         do {
             let addresses = try context.fetch(request)
             completion(addresses.reversed(), nil)
         } catch  {
-            completion(nil, ErrorHandler(title: "Error getting addresses", code: 400, errorDescription: error.localizedDescription))
+            completion(nil, ErrorHandler(title: "Error getting addresses from CoreHistory", code: 400, errorDescription: error.localizedDescription))
         }
     }
     
-    func getAddressByZipCode(zipCode: String) -> CoreAddresses? {
+    // MARK: GetAllFavorites
+    func getAllFavorites(completion: @escaping completion<[CoreFavorites]?>) {
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request: NSFetchRequest<CoreFavorites> = CoreFavorites.fetchRequest()
+        request.returnsObjectsAsFaults = false
+
+        do {
+            let addresses = try context.fetch(request)
+            completion(addresses.reversed(), nil)
+        } catch  {
+            completion(nil, ErrorHandler(title: "Error getting addresses from CoreFavorites", code: 400, errorDescription: error.localizedDescription))
+        }
+    }
+
+    
+    // MARK: GetAddressByZipCodeCoreHistory
+    func getAddressByZipCodeCoreHistory(zipCode: String) -> CoreHistory? {
         
-        let request: NSFetchRequest<CoreAddresses> = CoreAddresses.fetchRequest()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
         request.returnsObjectsAsFaults = false
         request.predicate = NSPredicate(format: "zipCode == %@", zipCode)
         
@@ -45,35 +65,48 @@ struct CoreDataManager {
             let addresses = try context.fetch(request)
             return addresses.first ?? nil
         } catch  {
-            print("Error getting bank from CoreHistory \(error)")
+            print("Error getting Address By ZipCode CoreHistory: \(error.localizedDescription)")
         }
         
         return nil
     }
     
-    func persistCoreDataAddresses() {
+    // MARK: GetAddressByZipCodeCoreFavorites
+    func getAddressByZipCodeCoreFavorites(zipCode: String) -> CoreFavorites? {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request: NSFetchRequest<CoreFavorites> = CoreFavorites.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "zipCode == %@", zipCode)
         
-        if let address = self.getAddressByZipCode(zipCode: self.data?.zipCode ?? "") {
-            
-            address.setValue(self.data?.zipCode, forKey: "zipCode")
-            address.setValue(self.data?.streeName, forKey: "streetName")
-            address.setValue(self.data?.cityState, forKey: "cityState")
-            address.setValue(self.data?.isFavorite, forKey: "isFavorite")
-            
-            print(self.data?.isFavorite)
-            
-        }else {
-            
-            let address = CoreAddresses(context: context)
+        do {
+            let addresses = try context.fetch(request)
+            return addresses.first ?? nil
+        } catch  {
+            print("Error getting Address By ZipCode CoreFavorites: \(error.localizedDescription)")
+        }
+        
+        return nil
+    }
+    
+    // MARK: PersistCoreDataHistory
+    func persistCoreDataHistory() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-            if self.data != nil {
-                address.zipCode = self.data?.zipCode
-                address.streetName = self.data?.streeName
-                address.cityState = self.data?.cityState
-                address.isFavorite = self.data?.isFavorite ?? false
-                
+        if let address = self.getAddressByZipCodeCoreHistory(zipCode: self.addressData?.zipCode ?? "") {
+            address.setValue(self.addressData?.zipCode, forKey: CoreDataKeys.zipCode.rawValue)
+            address.setValue(self.addressData?.streeName, forKey: CoreDataKeys.streetName.rawValue)
+            address.setValue(self.addressData?.cityState, forKey: CoreDataKeys.cityState.rawValue)
+
+        }else {
+
+            let address = CoreHistory(context: context)
+
+            if self.addressData != nil {
+                address.zipCode = self.addressData?.zipCode
+                address.streetName = self.addressData?.streeName
+                address.cityState = self.addressData?.cityState
             }
 
             do {
@@ -85,10 +118,40 @@ struct CoreDataManager {
         
     }
     
-    func deleteOneAddress(zipCode: String) -> Bool {
+    // MARK: PersistCoreDataFavorites
+    func persistCoreDataFavorites() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        if let address = self.getAddressByZipCodeCoreFavorites(zipCode: self.addressData?.zipCode ?? "") {
+            address.setValue(self.addressData?.zipCode, forKey: CoreDataKeys.zipCode.rawValue)
+            address.setValue(self.addressData?.streeName, forKey: CoreDataKeys.streetName.rawValue)
+            address.setValue(self.addressData?.cityState, forKey: CoreDataKeys.cityState.rawValue)
+
+        }else {
+
+            let address = CoreFavorites(context: context)
+
+            if self.addressData != nil {
+                address.zipCode = self.addressData?.zipCode
+                address.streetName = self.addressData?.streeName
+                address.cityState = self.addressData?.cityState
+            }
+
+            do {
+                try context.save()
+            } catch {
+                print("Error saving address to CoreFavorites \(error)")
+            }
+        }
+        
+    }
+    
+    // MARK: DeleteOneAddressFromHistory
+    func deleteOneAddressFromHistory(zipCode: String) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let request: NSFetchRequest<CoreAddresses> = CoreAddresses.fetchRequest()
+        let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
         request.returnsObjectsAsFaults = false
         request.predicate = NSPredicate(format: "zipCode == %@", zipCode)
         
@@ -102,11 +165,29 @@ struct CoreDataManager {
         }
     }
     
-    func deleteAllAddresses() -> Bool {
-
+    // MARK: DeleteOneAddressFromFavorites
+    func deleteOneAddressFromFavorites(zipCode: String) -> Bool {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreAddresses")
+        let request: NSFetchRequest<CoreFavorites> = CoreFavorites.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "zipCode == %@", zipCode)
+        
+        do {
+            let address = try context.fetch(request)
+            context.delete(address.first!)
+            return true
+        } catch  {
+            print("Error getting bank from CoreFavorites \(error)")
+            return false
+        }
+    }
+    
+    // MARK: DeleteAllAddresses
+    func deleteAllAddressesFromHistory() -> Bool {
+
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreHistory")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {
@@ -120,16 +201,34 @@ struct CoreDataManager {
 
     }
     
-    mutating func updateFavoriteAddressStatus() {
-        if self.data?.isFavorite == true {
-            let newData = data
-            data = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: false)
-        }else {
-            let newData = data
-            data = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: true)
-        }
+    func deleteAllAddressesFromFavorites() -> Bool {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreFavorites")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
-        self.persistCoreDataAddresses()
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            return true
+        } catch {
+            print ("There was an error")
+            return false
+        }
+
+    }
+    
+    // MARK: UpdateFavoriteAddressStatus
+    mutating func updateFavoriteAddressStatus() {
+        
+//        if self.addressData?.isFavorite == true {
+//            let newData = addressData
+//            addressData = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: false)
+//        }else {
+//            let newData = addressData
+//            addressData = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: true)
+//        }
+//
+//        self.persistCoreDataAddresses()
     }
     
 }

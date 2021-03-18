@@ -9,9 +9,11 @@ import UIKit
 
 class AddressComponentCell: UIView {
     
+    // MARK: Components
     let titleLabel: UILabel = UILabel()
     let label: UILabel = UILabel()
 
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
@@ -21,21 +23,25 @@ class AddressComponentCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Setup
     private func setup() {
         self.setupSubviews()
         self.setupComponents()
     }
     
+    // MARK: SetupSubviews
     private func setupSubviews() {
         self.addSubview(self.titleLabel)
         self.addSubview(self.label)
     }
     
+    // MARK: SetupComponents
     private func setupComponents() {
         self.setupTitleLabel()
         self.setupLabel()
     }
     
+    // MARK: SetupTitleLabel
     private func setupTitleLabel() {
         
         self.titleLabel.textColor = .gray
@@ -48,6 +54,7 @@ class AddressComponentCell: UIView {
         titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
     
+    // MARK: SetupLabel
     private func setupLabel() {
      
         self.label.textColor = .darkGray

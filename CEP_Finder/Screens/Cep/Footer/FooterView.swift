@@ -49,7 +49,7 @@ class FooterView: UIView {
             self.city = newAddress?.cityState
             
             self.setupAddressView()
-            self.setupStateCityView()
+            self.setupStateCityView()  
         }
     }
     
@@ -85,7 +85,7 @@ class FooterView: UIView {
             isFavorite = true
         }
         
-        NotificationCenter.default.post(name: Notification.Name("updateFavoriteStatus"), object: isFavorite)
+        NotificationCenter.default.post(name: Notification.Name("updateFavorite"), object: isFavorite)
     }
     
     // MARK: SetupAddressView

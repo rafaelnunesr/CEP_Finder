@@ -76,11 +76,16 @@ class FooterView: UIView {
     
     // MARK: FavoriteButtonTapped
     @objc private func favoriteButtonTapped() {
+        var isFavorite = false
+    
         if self.favoriteButton.isSelected {
             self.favoriteButton.isSelected = false
         }else {
             self.favoriteButton.isSelected = true
+            isFavorite = true
         }
+        
+        NotificationCenter.default.post(name: Notification.Name("updateFavoriteStatus"), object: isFavorite)
     }
     
     // MARK: SetupAddressView

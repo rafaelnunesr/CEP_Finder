@@ -14,8 +14,9 @@ extension HistoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        controller.deleteSpecificAddress(withIndex: indexPath.row)
         controller.arrayHistory?.remove(at: indexPath.row)
-        tableView.reloadData()
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,6 +33,10 @@ extension HistoryViewController: UITableViewDataSource {
         let cityState = controller.arrayHistory?[indexPath.row].cityState ?? ""
         
         cell?.addressLabel.label.text = "\(address), \(cityState)"
+
+        if controller.arrayHistory?[indexPath.row].isFavorite == true {
+            cell?.favoriteButton.isSelected = true
+        }
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)

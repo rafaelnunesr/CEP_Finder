@@ -12,7 +12,7 @@ struct AddressCoreData {
     let zipCode: String
     let streeName: String
     let cityState: String
-    let isFavorite: Bool
+    var isFavorite: Bool
 }
 
 struct CoreDataManager {
@@ -28,7 +28,7 @@ struct CoreDataManager {
         
         do {
             let addresses = try context.fetch(request)
-            completion(addresses, nil)
+            completion(addresses.reversed(), nil)
         } catch  {
             completion(nil, ErrorHandler(title: "Error getting addresses", code: 400, errorDescription: error.localizedDescription))
         }
@@ -62,6 +62,8 @@ struct CoreDataManager {
             address.setValue(self.data?.cityState, forKey: "cityState")
             address.setValue(self.data?.isFavorite, forKey: "isFavorite")
             
+            print(self.data?.isFavorite)
+            
         }else {
             
             let address = CoreAddresses(context: context)
@@ -71,6 +73,7 @@ struct CoreDataManager {
                 address.streetName = self.data?.streeName
                 address.cityState = self.data?.cityState
                 address.isFavorite = self.data?.isFavorite ?? false
+                
             }
 
             do {
@@ -99,13 +102,11 @@ struct CoreDataManager {
         }
     }
     
-    func deleteAllHistory() -> Bool {
-        
-        // TODO: FILTER NOT FAVORITES
-        /*
+    func deleteAllAddresses() -> Bool {
+
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreHistory")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreAddresses")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {
@@ -116,7 +117,19 @@ struct CoreDataManager {
             print ("There was an error")
             return false
         }
- */
-        return false
+
     }
+    
+    mutating func updateFavoriteAddressStatus() {
+        if self.data?.isFavorite == true {
+            let newData = data
+            data = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: false)
+        }else {
+            let newData = data
+            data = AddressCoreData(zipCode: newData?.zipCode ?? "", streeName: newData?.streeName ?? "", cityState: newData?.cityState ?? "", isFavorite: true)
+        }
+        
+        self.persistCoreDataAddresses()
+    }
+    
 }

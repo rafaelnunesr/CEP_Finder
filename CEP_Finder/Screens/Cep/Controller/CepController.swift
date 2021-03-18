@@ -19,4 +19,8 @@ class CepController {
         self.coreData.persistCoreDataAddresses()
     }
     
+    func updateFavoriteAddressStatus() {
+        self.coreData.updateFavoriteAddressStatus()
+   }
+    
 }

@@ -37,9 +37,23 @@ class CepViewController: UIViewController {
     
     // MARK: Setup()
     private func setup() {
+        self.setupObserver()
         self.buildViewHierarchy()
         self.setupSideMenu()
         self.setupComponents()
+    }
+    
+    private func setupObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteStatus), name: NSNotification.Name("updateFavoriteStatus"), object: nil)
+    }
+    
+    @objc private func updateFavoriteStatus(_ notification: Notification) {
+        
+        let newAddress = notification.object as? Bool
+        
+        DispatchQueue.main.async {
+            self.controller.updateFavoriteAddressStatus()
+        }
     }
     
     // MARK: SetupSubviews

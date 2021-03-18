@@ -1,5 +1,5 @@
 //
-//  HistoryComponentCell.swift
+//  AddressComponentCell.swift
 //  CEP_Finder
 //
 //  Created by Rafael Nunes Rios on 3/14/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryComponentCell: UIView {
+class AddressComponentCell: UIView {
     
     let titleLabel: UILabel = UILabel()
     let label: UILabel = UILabel()

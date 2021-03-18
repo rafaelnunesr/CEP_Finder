@@ -29,10 +29,10 @@ extension HeaderView {
     
     // MARK: SetupClearHistoryButtonConstraints
     func setupClearHistoryButtonConstraints() {
-        clearHistoryButton.translatesAutoresizingMaskIntoConstraints = false
-        clearHistoryButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
-        clearHistoryButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24).isActive = true
-        clearHistoryButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        clearHistoryButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 30).isActive = true
+        clearButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24).isActive = true
+        clearButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        clearButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
 }

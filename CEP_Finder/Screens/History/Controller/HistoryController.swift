@@ -41,4 +41,8 @@ class HistoryController {
         }
     }
     
+    func deleteAllAddresses() {
+        self.coreData.deleteAllHistory()
+    }
+    
 }

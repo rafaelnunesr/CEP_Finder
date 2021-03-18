@@ -9,17 +9,29 @@ import UIKit
 
 extension HistoryViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        controller.arrayHistory?.remove(at: indexPath.row)
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller.quantity ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as? AddressTableViewCell
         
         cell?.cepLabel.label.text = controller.arrayHistory?[indexPath.row].zipCode
         
-        cell?.addressLabel.label.text = controller.arrayHistory?[indexPath.row].cityState
+        let address = controller.arrayHistory?[indexPath.row].streetName ?? ""
+        let cityState = controller.arrayHistory?[indexPath.row].cityState ?? ""
+        
+        cell?.addressLabel.label.text = "\(address), \(cityState)"
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)
@@ -30,6 +42,7 @@ extension HistoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+        
     }
-    
+
 }

@@ -58,7 +58,7 @@ class FavoritesViewController: UIViewController {
     }
     
     private func setupClearHistory() {
-        self.header.clearHistoryButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
+        self.header.clearButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
     }
     
     @objc private func clearButtonTapped() {
@@ -77,19 +77,7 @@ class FavoritesViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    private func setupTableView() {
-        self.tableView.backgroundColor = Colors.ligherOrange
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        self.tableView.register(HistoryTableViewCell.nib(), forCellReuseIdentifier: HistoryTableViewCell.identifier)
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16).isActive = true
-    }
+    private func setupTableView() {}
 
 }
 
@@ -107,7 +95,7 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as? AddressTableViewCell
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)

@@ -12,8 +12,10 @@ class HeaderView: UIView {
     // MARK: Components
     let homeButton: UIButton = UIButton()
     let titleLabel: UILabel = UILabel()
-    let clearHistoryButton: UIButton = UIButton()
+    let clearButton: UIButton = UIButton()
 
+    var headerTitle: String?
+    
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +36,7 @@ class HeaderView: UIView {
     private func buildViewHierarchy() {
         self.addSubview(self.homeButton)
         self.addSubview(self.titleLabel)
-        self.addSubview(self.clearHistoryButton)
+        self.addSubview(self.clearButton)
     }
     
     // MARK:
@@ -65,8 +67,13 @@ class HeaderView: UIView {
     
     // MARK:
     private func setupClearHistoryButton() {
-        self.clearHistoryButton.buttonWithIcon(systemImage: ButtonIcons.trash)
+        self.clearButton.buttonWithIcon(systemImage: ButtonIcons.trash)
         setupClearHistoryButtonConstraints()
     }
 
+    func updateTitleLabel() {
+        print(self.headerTitle)
+        self.titleLabel.text = self.headerTitle ?? ""
+    }
+    
 }

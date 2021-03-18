@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0A71612602D456009FB7A5 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71602602D456009FB7A5 /* EmptyDataView.swift */; };
 		1B3EC69F260176E0008C1AB3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E182600355B007FDDFE /* CoreDataManager.swift */; };
 		1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
 		1B40F54125FE89DB008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
 		1B40F54525FE89DC008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
-		1B40F55325FE92D0008E1096 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */; };
-		1B40F55425FE92D0008E1096 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */; };
-		1B40F56125FE943A008E1096 /* HistoryComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */; };
+		1B40F55325FE92D0008E1096 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F55125FE92D0008E1096 /* AddressTableViewCell.swift */; };
+		1B40F55425FE92D0008E1096 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B40F55225FE92D0008E1096 /* AddressTableViewCell.xib */; };
+		1B40F56125FE943A008E1096 /* AddressComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56025FE943A008E1096 /* AddressComponentCell.swift */; };
 		1B40F56625FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
 		1B40F56725FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
 		1B40F56825FE9803008E1096 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F56525FE9803008E1096 /* AboutViewController.swift */; };
 		1B40F57725FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
 		1B40F57825FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
 		1B40F57925FEA5AD008E1096 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */; };
+		1B46DCD02602ECEE00B56AF2 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */; };
+		1B46DCD52602EEA500B56AF2 /* AddressViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */; };
 		1B47266A26026AD400FD9067 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47266926026AD400FD9067 /* MapView.swift */; };
 		1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */; };
 		1B5FC0AE25FAD0BD00C8CE2E /* Recursive-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD11BD25FABED000FD700E /* Recursive-Black.ttf */; };
@@ -76,7 +79,6 @@
 		1BE4B24426000E6D00902D47 /* AddressFieldViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4B23D26000E0200902D47 /* AddressFieldViewConstraints.swift */; };
 		1BFA5E0A26003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E0926003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift */; };
 		1BFA5E0F2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E0E2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift */; };
-		1BFA5E14260032C9007FDDFE /* HistoryViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E13260032C9007FDDFE /* HistoryViewControllerConstraints.swift */; };
 		1BFA5E192600355B007FDDFE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E182600355B007FDDFE /* CoreDataManager.swift */; };
 		6985EEF742E842FBEFF5745E /* Pods_CEP_FinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E962AD182AE585DA4CEDF4C /* Pods_CEP_FinderTests.framework */; };
 		8D78C7A55A8885E136051292 /* Pods_CEP_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779C709BE0237D130275FB90 /* Pods_CEP_Finder.framework */; };
@@ -101,12 +103,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0A71602602D456009FB7A5 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
-		1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryComponentCell.swift; sourceTree = "<group>"; };
+		1B40F55125FE92D0008E1096 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
+		1B40F55225FE92D0008E1096 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		1B40F56025FE943A008E1096 /* AddressComponentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressComponentCell.swift; sourceTree = "<group>"; };
 		1B40F56525FE9803008E1096 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1B47266926026AD400FD9067 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1B680CF8260101C300166FD3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +159,6 @@
 		1BE4B23D26000E0200902D47 /* AddressFieldViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldViewConstraints.swift; sourceTree = "<group>"; };
 		1BFA5E0926003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewControllerUITableViewDataSource.swift; sourceTree = "<group>"; };
 		1BFA5E0E2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewControllerUITableViewDelegate.swift; sourceTree = "<group>"; };
-		1BFA5E13260032C9007FDDFE /* HistoryViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1BFA5E182600355B007FDDFE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2398F0ED59C25B11A52B5235 /* Pods-CEP_Finder-CEP_FinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEP_Finder-CEP_FinderUITests.debug.xcconfig"; path = "Target Support Files/Pods-CEP_Finder-CEP_FinderUITests/Pods-CEP_Finder-CEP_FinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CF261A6D21A3298EA3CC990 /* Pods-CEP_Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEP_Finder.release.xcconfig"; path = "Target Support Files/Pods-CEP_Finder/Pods-CEP_Finder.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +199,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B0A715F2602D40E009FB7A5 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				1B0A71602602D456009FB7A5 /* EmptyDataView.swift */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
+		1B0A71682602E9D3009FB7A5 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				1B40F55225FE92D0008E1096 /* AddressTableViewCell.xib */,
+				1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */,
+				1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
 		1B47266426026A7E00FD9067 /* Cep */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,8 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				1BAB096C260272C0001D52B0 /* Cell */,
-				1B40F55125FE92D0008E1096 /* HistoryTableViewCell.swift */,
-				1B40F55225FE92D0008E1096 /* HistoryTableViewCell.xib */,
+				1B40F55125FE92D0008E1096 /* AddressTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -280,7 +301,7 @@
 		1BAB096C260272C0001D52B0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				1B40F56025FE943A008E1096 /* HistoryComponentCell.swift */,
+				1B40F56025FE943A008E1096 /* AddressComponentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -493,6 +514,8 @@
 		1BE4B25826000F2600902D47 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1B0A71682602E9D3009FB7A5 /* Address */,
+				1B0A715F2602D40E009FB7A5 /* Empty */,
 				1B47266426026A7E00FD9067 /* Cep */,
 				1B680CF7260101A200166FD3 /* BaseView */,
 				1BD7AE4625F9B3280036A743 /* Storyboards */,
@@ -509,7 +532,6 @@
 			children = (
 				1BFA5E0926003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift */,
 				1BFA5E0E2600324D007FDDFE /* HistoryViewControllerUITableViewDelegate.swift */,
-				1BFA5E13260032C9007FDDFE /* HistoryViewControllerConstraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -652,7 +674,7 @@
 				1B680D11260106D300166FD3 /* loading.json in Resources */,
 				1B5FC0B625FAD0C300C8CE2E /* Recursive-Light.ttf in Resources */,
 				1B5FC0B225FAD0C000C8CE2E /* Recursive-Bold.ttf in Resources */,
-				1B40F55425FE92D0008E1096 /* HistoryTableViewCell.xib in Resources */,
+				1B40F55425FE92D0008E1096 /* AddressTableViewCell.xib in Resources */,
 				1BD7AE1D25F9B31C0036A743 /* Assets.xcassets in Resources */,
 				1BD7AE1825F9B31B0036A743 /* Main.storyboard in Resources */,
 				1B7E2A8525FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */,
@@ -785,6 +807,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B46DCD02602ECEE00B56AF2 /* AddressViewController.swift in Sources */,
 				1B9D1FDC26019881001385AC /* CepController.swift in Sources */,
 				1BE4B22F260005CC00902D47 /* Colors.swift in Sources */,
 				1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */,
@@ -804,15 +827,16 @@
 				1BE4B23926000B1800902D47 /* FooterViewConstraints.swift in Sources */,
 				1BFA5E0A26003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift in Sources */,
 				1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */,
+				1B46DCD52602EEA500B56AF2 /* AddressViewControllerConstraints.swift in Sources */,
 				1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */,
 				1B40F56625FE9803008E1096 /* AboutViewController.swift in Sources */,
-				1B40F55325FE92D0008E1096 /* HistoryTableViewCell.swift in Sources */,
-				1BFA5E14260032C9007FDDFE /* HistoryViewControllerConstraints.swift in Sources */,
+				1B40F55325FE92D0008E1096 /* AddressTableViewCell.swift in Sources */,
 				1BD7AE1B25F9B31B0036A743 /* CEP_Finder.xcdatamodeld in Sources */,
+				1B0A71612602D456009FB7A5 /* EmptyDataView.swift in Sources */,
 				1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */,
 				1B93303425FFB04400C43011 /* HeaderView.swift in Sources */,
 				1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */,
-				1B40F56125FE943A008E1096 /* HistoryComponentCell.swift in Sources */,
+				1B40F56125FE943A008E1096 /* AddressComponentCell.swift in Sources */,
 				1BCEA1BF25FCDD0B00D1A2AB /* ErrorHandler.swift in Sources */,
 				1BCEA1D225FCF01300D1A2AB /* AddressFieldView.swift in Sources */,
 				1BE4B234260008E500902D47 /* UIViewExtension.swift in Sources */,

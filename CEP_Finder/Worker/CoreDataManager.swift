@@ -27,8 +27,6 @@ struct CoreDataManager {
         
         do {
             let addresses = try context.fetch(request)
-            print("$$$$$$$$$$$$$$$$$$$")
-            print(addresses[0])
             completion(addresses, nil)
         } catch  {
             completion(nil, ErrorHandler(title: "Error All History", code: 400, errorDescription: error.localizedDescription))

@@ -19,9 +19,10 @@ class AddressViewController: UIViewController {
         self.setup()
     }
     
+    // MARK: Setup
     private func setup() {
         self.setupBackgroundColor()
-        self.setupSubviews()
+        self.buildViewHierarchy()
         self.setupComponents()
     }
     
@@ -31,7 +32,7 @@ class AddressViewController: UIViewController {
     }
     
     // MARK: SetupSubviews
-    private func setupSubviews() {
+    private func buildViewHierarchy() {
         self.view.addSubview(self.header)
         self.view.addSubview(self.tableView)
         self.view.addSubview(self.emptyView)
@@ -79,9 +80,10 @@ class AddressViewController: UIViewController {
     }
     
     // MARK: SetupEmptyView
-    private func setupEmptyView() {
+    func setupEmptyView() {
         self.emptyView.backgroundColor = Colors.ligherOrange
-        self.emptyView.isHidden = true
+        self.emptyView.message = "It looks like you don't have anything here"
+        self.emptyView.updateLabel()
         setupEmptyViewConstraints()
     }
     

@@ -72,7 +72,6 @@ class HeaderView: UIView {
     }
 
     func updateTitleLabel() {
-        print(self.headerTitle)
         self.titleLabel.text = self.headerTitle ?? ""
     }
     

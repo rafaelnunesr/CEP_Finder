@@ -10,13 +10,13 @@ import Foundation
 class CepController {
     
     private var coreData = CoreDataManager(data: nil)
-    var arrayHistory: [CoreHistory?] = []
+    var arrayHistory: [CoreAddresses?] = []
     var address: AddressCoreData? = nil
     
     func addNewAddressToHistory() {
         guard let _address = self.address else { return }
         self.coreData.data = _address
-        self.coreData.persistCoreDataHistory()
+        self.coreData.persistCoreDataAddresses()
     }
     
 }

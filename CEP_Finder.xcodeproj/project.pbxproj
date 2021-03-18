@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0329072603752F00960DF8 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0329062603752F00960DF8 /* FavoriteController.swift */; };
 		1B0A71612602D456009FB7A5 /* EmptyDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A71602602D456009FB7A5 /* EmptyDataView.swift */; };
 		1B3EC69F260176E0008C1AB3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA5E182600355B007FDDFE /* CoreDataManager.swift */; };
 		1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0329062603752F00960DF8 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		1B0A71602602D456009FB7A5 /* EmptyDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataView.swift; sourceTree = "<group>"; };
 		1B40F53C25FE89D3008E1096 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		1B40F55125FE92D0008E1096 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		1B0A71682602E9D3009FB7A5 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				1BAB096B260272AE001D52B0 /* TableView */,
 				1B40F55225FE92D0008E1096 /* AddressTableViewCell.xib */,
 				1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */,
 				1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */,
@@ -486,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				1B40F57625FEA5AD008E1096 /* FavoritesViewController.swift */,
+				1B0329062603752F00960DF8 /* FavoriteController.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -504,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				1BAB096D260272CF001D52B0 /* ViewController */,
-				1BAB096B260272AE001D52B0 /* TableView */,
 				1BAB096A2602729F001D52B0 /* Controller */,
 				1BFA5E0826003212007FDDFE /* Extensions */,
 			);
@@ -811,6 +814,7 @@
 				1B9D1FDC26019881001385AC /* CepController.swift in Sources */,
 				1BE4B22F260005CC00902D47 /* Colors.swift in Sources */,
 				1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */,
+				1B0329072603752F00960DF8 /* FavoriteController.swift in Sources */,
 				1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */,
 				1B7E2A8225FC217E00F55AB8 /* MenuTableViewCell.swift in Sources */,
 				1BE4B23E26000E0200902D47 /* AddressFieldViewConstraints.swift in Sources */,

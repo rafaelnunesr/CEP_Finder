@@ -160,7 +160,7 @@ class CepViewController: UIViewController {
         
             DispatchQueue.main.async {
                 let cityState = _result.localidade + " / " + _result.uf
-                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
+                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState, isFavorite: false)
                 self.controller.addNewAddressToHistory()
                 
                 self.updateLabels(result: _result)

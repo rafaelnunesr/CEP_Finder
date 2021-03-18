@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CoreFavorites" representedClassName="CoreFavorites" syncable="YES" codeGenerationType="class">
+    <entity name="CoreAddresses" representedClassName="CoreAddresses" syncable="YES" codeGenerationType="class">
         <attribute name="cityState" optional="YES" attributeType="String"/>
-        <attribute name="streetName" optional="YES" attributeType="String"/>
-        <attribute name="zipCode" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="CoreHistory" representedClassName="CoreHistory" syncable="YES" codeGenerationType="class">
-        <attribute name="cityState" optional="YES" attributeType="String"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="streetName" optional="YES" attributeType="String"/>
         <attribute name="zipCode" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CoreHistory" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="CoreFavorites" positionX="-63" positionY="9" width="128" height="88"/>
+        <element name="CoreAddresses" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

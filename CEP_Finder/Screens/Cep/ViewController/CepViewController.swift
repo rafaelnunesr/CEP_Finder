@@ -160,40 +160,54 @@ class CepViewController: UIViewController {
     // MARK: SearchButtonTapped
     @objc private func searchButtonTapped() {
         self.searchField.resignFirstResponder()
+        guard let zipCode = searchField.text else { return }
         
-        guard let cep = searchField.text else { return }
-        
-        let s = cep.filter { $0 != "-" }
-        
-        let add = CepNetwork()
-        add.zipCode = s
-        
-        add.getAddress { (result, error) in
+        self.controller.getAddressByZipCode(with: zipCode) { (result) in
             
-            guard let _result = result else {
-                DispatchQueue.main.async {
-                    self.alertUser()
-                }
-                return
+            if result == true {
+                self.updateLabels()
             }
-        
-            DispatchQueue.main.async {
-                let cityState = _result.localidade + " / " + _result.uf
-                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
-                self.controller.addNewAddressToHistory()
-                
-                
-                if self.controller.checkIfAddressIsFavorited() {
-                    self.footerView.favoriteButton.isSelected = true
-                }
-                
-                
-                self.updateLabels(result: _result)
-            }
-            
         }
-        
     }
+    
+//    @objc private func searchButtonTapped() {
+//        self.searchField.resignFirstResponder()
+//        guard let zipCode = searchField.text else { return }
+//
+//        let numericZipCode = zipCode.filter { $0 != "-" }
+//
+//        let add = CepNetwork()
+//        add.zipCode = numericZipCode
+//
+//        add.getAddress { (result, error) in
+//
+//            guard let _result = result else {
+//                DispatchQueue.main.async {
+//                    self.alertUser()
+//                }
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                let cityState = _result.localidade + " / " + _result.uf
+//                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
+//                self.controller.addNewAddressToHistory()
+//
+//
+//                if self.controller.checkIfAddressIsFavorited() {
+//                    self.footerView.favoriteButton.isSelected = true
+//                }
+//
+//
+//                self.updateLabels(result: _result)
+//            }
+//
+//        }
+//
+//    }
+    
+    
+    
     // MARK: AlertUser
     private func alertUser() {
         let alert = UIAlertController(title: "Cep Invalid", message: "Sorry, the cep you request doesn't exist.", preferredStyle: .alert)
@@ -204,13 +218,19 @@ class CepViewController: UIViewController {
     }
     
     // MARK: UpdateLabels
-    private func updateLabels(result: CepModel) {
-        
-        let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
-        
+    private func updateLabels() {
+        guard let address = self.controller.address else { return }
         NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
-        
     }
+    
+//    // MARK: UpdateLabels
+//    private func updateLabels(result: CepModel) {
+//
+//        let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
+//
+//        NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
+//
+//    }
     
     // MARK: SetupFooterView
     private func setupFooterView() {

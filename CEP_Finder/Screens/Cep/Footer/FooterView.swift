@@ -42,10 +42,10 @@ class FooterView: UIView {
     // MARK: UpdateLabels
     @objc private func updateLabels(_ notification: Notification) {
         
-        let newAddress = notification.object as? Address
+        let newAddress = notification.object as? AddressCoreData
         
         DispatchQueue.main.async {
-            self.address = newAddress?.logradouro
+            self.address = newAddress?.streeName
             self.city = newAddress?.cityState
             
             self.setupAddressView()

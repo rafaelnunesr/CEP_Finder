@@ -164,49 +164,11 @@ class CepViewController: UIViewController {
         
         self.controller.getAddressByZipCode(with: zipCode) { (result) in
             
-            if result == true {
-                self.updateLabels()
-            }
+                if result == true {
+                    self.updateLabels()
+                }
         }
     }
-    
-//    @objc private func searchButtonTapped() {
-//        self.searchField.resignFirstResponder()
-//        guard let zipCode = searchField.text else { return }
-//
-//        let numericZipCode = zipCode.filter { $0 != "-" }
-//
-//        let add = CepNetwork()
-//        add.zipCode = numericZipCode
-//
-//        add.getAddress { (result, error) in
-//
-//            guard let _result = result else {
-//                DispatchQueue.main.async {
-//                    self.alertUser()
-//                }
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                let cityState = _result.localidade + " / " + _result.uf
-//                self.controller.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
-//                self.controller.addNewAddressToHistory()
-//
-//
-//                if self.controller.checkIfAddressIsFavorited() {
-//                    self.footerView.favoriteButton.isSelected = true
-//                }
-//
-//
-//                self.updateLabels(result: _result)
-//            }
-//
-//        }
-//
-//    }
-    
-    
     
     // MARK: AlertUser
     private func alertUser() {
@@ -223,15 +185,6 @@ class CepViewController: UIViewController {
         NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
     }
     
-//    // MARK: UpdateLabels
-//    private func updateLabels(result: CepModel) {
-//
-//        let address = Address(logradouro: result.logradouro, localidade: result.localidade, uf: result.uf)
-//
-//        NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
-//
-//    }
-    
     // MARK: SetupFooterView
     private func setupFooterView() {
         self.footerView.backgroundColor = Colors.mainOrange
@@ -244,4 +197,10 @@ class CepViewController: UIViewController {
         self.footerLine.backgroundColor = UIColor(red: 1.00, green: 0.30, blue: 0.00, alpha: 1.00)
         setupFooterLineConstraints()
     }
+    
+    func resetComponents() {
+        self.searchField.text = ""
+        self.footerView.resetComponents()
+    }
 }
+

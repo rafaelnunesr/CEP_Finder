@@ -101,4 +101,10 @@ class FooterView: UIView {
         self.cityStateView.address = AddressField(title: AddressSearchResult.stateCityTitle, addressInfo: self.city ?? "")
         self.cityStateView.setup()
     }
+    
+    func resetComponents() {
+        self.addressView.label.text = ""
+        self.cityStateView.label.text = ""
+        self.favoriteButton.isSelected = false
+    }
 }

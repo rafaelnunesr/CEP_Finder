@@ -13,7 +13,7 @@ class CepController {
     var arrayHistory: [CoreHistory?] = []
     var address: AddressCoreData? = nil
     
-    var cepNetwork: CepNetwork?
+    var cepNetwork: CepNetwork = CepNetwork()
     
     func addNewAddressToHistory() {
         guard let _address = self.address else { return }
@@ -43,20 +43,22 @@ class CepController {
     func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool) -> Void) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
-        self.cepNetwork?.zipCode = numericZipCode
-        
-        self.cepNetwork?.getAddress { (result, error) in
+        self.cepNetwork.zipCode = numericZipCode
+
+        self.cepNetwork.getAddress { (result, error) in
             
-            guard let _result = result else {
-                completionHandler(false)
-                return
+            DispatchQueue.main.async {
+                guard let _result = result else {
+                    completionHandler(false)
+                    return
+                }
+            
+                let cityState = _result.localidade + " / " + _result.uf
+                self.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
+                self.addNewAddressToHistory()
+                    
+                completionHandler(true)
             }
-        
-            let cityState = _result.localidade + " / " + _result.uf
-            self.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
-            self.addNewAddressToHistory()
-                
-            completionHandler(true)
         }
     }
 }

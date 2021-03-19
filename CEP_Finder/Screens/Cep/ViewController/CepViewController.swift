@@ -211,5 +211,6 @@ class CepViewController: BaseViewController {
         self.footerView.resetComponents()
         self.footerView.isHidden = true
     }
+
 }
 

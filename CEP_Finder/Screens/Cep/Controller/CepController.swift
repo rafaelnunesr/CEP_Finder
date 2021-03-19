@@ -40,9 +40,19 @@ class CepController {
         return false
     }
     
+    func getFavoriteAddress() -> CoreFavorites? {
+        guard let zipCode = self.address?.zipCode else { return nil }
+        return self.coreData.getAddressByZipCodeCoreFavorites(zipCode: zipCode)
+    }
+    
     func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool, _ error: ErrorHandler?) -> Void) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
+        
+        if self.checkIfAddressIsFavorited() {
+            completionHandler(true, nil)
+        }
+        
         self.cepNetwork.zipCode = numericZipCode
 
         self.cepNetwork.getAddress { (result, error) in

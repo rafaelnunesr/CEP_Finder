@@ -61,8 +61,6 @@ class CepController {
         
     }
     
-    
-    
     func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool, _ error: ErrorHandler?) -> Void) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
@@ -110,6 +108,7 @@ class CepController {
                 NotificationCenter.default.post(name: Notification.Name("updateMap"), object: latLng)
                 completionHandler(true, nil)
             }
+            completionHandler(false, error)
         }
         
     }

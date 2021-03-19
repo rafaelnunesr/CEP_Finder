@@ -185,8 +185,11 @@ class CepViewController: BaseViewController {
     private func updateMap(with zipCode: String) {
         self.controller.updateMap(zipCode: zipCode) { (result, error) in
             
-            if result == false {
-                self.alertUser(error: error!)
+            DispatchQueue.main.async {
+                if result == false {
+                    guard let _error = error else { return }
+                    self.alertUser(error: _error)
+                }
             }
         }
     }

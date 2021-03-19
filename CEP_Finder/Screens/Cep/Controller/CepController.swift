@@ -106,7 +106,7 @@ class CepController {
                 let latLng = Coordinate(lat: _result.lat, lng: _result.lng)
                 
                 NotificationCenter.default.post(name: Notification.Name("updateMap"), object: latLng)
-                completionHandler(true, nil)
+                completionHandler(true, error)
             }
             completionHandler(false, error)
         }

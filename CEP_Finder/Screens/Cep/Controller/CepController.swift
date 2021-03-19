@@ -74,7 +74,13 @@ class CepController {
     
     func updateMap() {
         self.cepNetwork.getLatLngGoogleApi { (response, error) in
-            print(response)
+            
+            let lat = response?.results.first?.geometry.location.lat ?? 0
+            let lng = response?.results.first?.geometry.location.lng ?? 0
+            let latLng = Coordinate(lat: lat, lng: lng)
+
+            NotificationCenter.default.post(name: Notification.Name("updateMap"), object: latLng)
+        
         }
     }
 }

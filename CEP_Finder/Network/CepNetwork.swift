@@ -19,6 +19,7 @@ class CepNetwork {
     typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void
     
     var zipCode: String?
+    let googleApi: String = ""
     
     func checkNetworkStatus() -> Bool {
         if Reachability.isConnectedToNetwork(){
@@ -46,7 +47,7 @@ class CepNetwork {
                 let result = try JSONDecoder().decode(CepModel.self, from: _data)
                 completion(result, nil)
             }catch {
-               
+                
                 if error.localizedDescription == "The data couldn’t be read because it is missing." {
                     completion(nil, ErrorHandler(title: "Invalid Zip Code", code: nil, errorDescription: PersonalizedErrorDescription.invalidZipCode.rawValue))
                 }else {
@@ -68,8 +69,7 @@ class CepNetwork {
             completion(nil, ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue))
             return
         }
-        
-        let googleApi: String = ""
+
         let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?key=\(googleApi)&components=postal_code:\(_zipCode)"
         
         let session = URLSession.shared
@@ -86,11 +86,9 @@ class CepNetwork {
                 completion(result, nil)
             }catch {
                 completion(nil, ErrorHandler(title: "Error getting data", code: nil, errorDescription: error.localizedDescription))
-                }
             }
+        }
         task.resume()
     }
-    
-    //https://maps.googleapis.com/maps/api/geocode/json?key=API_KEY&components=postal_code:ZIP_CODE
     
 }

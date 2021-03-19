@@ -66,9 +66,15 @@ class CepController {
                 let cityState = _result.localidade + " / " + _result.uf
                 self.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
                 self.addNewAddressToHistory()
-                    
+                self.updateMap()
                 completionHandler(true, nil)
             }
+        }
+    }
+    
+    func updateMap() {
+        self.cepNetwork.getLatLngGoogleApi { (response, error) in
+            print(response)
         }
     }
 }

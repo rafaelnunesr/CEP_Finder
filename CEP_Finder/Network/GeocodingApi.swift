@@ -15,7 +15,7 @@ struct GeocodingApi: Codable {
 struct Geocoding: Codable {
     let address_components: [GeocodingAddressComponent]
     let formatted_address: String
-    let geometry: [GeocodingGeometry]
+    let geometry: GeocodingGeometry
     let place_id: String
     let types: [String]
 }

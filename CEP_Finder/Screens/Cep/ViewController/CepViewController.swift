@@ -170,6 +170,7 @@ class CepViewController: BaseViewController {
                 self.updateLabels()
             }
             self.hiddenLoadingView()
+            self.footerView.isHidden = false
         }
     }
     
@@ -193,6 +194,7 @@ class CepViewController: BaseViewController {
         self.footerView.backgroundColor = Colors.mainOrange
         self.footerView.alpha = 0.8
         self.setupFooterViewConstraints()
+        self.footerView.isHidden = true
         
     }
     // MARK: SetupLastFooterView
@@ -204,6 +206,7 @@ class CepViewController: BaseViewController {
     func resetComponents() {
         self.searchField.text = ""
         self.footerView.resetComponents()
+        self.footerView.isHidden = true
     }
 }
 

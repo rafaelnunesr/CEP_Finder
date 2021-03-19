@@ -28,8 +28,7 @@ class BaseViewController: UIViewController {
     
     // MARK: SetupLoadingView
     private func setupLoadingView() {
-        self.loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        self.loadingView.layer.cornerRadius = 20
+        self.loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     }
 
     // MARK: ShowLoadingView
@@ -47,12 +46,6 @@ class BaseViewController: UIViewController {
     
     // MARK: SetupLoadingViewConstraint
     private func setupLoadingViewConstraint() {
-        let loadingViewSize: CGFloat = 200
-
-        self.loadingView.translatesAutoresizingMaskIntoConstraints = false
-        self.loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        self.loadingView.heightAnchor.constraint(equalToConstant: loadingViewSize).isActive = true
-        self.loadingView.widthAnchor.constraint(equalToConstant: loadingViewSize).isActive = true
+        self.loadingView.frame = self.view.frame
     }
 }

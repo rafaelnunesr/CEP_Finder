@@ -2,16 +2,20 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H524" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CoreFavorites" representedClassName="CoreFavorites" syncable="YES" codeGenerationType="class">
         <attribute name="cityState" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="streetName" optional="YES" attributeType="String"/>
         <attribute name="zipCode" optional="YES" attributeType="String"/>
     </entity>
     <entity name="CoreHistory" representedClassName="CoreHistory" syncable="YES" codeGenerationType="class">
         <attribute name="cityState" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="streetName" optional="YES" attributeType="String"/>
         <attribute name="zipCode" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CoreHistory" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="CoreFavorites" positionX="-63" positionY="9" width="128" height="88"/>
+        <element name="CoreFavorites" positionX="-63" positionY="9" width="128" height="118"/>
+        <element name="CoreHistory" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

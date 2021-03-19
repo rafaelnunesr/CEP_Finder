@@ -163,7 +163,11 @@ class CepViewController: BaseViewController {
         guard let zipCode = searchField.text else { return }
         
         self.showLoadingView()
-        
+        self.getAddressByZipCode(with: zipCode)
+        self.updateMap(with: zipCode)
+    }
+    
+    private func getAddressByZipCode(with zipCode: String) {
         self.controller.getAddressByZipCode(with: zipCode) { (result, error) in
             
             if result == true {
@@ -172,6 +176,16 @@ class CepViewController: BaseViewController {
                 self.footerView.isHidden = false
             }else {
                 self.hiddenLoadingView()
+                self.alertUser(error: error!)
+            }
+            
+        }
+    }
+    
+    private func updateMap(with zipCode: String) {
+        self.controller.updateMap(zipCode: zipCode) { (result, error) in
+            
+            if result == false {
                 self.alertUser(error: error!)
             }
         }
@@ -211,6 +225,6 @@ class CepViewController: BaseViewController {
         self.footerView.resetComponents()
         self.footerView.isHidden = true
     }
-
+    
 }
 

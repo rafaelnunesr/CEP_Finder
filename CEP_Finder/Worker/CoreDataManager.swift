@@ -12,7 +12,8 @@ enum CoreDataKeys: String {
     case zipCode = "zipCode"
     case streetName = "streetName"
     case cityState = "cityState"
-    case isFavorite = "isFavorite"
+    case latitude = "latitude"
+    case longitude = "longitude"
 }
 
 struct CoreDataManager {
@@ -98,6 +99,8 @@ struct CoreDataManager {
             address.setValue(self.addressData?.zipCode, forKey: CoreDataKeys.zipCode.rawValue)
             address.setValue(self.addressData?.streeName, forKey: CoreDataKeys.streetName.rawValue)
             address.setValue(self.addressData?.cityState, forKey: CoreDataKeys.cityState.rawValue)
+            address.setValue(self.addressData?.latitude, forKey: CoreDataKeys.latitude.rawValue)
+            address.setValue(self.addressData?.longitude, forKey: CoreDataKeys.longitude.rawValue)
 
         }else {
 
@@ -107,6 +110,8 @@ struct CoreDataManager {
                 address.zipCode = self.addressData?.zipCode
                 address.streetName = self.addressData?.streeName
                 address.cityState = self.addressData?.cityState
+                address.latitude = self.addressData?.latitude ?? 0
+                address.longitude = self.addressData?.longitude ?? 0
             }
 
             do {
@@ -127,6 +132,8 @@ struct CoreDataManager {
             address.setValue(self.addressData?.zipCode, forKey: CoreDataKeys.zipCode.rawValue)
             address.setValue(self.addressData?.streeName, forKey: CoreDataKeys.streetName.rawValue)
             address.setValue(self.addressData?.cityState, forKey: CoreDataKeys.cityState.rawValue)
+            address.setValue(self.addressData?.latitude, forKey: CoreDataKeys.latitude.rawValue)
+            address.setValue(self.addressData?.longitude, forKey: CoreDataKeys.longitude.rawValue)
 
         }else {
 
@@ -136,6 +143,8 @@ struct CoreDataManager {
                 address.zipCode = self.addressData?.zipCode
                 address.streetName = self.addressData?.streeName
                 address.cityState = self.addressData?.cityState
+                address.latitude = self.addressData?.latitude ?? 0
+                address.longitude = self.addressData?.longitude ?? 0
             }
 
             do {

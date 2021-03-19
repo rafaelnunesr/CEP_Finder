@@ -11,4 +11,6 @@ struct AddressCoreData {
     let zipCode: String
     let streeName: String
     let cityState: String
+    let latitude: Double
+    let longitude: Double
 }

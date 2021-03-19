@@ -11,6 +11,7 @@ enum PersonalizedErrorDescription: String {
     case network = "It looks like you're offline. Please check your connection."
     case invalidZipCode = "Ops. The zip code doesn't exist. Please inform a valid zip code"
     case noZipCode = "ZipCode value is nill"
+    case noGoogleApiKey = "Hey user, a Google Key is required to update the map using Google Services. If you are a developer, put your Google Key in CepNetwork class."
 }
 
 
@@ -19,8 +20,9 @@ class CepNetwork {
     typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void
     
     var zipCode: String?
-    let googleApi: String = ""
+    let googleApiKey: String = ""
     
+    // MARK: CheckNetworkStatus
     func checkNetworkStatus() -> Bool {
         if Reachability.isConnectedToNetwork(){
             return true
@@ -28,6 +30,7 @@ class CepNetwork {
         return false
     }
     
+    // MARK: GetAddress
     func getAddress(completion: @escaping completion<CepModel?>) {
         
         if !self.checkNetworkStatus() {
@@ -59,6 +62,7 @@ class CepNetwork {
         
     }
     
+    // MARK: GetLatLngGoogleApi
     func getLatLngGoogleApi(completion: @escaping completion<GeocodingApi?>) {
         
         if !self.checkNetworkStatus() {
@@ -69,8 +73,12 @@ class CepNetwork {
             completion(nil, ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue))
             return
         }
+        
+        if self.googleApiKey.isEmpty {
+            completion(nil, ErrorHandler(title: "Google Api Key Missing", code: nil, errorDescription: PersonalizedErrorDescription.noGoogleApiKey.rawValue))
+        }
 
-        let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?key=\(googleApi)&components=postal_code:\(_zipCode)"
+        let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?key=\(googleApiKey)&components=postal_code:\(_zipCode)"
         
         let session = URLSession.shared
         let url = URL(string: googleURL)

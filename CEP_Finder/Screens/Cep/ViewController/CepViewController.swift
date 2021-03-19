@@ -9,7 +9,7 @@ import UIKit
 import SwiftMaskTextfield
 import SideMenu
 
-class CepViewController: UIViewController {
+class CepViewController: BaseViewController {
     
     // MARK: Controller
     var controller = CepController()
@@ -162,11 +162,14 @@ class CepViewController: UIViewController {
         self.searchField.resignFirstResponder()
         guard let zipCode = searchField.text else { return }
         
+        self.showLoadingView()
+        
         self.controller.getAddressByZipCode(with: zipCode) { (result) in
             
-                if result == true {
-                    self.updateLabels()
-                }
+            if result == true {
+                self.updateLabels()
+            }
+            self.hiddenLoadingView()
         }
     }
     

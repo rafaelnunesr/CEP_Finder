@@ -20,7 +20,7 @@ class CepNetwork {
     typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void
     
     var zipCode: String?
-    let googleApiKey: String = ""
+    let googleApiKey = GoogleApiKey.key.rawValue
     
     // MARK: CheckNetworkStatus
     func checkNetworkStatus() -> Bool {

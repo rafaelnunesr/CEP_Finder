@@ -64,6 +64,7 @@
 		1BCEA1D425FCF01300D1A2AB /* AddressFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */; };
 		1BCEA1D925FD04FC00D1A2AB /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D825FD04FC00D1A2AB /* Address.swift */; };
 		1BCEA1DA25FD04FC00D1A2AB /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEA1D825FD04FC00D1A2AB /* Address.swift */; };
+		1BCF2C6F2605596500AEFBB9 /* GoogleApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF2C6E2605596500AEFBB9 /* GoogleApiKey.swift */; };
 		1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */; };
 		1BD7AE1325F9B31B0036A743 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */; };
 		1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7AE1425F9B31B0036A743 /* CepViewController.swift */; };
@@ -145,6 +146,7 @@
 		1BCEA1C725FCEC3C00D1A2AB /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		1BCEA1D125FCF01300D1A2AB /* AddressFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressFieldView.swift; sourceTree = "<group>"; };
 		1BCEA1D825FD04FC00D1A2AB /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		1BCF2C6E2605596500AEFBB9 /* GoogleApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleApiKey.swift; sourceTree = "<group>"; };
 		1BD7AE0D25F9B31B0036A743 /* CEP_Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CEP_Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD7AE1025F9B31B0036A743 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD7AE1225F9B31B0036A743 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				1BCEA1B325FCDB2800D1A2AB /* CepNetwork.swift */,
 				1B65B05E26050B610037EF44 /* Reachability.swift */,
 				1B65B06626051ECE0037EF44 /* GeocodingApi.swift */,
+				1BCF2C6E2605596500AEFBB9 /* GoogleApiKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				1B7B60892603EEE600753A37 /* FavoritesViewControllerUITableViewDataSource.swift in Sources */,
 				1BD7AE1525F9B31B0036A743 /* CepViewController.swift in Sources */,
 				1B47266A26026AD400FD9067 /* MapView.swift in Sources */,
+				1BCF2C6F2605596500AEFBB9 /* GoogleApiKey.swift in Sources */,
 				1B7E2A7C25FC1C9300F55AB8 /* MenuViewController.swift in Sources */,
 				1BFA5E192600355B007FDDFE /* CoreDataManager.swift in Sources */,
 				1BD7AE1125F9B31B0036A743 /* AppDelegate.swift in Sources */,

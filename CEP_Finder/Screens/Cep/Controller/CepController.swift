@@ -40,7 +40,7 @@ class CepController {
         return false
     }
     
-    func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool) -> Void) {
+    func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool, _ error: ErrorHandler?) -> Void) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
         self.cepNetwork.zipCode = numericZipCode
@@ -49,7 +49,7 @@ class CepController {
             
             DispatchQueue.main.async {
                 guard let _result = result else {
-                    completionHandler(false)
+                    completionHandler(false, error)
                     return
                 }
             
@@ -57,7 +57,7 @@ class CepController {
                 self.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState)
                 self.addNewAddressToHistory()
                     
-                completionHandler(true)
+                completionHandler(true, nil)
             }
         }
     }

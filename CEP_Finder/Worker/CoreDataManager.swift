@@ -148,7 +148,7 @@ struct CoreDataManager {
     }
     
     // MARK: DeleteOneAddressFromHistory
-    func deleteOneAddressFromHistory(zipCode: String) -> Bool {
+    func deleteOneAddressFromHistory(zipCode: String) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let request: NSFetchRequest<CoreHistory> = CoreHistory.fetchRequest()
@@ -158,15 +158,13 @@ struct CoreDataManager {
         do {
             let address = try context.fetch(request)
             context.delete(address.first!)
-            return true
         } catch  {
             print("Error getting bank from CoreAddresses \(error)")
-            return false
         }
     }
     
     // MARK: DeleteOneAddressFromFavorites
-    func deleteOneAddressFromFavorites(zipCode: String) -> Bool {
+    func deleteOneAddressFromFavorites(zipCode: String) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let request: NSFetchRequest<CoreFavorites> = CoreFavorites.fetchRequest()
@@ -176,15 +174,13 @@ struct CoreDataManager {
         do {
             let address = try context.fetch(request)
             context.delete(address.first!)
-            return true
         } catch  {
             print("Error getting bank from CoreFavorites \(error)")
-            return false
         }
     }
     
     // MARK: DeleteAllAddresses
-    func deleteAllAddressesFromHistory() -> Bool {
+    func deleteAllAddressesFromHistory() {
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreHistory")
@@ -193,15 +189,13 @@ struct CoreDataManager {
         do {
             try context.execute(deleteRequest)
             try context.save()
-            return true
         } catch {
             print ("There was an error")
-            return false
         }
 
     }
     
-    func deleteAllAddressesFromFavorites() -> Bool {
+    func deleteAllAddressesFromFavorites() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreFavorites")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -209,10 +203,8 @@ struct CoreDataManager {
         do {
             try context.execute(deleteRequest)
             try context.save()
-            return true
         } catch {
             print ("There was an error")
-            return false
         }
 
     }

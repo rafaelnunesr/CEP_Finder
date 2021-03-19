@@ -164,19 +164,22 @@ class CepViewController: BaseViewController {
         
         self.showLoadingView()
         
-        self.controller.getAddressByZipCode(with: zipCode) { (result) in
+        self.controller.getAddressByZipCode(with: zipCode) { (result, error) in
             
             if result == true {
+                self.hiddenLoadingView()
                 self.updateLabels()
+                self.footerView.isHidden = false
+            }else {
+                self.hiddenLoadingView()
+                self.alertUser(error: error!)
             }
-            self.hiddenLoadingView()
-            self.footerView.isHidden = false
         }
     }
     
     // MARK: AlertUser
-    private func alertUser() {
-        let alert = UIAlertController(title: "Cep Invalid", message: "Sorry, the cep you request doesn't exist.", preferredStyle: .alert)
+    private func alertUser(error: ErrorHandler) {
+        let alert = UIAlertController(title: error.title, message: error.errorDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel)
         
         alert.addAction(okAction)

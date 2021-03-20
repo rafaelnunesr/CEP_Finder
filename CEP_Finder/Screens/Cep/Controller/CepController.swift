@@ -9,27 +9,32 @@ import Foundation
 
 class CepController {
     
+    // MARK: Components
     private var coreData = CoreDataManager(addressData: nil)
     var arrayHistory: [CoreHistory?] = []
     var address: AddressCoreData? = nil
     
     var cepNetwork: CepNetwork = CepNetwork()
     
+    // MARK: AddNewAddressToHistory
     func addNewAddressToHistory() {
         guard let _address = self.address else { return }
         self.coreData.addressData = _address
         self.coreData.persistCoreDataHistory()
     }
     
+    // MARK: AddFavoriteAddress
     func addFavoriteAddress() {
         self.coreData.addressData = address
         self.coreData.persistCoreDataFavorites()
     }
     
+    // MARK: RemoveFavoriteAddress
     func removeFavoriteAddress() {
         self.coreData.deleteOneAddressFromFavorites(zipCode: self.address?.zipCode ?? "")
     }
     
+    // MARK: CheckIfAddressIsFavorited
     func checkIfAddressIsFavorited() -> Bool {
         guard let zipCode = self.address?.zipCode else { return false }
         
@@ -40,11 +45,13 @@ class CepController {
         return false
     }
     
+    // MARK: GetFavoriteAddress
     func getFavoriteAddress() -> CoreFavorites? {
         guard let zipCode = self.address?.zipCode else { return nil }
         return self.coreData.getAddressByZipCodeCoreFavorites(zipCode: zipCode)
     }
     
+    // MARK: GetCoordinates
     func getCoordinates(with zipCode: String, completionHandler: @escaping (_ result: Coordinate?, _ error: ErrorHandler?) -> Void) {
         
         self.cepNetwork.getLatLngGoogleApi { (response, error) in
@@ -61,6 +68,7 @@ class CepController {
         
     }
     
+    // MARK: GetAddressByZipCode
     func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool, _ error: ErrorHandler?) -> Void) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
@@ -89,6 +97,7 @@ class CepController {
     
     }
     
+    // MARK: UpdateMap
     func updateMap(zipCode: String, completionHandler: @escaping (_ result: Bool?, _ error: ErrorHandler?) -> Void) {
         
         self.getCoordinates(with: zipCode) { (result, error) in

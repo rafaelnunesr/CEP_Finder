@@ -9,20 +9,24 @@ import UIKit
 
 extension HistoryViewController: UITableViewDataSource {
     
+    // MARK: CanEditRowAt
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    // MARK: EditingStyle
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         controller.deleteSpecificAddress(withIndex: indexPath.row)
         controller.arrayHistory?.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+    // MARK: NumberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return controller.quantity ?? 0
     }
     
+    // MARK: CellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AddressTableViewCell.identifier, for: indexPath) as? AddressTableViewCell
@@ -41,6 +45,7 @@ extension HistoryViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
     
+    // MARK: HeightForRowAt
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
         

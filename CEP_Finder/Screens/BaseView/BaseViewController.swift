@@ -48,4 +48,13 @@ class BaseViewController: UIViewController {
     private func setupLoadingViewConstraint() {
         self.loadingView.frame = self.view.frame
     }
+    
+    // MARK: AlertUser
+    func alertUser(error: ErrorHandler) {
+        let alert = UIAlertController(title: error.title, message: error.errorDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
 }

@@ -9,24 +9,27 @@ import Foundation
 
 class FavoriteController {
     
+    // MARK: Components
     var coreData = CoreDataManager(addressData: nil)
-    
     var arrayFavorite: [CoreFavorites]?
     var address: AddressCoreData?
     var quantityHistory: Int?
     
+    // MARK: SaveNewAddress
     func saveNewAddress() {
         guard let _address = self.address else { return }
         self.coreData.addressData = _address
         self.coreData.persistCoreDataHistory()
     }
     
+    // MARK: DeleteSpecificAddress
     func deleteSpecificAddress(withIndex index: Int) {
         let zipCode = self.arrayFavorite?[index].zipCode
         guard let _zipCode = zipCode else { return }
         self.coreData.deleteOneAddressFromHistory(zipCode: _zipCode)
     }
     
+    // MARK: GetAllAddresses
     func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
     
         self.coreData.getAllFavorites { (result, error) in
@@ -42,10 +45,12 @@ class FavoriteController {
         }
     }
     
+    // MARK: DeleteAllAddresses
     func deleteAllAddresses() {
         self.coreData.deleteAllAddressesFromFavorites()
     }
     
+    // MARK: Quantity
     var quantity: Int {
         return self.arrayFavorite?.count ?? 0
     }

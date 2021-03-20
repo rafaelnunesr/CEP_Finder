@@ -8,15 +8,22 @@
 import UIKit
 import SwiftMaskTextfield
 import SideMenu
+import MapKit
+import CoreLocation
 
 class CepViewController: BaseViewController {
     
     // MARK: Controller
     var controller = CepController()
     
+    // MARK: Map Settings
+    let regionRadius: CLLocationDistance = 1000
+    var previousLocation: CLLocation?
+    let locationManager = CLLocationManager()
+    
     // MARK: Components
     var sideMenu: SideMenuNavigationController?
-    let mapView: MapView = MapView()
+    let map: MKMapView = MKMapView()
     let backHeaderView: UIView = UIView()
     let topHeaderView: UIView = UIView()
     let menuButton: UIButton = UIButton()
@@ -38,13 +45,24 @@ class CepViewController: BaseViewController {
     
     // MARK: Setup()
     private func setup() {
-        self.setupObserver()
+        self.checkLocationServices()
+        self.setupObservers()
         self.buildViewHierarchy()
         self.setupSideMenu()
         self.setupComponents()
     }
     
-    private func setupObserver() {
+    // MARK: SetupMapDelegate
+    private func setupMapDelegate() {
+        self.map.delegate = self
+    }
+    
+    private func setupObservers() {
+        self.setupObserverForFavoriteStatus()
+        self.setupObserverForMap()
+    }
+    
+    private func setupObserverForFavoriteStatus() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteStatus), name: NSNotification.Name("updateFavorite"), object: nil)
     }
     
@@ -61,9 +79,13 @@ class CepViewController: BaseViewController {
         }
     }
     
+    private func setupObserverForMap() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMaps), name: NSNotification.Name("updateMap"), object: nil)
+    }
+    
     // MARK: SetupSubviews
     private func buildViewHierarchy() {
-        self.view.addSubview(self.mapView)
+        self.view.addSubview(self.map)
         self.view.addSubview(self.backHeaderView)
         self.view.addSubview(self.topHeaderView)
         self.view.addSubview(self.menuButton)
@@ -81,7 +103,7 @@ class CepViewController: BaseViewController {
     
     // MARK: SetupComponents
     private func setupComponents() {
-        self.setupMapView()
+        self.setupMap()
         self.setupBackHeaderView()
         self.setupTopHeaderView()
         self.setupMenu()
@@ -92,8 +114,8 @@ class CepViewController: BaseViewController {
     }
     
     // MARK: SetupMap
-    private func setupMapView() {
-        self.setupMapViewConstraints()
+    private func setupMap() {
+        self.setupMapConstraints()
     }
     
     // MARK: SetupBackHeaderView
@@ -107,20 +129,15 @@ class CepViewController: BaseViewController {
         self.topHeaderView.backgroundColor = .white
         self.topHeaderView.alpha = 0.8
         self.topHeaderView.layer.cornerRadius = 8
-        
         self.topHeaderView.applyShadow()
-        
         self.setupTopHeaderViewConstraints()
     }
     
     // MARK: SetupMenu
     private func setupMenu() {
-        
         self.menuButton.buttonWithIcon(systemImage: ButtonIcons.menu)
-        
         self.menuButton.tintColor = .black
         self.menuButton.addTarget(self, action: #selector(menuTapped), for: .touchUpInside)
-        
         self.setupMenuButtonConstraints()
     }
     
@@ -194,15 +211,6 @@ class CepViewController: BaseViewController {
         }
     }
     
-    // MARK: AlertUser
-    private func alertUser(error: ErrorHandler) {
-        let alert = UIAlertController(title: error.title, message: error.errorDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        
-        alert.addAction(okAction)
-        self.present(alert, animated: true)
-    }
-    
     // MARK: UpdateLabels
     private func updateLabels() {
         guard let address = self.controller.address else { return }
@@ -223,11 +231,10 @@ class CepViewController: BaseViewController {
         setupFooterLineConstraints()
     }
     
+    // MARK: ResetComponents
     func resetComponents() {
         self.searchField.text = ""
         self.footerView.resetComponents()
         self.footerView.isHidden = true
     }
-    
 }
-

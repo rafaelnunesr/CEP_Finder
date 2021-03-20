@@ -50,7 +50,7 @@ class FavoritesViewController: AddressViewController {
     
     // MARK: ClearButtonTapped
     override func clearButtonTapped() {
-        let alert = UIAlertController(title: "Delete All History", message: "Are you sure you want to delete all history data?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete All Favorites", message: "Are you sure you want to delete all your favorites Addresses?", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
             self.controller.deleteAllAddresses()
             self.showEmptyView()
@@ -61,15 +61,15 @@ class FavoritesViewController: AddressViewController {
         
         alert.addAction(cancelButton)
         alert.addAction(deleteButton)
-        
-
         present(alert, animated: true)
     }
     
+    // MARK: ShowEmptyView
     private func showEmptyView() {
         self.emptyView.isHidden = false
     }
     
+    // MARK: CheckHistoryItems
     private func checkHistoryItems() {
         if self.controller.quantity > 0 {
             self.emptyView.isHidden = true

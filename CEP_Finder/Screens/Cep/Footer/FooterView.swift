@@ -47,7 +47,6 @@ class FooterView: UIView {
         DispatchQueue.main.async {
             self.address = newAddress?.streeName
             self.city = newAddress?.cityState
-            
             self.setupAddressView()
             self.setupStateCityView()  
         }
@@ -102,6 +101,7 @@ class FooterView: UIView {
         self.cityStateView.setup()
     }
     
+    // MARK: ResetComponents
     func resetComponents() {
         self.addressView.label.text = ""
         self.cityStateView.label.text = ""

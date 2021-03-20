@@ -61,15 +61,15 @@ class HistoryViewController: AddressViewController {
         
         alert.addAction(cancelButton)
         alert.addAction(deleteButton)
-        
-
         present(alert, animated: true)
     }
     
+    // MARK: ShowEmptyView
     private func showEmptyView() {
         self.emptyView.isHidden = false
     }
     
+    // MARK: CheckHistoryItems
     private func checkHistoryItems() {
         if self.controller.quantity > 0 {
             self.emptyView.isHidden = true

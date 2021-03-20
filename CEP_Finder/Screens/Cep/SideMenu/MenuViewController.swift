@@ -9,8 +9,10 @@ import UIKit
 
 class MenuViewController: UITableViewController {
     
+    // MARK: Menu List
     let menuItens = ["Favorites", "History", "About"]
 
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,10 +24,12 @@ class MenuViewController: UITableViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    // MARK: NumberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItens.count
     }
     
+    // MARK: CellForRowAt
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.identifier, for: indexPath) as? MenuTableViewCell
@@ -40,10 +44,12 @@ class MenuViewController: UITableViewController {
         
     }
     
+    // MARK: HeightForRowAt
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
+    // MARK: DidSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
@@ -62,7 +68,6 @@ class MenuViewController: UITableViewController {
         default:
             return
         }
-        
     }
 
 }

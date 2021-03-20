@@ -10,13 +10,13 @@ import Foundation
 extension CepViewController {
     
     // MARK: setupMapConstraints
-    func setupMapViewConstraints() {
-        mapView.translatesAutoresizingMaskIntoConstraints = false
+    func setupMapConstraints() {
+        map.translatesAutoresizingMaskIntoConstraints = false
         
-        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        map.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        map.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        map.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        map.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     // MARK: SetupBackHeaderViewConstraints

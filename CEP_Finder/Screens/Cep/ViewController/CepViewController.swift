@@ -60,6 +60,7 @@ class CepViewController: BaseViewController {
     private func setupObservers() {
         self.setupObserverForFavoriteStatus()
         self.setupObserverForMap()
+        self.setupGeneralObserver()
     }
     
     private func setupObserverForFavoriteStatus() {
@@ -81,6 +82,19 @@ class CepViewController: BaseViewController {
     
     private func setupObserverForMap() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateMaps), name: NSNotification.Name("updateMap"), object: nil)
+    }
+    
+    private func setupGeneralObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showSavedMap), name: NSNotification.Name("showSavedAddress"), object: nil)
+    }
+    
+    @objc private func showSavedMap(_ notification: Notification) {
+        let address = notification.object as? AddressCoreData
+        self.searchField.text = address?.zipCode
+        self.controller.address = address
+        self.updateLabels()
+        self.footerView.isHidden = false
+        
     }
     
     // MARK: SetupSubviews

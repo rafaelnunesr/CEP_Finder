@@ -19,26 +19,25 @@ class FavoriteController {
     func saveNewAddress() {
         guard let _address = self.address else { return }
         self.coreData.addressData = _address
-        self.coreData.persistCoreDataHistory()
+        self.coreData.persistCoreData(coreData: CoreData.favorites)
     }
     
     // MARK: DeleteSpecificAddress
     func deleteSpecificAddress(withIndex index: Int) {
         let zipCode = self.arrayFavorite?[index].zipCode
         guard let _zipCode = zipCode else { return }
-        self.coreData.deleteOneAddressFromHistory(zipCode: _zipCode)
+        self.coreData.deleteOneAddress(coreData: CoreData.history, zipCode: _zipCode)
     }
     
     // MARK: GetAllAddresses
     func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
-    
-        self.coreData.getAllFavorites { (result, error) in
-            
+        
+        self.coreData.getAllAddresses(coreData: CoreData.favorites) { (result, error) in
             guard let _result = result else {
                 completionHandler(false)
                 return
             }
-            self.arrayFavorite = _result
+            self.arrayFavorite = _result as? [CoreFavorites]
             self.quantityHistory = _result.count
             
             completionHandler(true)
@@ -47,7 +46,7 @@ class FavoriteController {
     
     // MARK: DeleteAllAddresses
     func deleteAllAddresses() {
-        self.coreData.deleteAllAddressesFromFavorites()
+        self.coreData.deleteAllAddresses(coreData: CoreData.favorites)
     }
     
     // MARK: Quantity

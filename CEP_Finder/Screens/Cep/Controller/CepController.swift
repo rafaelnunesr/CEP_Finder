@@ -22,26 +22,26 @@ class CepController {
     func addNewAddressToHistory() {
         guard let _address = self.address else { return }
         self.coreData.addressData = _address
-        self.coreData.persistCoreDataHistory()
+        self.coreData.persistCoreData(coreData: CoreData.history)
     }
     
     // MARK: AddFavoriteAddress
     func addFavoriteAddress() {
         self.coreData.addressData = address
-        self.coreData.persistCoreDataFavorites()
+        self.coreData.persistCoreData(coreData: CoreData.favorites)
     }
     
     // MARK: RemoveFavoriteAddress
     func removeFavoriteAddress() {
         self.coreData.addressData = address
-        self.coreData.deleteOneAddressFromFavorites(zipCode: self.address?.zipCode ?? "")
+        self.coreData.deleteOneAddress(coreData: CoreData.favorites, zipCode: self.address?.zipCode ?? "")
     }
     
     // MARK: CheckIfAddressIsFavorited
     func checkIfAddressIsFavorited() -> Bool {
         guard let zipCode = self.address?.zipCode else { return false }
         
-        if self.coreData.getAddressByZipCodeCoreFavorites(zipCode: zipCode) != nil {
+        if self.coreData.getAddressByZipCode(coreData: CoreData.favorites, zipCode: zipCode) != nil {
             return true
         }
         
@@ -51,7 +51,7 @@ class CepController {
     // MARK: GetFavoriteAddress
     func getFavoriteAddress() -> CoreFavorites? {
         guard let zipCode = self.address?.zipCode else { return nil }
-        return self.coreData.getAddressByZipCodeCoreFavorites(zipCode: zipCode)
+        return self.coreData.getAddressByZipCode(coreData: CoreData.favorites, zipCode: zipCode) as? CoreFavorites
     }
     
     // MARK: GetCoordinates

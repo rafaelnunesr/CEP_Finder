@@ -23,7 +23,7 @@ extension HistoryViewController: UITableViewDataSource {
     
     // MARK: NumberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.quantity ?? 0
+        return controller.quantity 
     }
     
     // MARK: CellForRowAt

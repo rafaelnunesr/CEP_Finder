@@ -99,18 +99,22 @@ class CepNetwork {
         task.resume()
     }
     
+    // MARK: NetworkError
     private func networkError() -> ErrorHandler {
         return ErrorHandler(title: "Network error", code: 404, errorDescription: PersonalizedErrorDescription.network.rawValue)
     }
     
+    // MARK: GoogleApiKeyMissing
     private func googleApiKeyMissing() -> ErrorHandler {
         return ErrorHandler(title: "Google Api Key Missing", code: nil, errorDescription: PersonalizedErrorDescription.noGoogleApiKey.rawValue)
     }
     
+    // MARK: InvalidZipCode
     private func invalidZipCode() -> ErrorHandler {
         return ErrorHandler(title: "Invalid Zip Code", code: nil, errorDescription: PersonalizedErrorDescription.invalidZipCode.rawValue)
     }
     
+    // MARK: EmptyZipCode
     private func emptyZipCode() -> ErrorHandler {
         return ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue)
     }

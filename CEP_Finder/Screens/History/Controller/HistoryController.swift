@@ -19,35 +19,35 @@ class HistoryController {
     func saveNewAddress() {
         guard let _address = self.address else { return }
         self.coreData.addressData = _address
-        self.coreData.persistCoreDataHistory()
+        self.coreData.persistCoreData(coreData: CoreData.history)
     }
     
     // MARK: DeleteSpecificAddress
     func deleteSpecificAddress(withIndex index: Int) {
         let zipCode = self.arrayHistory?[index].zipCode
         guard let _zipCode = zipCode else { return }
-        self.coreData.deleteOneAddressFromHistory(zipCode: _zipCode)
+        self.coreData.deleteOneAddress(coreData: CoreData.history, zipCode: _zipCode)
     }
     
     // MARK: GetAllAddresses
     func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
-    
-        self.coreData.getAllHistory { (result, error) in
-            
+        
+        self.coreData.getAllAddresses(coreData: CoreData.history, completion: { (result, error) in
             guard let _result = result else {
                 completionHandler(false)
                 return
             }
-            self.arrayHistory = _result
+            self.arrayHistory = _result as? [CoreHistory]
             self.quantityHistory = _result.count
             
             completionHandler(true)
-        }
+        })
+        
     }
     
     // MARK: DeleteAllAddresses
     func deleteAllAddresses() {
-        self.coreData.deleteAllAddressesFromHistory()
+        self.coreData.deleteAllAddresses(coreData: CoreData.history)
     }
     
     // MARK: Quantity

@@ -24,6 +24,7 @@ class CepViewController: BaseViewController {
     // MARK: Components
     var sideMenu: SideMenuNavigationController?
     let map: MKMapView = MKMapView()
+    let mapPin: UIImageView = UIImageView()
     let backHeaderView: UIView = UIView()
     let topHeaderView: UIView = UIView()
     let menuButton: UIButton = UIButton()
@@ -57,16 +58,19 @@ class CepViewController: BaseViewController {
         self.map.delegate = self
     }
     
+    // MARK: SetupObservers
     private func setupObservers() {
         self.setupObserverForFavoriteStatus()
         self.setupObserverForMap()
         self.setupGeneralObserver()
     }
     
+    // MARK: SetupObserverForFavoriteStatus
     private func setupObserverForFavoriteStatus() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteStatus), name: NSNotification.Name("updateFavorite"), object: nil)
     }
     
+    // MARK: UpdateFavoriteStatus
     @objc private func updateFavoriteStatus(_ notification: Notification) {
         
         let result = notification.object as? Bool
@@ -80,26 +84,30 @@ class CepViewController: BaseViewController {
         }
     }
     
+    // MARK: SetupObserverForMap
     private func setupObserverForMap() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateMaps), name: NSNotification.Name("updateMap"), object: nil)
     }
     
+    //MARK: SetupGeneralObserver
     private func setupGeneralObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(showSavedMap), name: NSNotification.Name("showSavedAddress"), object: nil)
     }
     
+    // MARK: ShowSavedMap
     @objc private func showSavedMap(_ notification: Notification) {
         let address = notification.object as? AddressCoreData
         self.searchField.text = address?.zipCode
         self.controller.address = address
         self.updateLabels()
         self.footerView.isHidden = false
-        
+        self.controller.notificateUpdateMap(coordinate: Coordinate(lat: address?.latitude ?? 0, lng: address?.longitude ?? 0))
     }
     
     // MARK: SetupSubviews
     private func buildViewHierarchy() {
         self.view.addSubview(self.map)
+        self.view.addSubview(self.mapPin)
         self.view.addSubview(self.backHeaderView)
         self.view.addSubview(self.topHeaderView)
         self.view.addSubview(self.menuButton)
@@ -118,6 +126,7 @@ class CepViewController: BaseViewController {
     // MARK: SetupComponents
     private func setupComponents() {
         self.setupMap()
+        self.setupMapPin()
         self.setupBackHeaderView()
         self.setupTopHeaderView()
         self.setupMenu()
@@ -130,6 +139,13 @@ class CepViewController: BaseViewController {
     // MARK: SetupMap
     private func setupMap() {
         self.setupMapConstraints()
+    }
+    
+    private func setupMapPin() {
+        setupMapPinConstraints()
+        self.mapPin.image = UIImage(systemName: "mappin")
+        self.mapPin.tintColor = .red
+        self.mapPin.contentMode = .scaleAspectFit
     }
     
     // MARK: SetupBackHeaderView
@@ -198,6 +214,7 @@ class CepViewController: BaseViewController {
         self.updateMap(with: zipCode)
     }
     
+    // MARK: GetAddressByZipCode
     private func getAddressByZipCode(with zipCode: String) {
         self.controller.getAddressByZipCode(with: zipCode) { (result, error) in
             
@@ -213,6 +230,7 @@ class CepViewController: BaseViewController {
         }
     }
     
+    // MARK: UpdateMap
     private func updateMap(with zipCode: String) {
         self.controller.updateMap(zipCode: zipCode) { (result, error) in
             

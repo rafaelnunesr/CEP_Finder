@@ -16,7 +16,7 @@ extension HistoryViewController: UITableViewDelegate {
         let streetName = controller.arrayHistory?[indexPath.row].streetName ?? ""
         let cityState = controller.arrayHistory?[indexPath.row].cityState ?? ""
         let latitude = controller.arrayHistory?[indexPath.row].latitude ?? 0
-        let longitude = controller.arrayHistory?[indexPath.row].latitude ?? 0
+        let longitude = controller.arrayHistory?[indexPath.row].longitude ?? 0
         
         let address: AddressCoreData = AddressCoreData(zipCode: zipCode, streeName: streetName, cityState: cityState, latitude: latitude, longitude: longitude)
     

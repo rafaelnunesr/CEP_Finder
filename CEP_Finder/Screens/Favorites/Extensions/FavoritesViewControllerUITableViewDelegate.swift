@@ -16,7 +16,7 @@ extension FavoritesViewController: UITableViewDelegate {
         let streetName = controller.arrayFavorite?[indexPath.row].streetName ?? ""
         let cityState = controller.arrayFavorite?[indexPath.row].cityState ?? ""
         let latitude = controller.arrayFavorite?[indexPath.row].latitude ?? 0
-        let longitude = controller.arrayFavorite?[indexPath.row].latitude ?? 0
+        let longitude = controller.arrayFavorite?[indexPath.row].longitude ?? 0
         
         let address: AddressCoreData = AddressCoreData(zipCode: zipCode, streeName: streetName, cityState: cityState, latitude: latitude, longitude: longitude)
     

@@ -11,7 +11,7 @@ enum PersonalizedErrorDescription: String {
     case network = "It looks like you're offline. Please check your connection."
     case invalidZipCode = "Ops. The zip code doesn't exist. Please inform a valid zip code"
     case noZipCode = "ZipCode value is nill"
-    case noGoogleApiKey = "Hey user, a Google Key is required to update the map using Google Services. If you are a developer, put your Google Key in CepNetwork class."
+    case noGoogleApiKey = "Hey user, a Google Key is required to update the map using Google Services. If you are a developer, put your Google Key in CepNetwork class. Otherwise, your current location or Pacific ocean will be displayed as map when History and Favorite adddress is tapped."
 }
 
 
@@ -69,6 +69,7 @@ class CepNetwork {
             completion(nil, ErrorHandler(title: "Network error", code: 404, errorDescription: PersonalizedErrorDescription.network.rawValue))
         }
         
+    
         guard let _zipCode = zipCode else {
             completion(nil, ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue))
             return

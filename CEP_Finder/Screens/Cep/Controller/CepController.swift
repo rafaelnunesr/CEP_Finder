@@ -11,10 +11,12 @@ class CepController {
     
     // MARK: Components
     private var coreData = CoreDataManager(addressData: nil)
+    private var cepNetwork: CepNetwork = CepNetwork()
+    
     var arrayHistory: [CoreHistory?] = []
     var address: AddressCoreData? = nil
     
-    var cepNetwork: CepNetwork = CepNetwork()
+    var userCoodinates: Coordinate?
     
     // MARK: AddNewAddressToHistory
     func addNewAddressToHistory() {
@@ -54,6 +56,8 @@ class CepController {
     // MARK: GetCoordinates
     func getCoordinates(with zipCode: String, completionHandler: @escaping (_ result: Coordinate?, _ error: ErrorHandler?) -> Void) {
         
+        self.cepNetwork.zipCode = zipCode
+        
         self.cepNetwork.getLatLngGoogleApi { (response, error) in
             
             if response != nil {
@@ -78,15 +82,17 @@ class CepController {
         }
         
         self.cepNetwork.zipCode = numericZipCode
-        let lat: Double = -23.565163997932217 // Av. Paulista, SP
-        let lng: Double = -46.652365089520536 // Av. Paulista, SP
         
         self.cepNetwork.getAddress { (result, error) in
+            
             DispatchQueue.main.async {
                 guard let _result = result else {
                     completionHandler(false, error)
                     return
                 }
+                
+                let lat: Double = self.userCoodinates?.lat ?? -1
+                let lng: Double = self.userCoodinates?.lng ?? -1
                 
                 let cityState = _result.localidade + " / " + _result.uf
                 self.address = AddressCoreData(zipCode: _result.cep, streeName: _result.logradouro, cityState: cityState, latitude: lat, longitude: lng)
@@ -101,25 +107,32 @@ class CepController {
     func updateMap(zipCode: String, completionHandler: @escaping (_ result: Bool?, _ error: ErrorHandler?) -> Void) {
         
         self.getCoordinates(with: zipCode) { (result, error) in
-            if result != nil {
-               
-                guard let _result = result else {
-                    completionHandler(false, error)
-                    return
+            
+            DispatchQueue.main.async {
+                
+                if result != nil {
+                   
+                    guard let _result = result else {
+                        completionHandler(false, error)
+                        return
+                    }
+                    
+                    let oldAddress = self.address
+                    
+                    self.address = AddressCoreData(zipCode: oldAddress?.zipCode ?? "", streeName: oldAddress?.streeName ?? "", cityState: oldAddress?.cityState ?? "", latitude: _result.lat, longitude: _result.lng)
+                    
+                    let latLng = Coordinate(lat: _result.lat, lng: _result.lng)
+                    
+                    self.notificateUpdateMap(coordinate: latLng)
+                    completionHandler(true, error)
                 }
-                
-                let oldAddress = self.address
-                
-                self.address = AddressCoreData(zipCode: oldAddress?.zipCode ?? "", streeName: oldAddress?.streeName ?? "", cityState: oldAddress?.cityState ?? "", latitude: _result.lat, longitude: _result.lng)
-                
-                let latLng = Coordinate(lat: _result.lat, lng: _result.lng)
-                
-                NotificationCenter.default.post(name: Notification.Name("updateMap"), object: latLng)
-                completionHandler(true, error)
+                completionHandler(false, error)
             }
-            completionHandler(false, error)
         }
-        
+    }
+    
+    func notificateUpdateMap(coordinate: Coordinate) {
+        NotificationCenter.default.post(name: Notification.Name("updateMap"), object: coordinate)
     }
     
 }

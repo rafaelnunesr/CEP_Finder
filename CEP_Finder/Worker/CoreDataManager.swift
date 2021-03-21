@@ -174,6 +174,7 @@ struct CoreDataManager {
     
     // MARK: DeleteOneAddressFromFavorites
     func deleteOneAddressFromFavorites(zipCode: String) {
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let request: NSFetchRequest<CoreFavorites> = CoreFavorites.fetchRequest()

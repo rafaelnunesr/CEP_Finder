@@ -44,7 +44,7 @@ class FavoritesViewController: AddressViewController {
     
     // MARK: SetupTitleLabel
     private func setupTitleLabel() {
-        self.header.headerTitle = "History"
+        self.header.headerTitle = "Favorites"
         self.header.updateTitleLabel()
     }
     

@@ -37,6 +37,7 @@ extension FavoritesViewController: UITableViewDataSource {
         let cityState = controller.arrayFavorite?[indexPath.row].cityState ?? ""
         
         cell?.addressLabel.label.text = "\(address), \(cityState)"
+        cell?.favoriteButton.isHidden =  true
 
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)

@@ -34,7 +34,7 @@ class CepNetwork {
     func getAddress(completion: @escaping completion<CepModel?>) {
         
         if !self.checkNetworkStatus() {
-            completion(nil, ErrorHandler(title: "Network error", code: 404, errorDescription: PersonalizedErrorDescription.network.rawValue))
+            completion(nil, self.networkError())
         }
         
         let session = URLSession.shared
@@ -52,7 +52,7 @@ class CepNetwork {
             }catch {
                 
                 if error.localizedDescription == "The data couldn’t be read because it is missing." {
-                    completion(nil, ErrorHandler(title: "Invalid Zip Code", code: nil, errorDescription: PersonalizedErrorDescription.invalidZipCode.rawValue))
+                    completion(nil, self.invalidZipCode())
                 }else {
                     completion(nil, ErrorHandler(title: "Error getting data", code: nil, errorDescription: error.localizedDescription))
                 }
@@ -66,17 +66,16 @@ class CepNetwork {
     func getLatLngGoogleApi(completion: @escaping completion<GeocodingApi?>) {
         
         if !self.checkNetworkStatus() {
-            completion(nil, ErrorHandler(title: "Network error", code: 404, errorDescription: PersonalizedErrorDescription.network.rawValue))
+            completion(nil, self.networkError())
         }
-        
     
         guard let _zipCode = zipCode else {
-            completion(nil, ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue))
+            completion(nil, self.emptyZipCode())
             return
         }
         
         if self.googleApiKey.isEmpty {
-            completion(nil, ErrorHandler(title: "Google Api Key Missing", code: nil, errorDescription: PersonalizedErrorDescription.noGoogleApiKey.rawValue))
+            completion(nil, self.googleApiKeyMissing())
         }
 
         let googleURL = "https://maps.googleapis.com/maps/api/geocode/json?key=\(googleApiKey)&components=postal_code:\(_zipCode)"
@@ -98,6 +97,22 @@ class CepNetwork {
             }
         }
         task.resume()
+    }
+    
+    private func networkError() -> ErrorHandler {
+        return ErrorHandler(title: "Network error", code: 404, errorDescription: PersonalizedErrorDescription.network.rawValue)
+    }
+    
+    private func googleApiKeyMissing() -> ErrorHandler {
+        return ErrorHandler(title: "Google Api Key Missing", code: nil, errorDescription: PersonalizedErrorDescription.noGoogleApiKey.rawValue)
+    }
+    
+    private func invalidZipCode() -> ErrorHandler {
+        return ErrorHandler(title: "Invalid Zip Code", code: nil, errorDescription: PersonalizedErrorDescription.invalidZipCode.rawValue)
+    }
+    
+    private func emptyZipCode() -> ErrorHandler {
+        return ErrorHandler(title: "Zip Code is null", code: nil, errorDescription: PersonalizedErrorDescription.noZipCode.rawValue)
     }
     
 }

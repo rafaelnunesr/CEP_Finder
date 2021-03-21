@@ -33,6 +33,7 @@ class CepController {
     
     // MARK: RemoveFavoriteAddress
     func removeFavoriteAddress() {
+        self.coreData.addressData = address
         self.coreData.deleteOneAddressFromFavorites(zipCode: self.address?.zipCode ?? "")
     }
     
@@ -124,6 +125,7 @@ class CepController {
                     let latLng = Coordinate(lat: _result.lat, lng: _result.lng)
                     
                     self.notificateUpdateMap(coordinate: latLng)
+                    self.addNewAddressToHistory()
                     completionHandler(true, error)
                 }
                 completionHandler(false, error)

@@ -18,16 +18,6 @@ extension CepViewController {
         map.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    // MARK: SetupMapPinConstraints
-    func setupMapPinConstraints() {
-        let pinSize: CGFloat = 30
-        mapPin.translatesAutoresizingMaskIntoConstraints = false
-        mapPin.centerXAnchor.constraint(equalTo: map.centerXAnchor).isActive = true
-        mapPin.centerYAnchor.constraint(equalTo: map.centerYAnchor, constant: -15).isActive = true
-        mapPin.heightAnchor.constraint(equalToConstant: pinSize).isActive = true
-        mapPin.widthAnchor.constraint(equalToConstant: pinSize).isActive = true
-    }
-    
     // MARK: SetupBackHeaderViewConstraints
     func setupBackHeaderViewConstraints() {
         backHeaderView.translatesAutoresizingMaskIntoConstraints = false

@@ -24,7 +24,6 @@ class CepViewController: BaseViewController {
     // MARK: Components
     var sideMenu: SideMenuNavigationController?
     let map: MKMapView = MKMapView()
-    let mapPin: UIImageView = UIImageView()
     let backHeaderView: UIView = UIView()
     let topHeaderView: UIView = UIView()
     let menuButton: UIButton = UIButton()
@@ -107,7 +106,6 @@ class CepViewController: BaseViewController {
     // MARK: SetupSubviews
     private func buildViewHierarchy() {
         self.view.addSubview(self.map)
-        self.view.addSubview(self.mapPin)
         self.view.addSubview(self.backHeaderView)
         self.view.addSubview(self.topHeaderView)
         self.view.addSubview(self.menuButton)
@@ -126,7 +124,6 @@ class CepViewController: BaseViewController {
     // MARK: SetupComponents
     private func setupComponents() {
         self.setupMap()
-        self.setupMapPin()
         self.setupBackHeaderView()
         self.setupTopHeaderView()
         self.setupMenu()
@@ -139,13 +136,6 @@ class CepViewController: BaseViewController {
     // MARK: SetupMap
     private func setupMap() {
         self.setupMapConstraints()
-    }
-    
-    private func setupMapPin() {
-        setupMapPinConstraints()
-        self.mapPin.image = UIImage(systemName: "mappin")
-        self.mapPin.tintColor = .red
-        self.mapPin.contentMode = .scaleAspectFit
     }
     
     // MARK: SetupBackHeaderView
@@ -207,6 +197,7 @@ class CepViewController: BaseViewController {
     // MARK: SearchButtonTapped
     @objc private func searchButtonTapped() {
         self.searchField.resignFirstResponder()
+        self.footerView.resetComponents()
         guard let zipCode = searchField.text else { return }
         
         self.showLoadingView()

@@ -28,7 +28,6 @@ struct CoreDataManager {
 
     typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void
     
-    
     private func setRequest(coreData: CoreData) -> NSFetchRequest<NSManagedObject> {
         let request = NSFetchRequest<NSManagedObject>(entityName: coreData.rawValue)
         request.returnsObjectsAsFaults = false
@@ -45,7 +44,6 @@ struct CoreDataManager {
         } catch  {
             completion(nil, ErrorHandler(title: "Error getting addresses from \(coreData.rawValue)", code: 400, errorDescription: error.localizedDescription))
         }
-        
     }
     
     // MARK: GetAddressByZipCodeCoreHistory

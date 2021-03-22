@@ -17,7 +17,6 @@ class AddressTableViewCell: UITableViewCell {
     
     let cepLabel: AddressComponentCell = AddressComponentCell()
     let addressLabel: AddressComponentCell = AddressComponentCell()
-    let favoriteButton: UIButton = UIButton()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,13 +37,11 @@ class AddressTableViewCell: UITableViewCell {
     private func setupSubviews() {
         self.contentView.addSubview(self.cepLabel)
         self.contentView.addSubview(self.addressLabel)
-        self.contentView.addSubview(self.favoriteButton)
     }
     
     private func setupComponents() {
         self.setupCepLabel()
         self.setupAddressLabel()
-        self.setupFavoriteButton()
     }
     
     private func setupCepLabel() {
@@ -69,32 +66,4 @@ class AddressTableViewCell: UITableViewCell {
         addressLabel.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
-    private func setupFavoriteButton() {
-        self.setupFavoriteButtonConstraints()
-        self.favoriteButton.heartButton()
-        self.favoriteButton.tintColor = .gray
-        self.favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
-    }
-    
-    // MARK: FavoriteButtonTapped
-    @objc private func favoriteButtonTapped() {
-        
-        if self.favoriteButton.isSelected {
-            self.favoriteButton.isSelected = false
-            NotificationCenter.default.post(name: Notification.Name("updateFavorite"), object: false)
-        }else {
-            self.favoriteButton.isSelected = true
-            NotificationCenter.default.post(name: Notification.Name("updateFavorite"), object: true)
-        }
-    }
-    
-    func setupFavoriteButtonConstraints() {
-        let buttonSize: CGFloat = 30
-        
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        favoriteButton.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        favoriteButton.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-    }
 }

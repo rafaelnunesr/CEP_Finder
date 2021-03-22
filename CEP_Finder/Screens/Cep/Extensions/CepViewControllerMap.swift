@@ -79,13 +79,8 @@ extension CepViewController {
         if let location = self.locationManager.location?.coordinate{
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.regionRadius, longitudinalMeters: self.regionRadius)
             
-            self.updateUserCurrentLocation(latitude: location.latitude, longitude: location.longitude)
             self.map.setRegion(region, animated: true)
         }
-    }
-    
-    func updateUserCurrentLocation(latitude: Double, longitude: Double) {
-        self.controller.userCoodinates = Coordinate(lat: latitude, lng: longitude)
     }
     
     // MARK: GetCenterLocation

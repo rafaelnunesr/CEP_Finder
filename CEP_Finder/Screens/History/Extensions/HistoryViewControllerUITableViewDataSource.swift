@@ -16,14 +16,20 @@ extension HistoryViewController: UITableViewDataSource {
     
     // MARK: EditingStyle
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        controller.deleteSpecificAddress(withIndex: indexPath.row)
+        
+        controller.deleteSpecificHistoryAddress(withIndex: indexPath.row)
         controller.arrayHistory?.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        if self.controller.historyQuantity == 0 {
+            checkHistoryItems()
+        }
+        
     }
     
     // MARK: NumberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.quantity 
+        return controller.historyQuantity
     }
     
     // MARK: CellForRowAt
@@ -37,7 +43,7 @@ extension HistoryViewController: UITableViewDataSource {
         let cityState = controller.arrayHistory?[indexPath.row].cityState ?? ""
         
         cell?.addressLabel.label.text = "\(address), \(cityState)"
-
+        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor(white: 1, alpha: 0.6)
         cell?.selectedBackgroundView = backgroundView
@@ -50,5 +56,5 @@ extension HistoryViewController: UITableViewDataSource {
         return 120
         
     }
-
+    
 }

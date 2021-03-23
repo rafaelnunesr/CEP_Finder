@@ -16,14 +16,18 @@ extension FavoritesViewController: UITableViewDataSource {
     
     // MARK: EditingStyle
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        controller.deleteSpecificAddress(withIndex: indexPath.row)
+        controller.deleteSpecificFavoriteAddress(withIndex: indexPath.row)
         controller.arrayFavorite?.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        if self.controller.favoriteQuantity == 0 {
+            checkFavoriteItems()
+        }
     }
     
     // MARK: NumberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.quantity 
+        return controller.favoriteQuantity
     }
     
     // MARK: CellForRowAt

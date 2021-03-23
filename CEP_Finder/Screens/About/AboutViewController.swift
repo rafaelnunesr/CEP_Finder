@@ -45,7 +45,7 @@ class AboutViewController: UIViewController {
         self.aboutLabel.textColor = .black
         self.aboutLabel.font = UIFont.recursiveMedium(size: 15)
         
-        self.aboutLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis pharetra elit. Aenean risus nisl, consectetur et nisi sed, finibus fringilla magna. Morbi ullamcorper urna maximus erat rhoncus, laoreet feugiat ex ullamcorper. Duis gravida hendrerit cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin tortor ligula, ornare eu tincidunt elementum, ultrices eu purus. Aenean sagittis ex eu ex rhoncus, et finibus nunc eleifend. Mauris posuere lorem dolor, ut viverra neque sodales vel. Vestibulum efficitur elit eu justo ultricies feugiat. Donec felis metus, aliquet quis ullamcorper sit amet, pretium at enim. Nulla semper arcu mi, quis tincidunt ligula accumsan feugiat. Ut in leo nec purus varius facilisis nec eu dolor. Nulla iaculis nisi eu interdum tincidunt."
+        self.aboutLabel.text = "Cep Finder is an app where any brazilian address can be found with zip code. The nice and clean design helps you focus on what really matter: find that address, browse the local using map and favorite your loved places so you will never miss them again. A historical search is saved, so you don't need to worry about a place you've searched and don't remember any more. "
         
         
         setupAboutLabelConstraints()
@@ -59,9 +59,11 @@ class AboutViewController: UIViewController {
         self.dismissButton.titleLabel?.font = UIFont.recursiveRegular(size: 20)
         
         self.dismissButton.layer.cornerRadius = 4
-        self.dismissButton.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        self.dismissButton.backgroundColor = Colors.ligherOrange
         
         self.dismissButton.applyShadow()
+        
+        self.setupDismissButtonConstraints()
         
     }
     

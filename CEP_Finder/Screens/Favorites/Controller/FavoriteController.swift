@@ -10,47 +10,47 @@ import Foundation
 class FavoriteController {
     
     // MARK: Components
-    var coreData = CoreDataManager(addressData: nil)
+    var favoritesCoreData = CoreDataManager(addressData: nil)
     var arrayFavorite: [CoreFavorites]?
-    var address: AddressCoreData?
-    var quantityHistory: Int?
+    var favoriteAddress: AddressCoreData?
+    var quantityFavorites: Int?
     
     // MARK: SaveNewAddress
-    func saveNewAddress() {
-        guard let _address = self.address else { return }
-        self.coreData.addressData = _address
-        self.coreData.persistCoreData(coreData: CoreData.favorites)
+    func saveNewFavoriteAddress() {
+        guard let _address = self.favoriteAddress else { return }
+        self.favoritesCoreData.addressData = _address
+        self.favoritesCoreData.persistCoreData(coreData: CoreData.favorites)
     }
     
     // MARK: DeleteSpecificAddress
-    func deleteSpecificAddress(withIndex index: Int) {
+    func deleteSpecificFavoriteAddress(withIndex index: Int) {
         let zipCode = self.arrayFavorite?[index].zipCode
         guard let _zipCode = zipCode else { return }
-        self.coreData.deleteOneAddress(coreData: CoreData.history, zipCode: _zipCode)
+        self.favoritesCoreData.deleteOneAddress(coreData: CoreData.favorites, zipCode: _zipCode)
     }
     
     // MARK: GetAllAddresses
-    func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
+    func getAllFavoriteAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
         
-        self.coreData.getAllAddresses(coreData: CoreData.favorites) { (result, error) in
+        self.favoritesCoreData.getAllAddresses(coreData: CoreData.favorites) { (result, error) in
             guard let _result = result else {
                 completionHandler(false)
                 return
             }
             self.arrayFavorite = _result as? [CoreFavorites]
-            self.quantityHistory = _result.count
+            self.quantityFavorites = _result.count
             
             completionHandler(true)
         }
     }
     
     // MARK: DeleteAllAddresses
-    func deleteAllAddresses() {
-        self.coreData.deleteAllAddresses(coreData: CoreData.favorites)
+    func deleteAllFavoriteAddresses() {
+        self.favoritesCoreData.deleteAllAddresses(coreData: CoreData.favorites)
     }
     
     // MARK: Quantity
-    var quantity: Int {
+    var favoriteQuantity: Int {
         return self.arrayFavorite?.count ?? 0
     }
 }

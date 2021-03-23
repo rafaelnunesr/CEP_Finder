@@ -13,8 +13,6 @@ class HistoryAndFavoriteHeaderView: UIView {
     let homeButton: UIButton = UIButton()
     let titleLabel: UILabel = UILabel()
     let clearButton: UIButton = UIButton()
-
-    var headerTitle: String?
     
     // MARK: Init
     override init(frame: CGRect) {
@@ -63,6 +61,7 @@ class HistoryAndFavoriteHeaderView: UIView {
         self.titleLabel.font = UIFont.recursiveMedium(size: 20)
         self.titleLabel.textColor = .white
         self.titleLabel.textAlignment = .center
+        setupTitleLabelConstraints()
     }
     
     // MARK: SetupClearButton
@@ -70,10 +69,4 @@ class HistoryAndFavoriteHeaderView: UIView {
         self.clearButton.buttonWithIcon(systemImage: ButtonIcons.trash)
         setupClearHistoryButtonConstraints()
     }
-    
-    // MARK: UpdateTitleLabel
-    func updateTitleLabel() {
-        self.titleLabel.text = self.headerTitle ?? ""
-    }
-    
 }

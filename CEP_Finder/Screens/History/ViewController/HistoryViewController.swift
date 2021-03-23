@@ -27,7 +27,7 @@ class HistoryViewController: AddressViewController {
     
     // MARK: LoadHistoryController
     private func loadHistoryController() {
-        self.controller.getAllAddresses(completionHandler: { (result) in
+        self.controller.getAllHistoryAddresses(completionHandler: { (result) in
             if result {
                 self.tableView.reloadData()
             }else {
@@ -44,15 +44,14 @@ class HistoryViewController: AddressViewController {
     
     // MARK: SetupTitleLabel
     private func setupTitleLabel() {
-        self.header.headerTitle = "History"
-        self.header.updateTitleLabel()
+        self.header.titleLabel.text = "History"
     }
     
     // MARK: ClearButtonTapped
     override func clearButtonTapped() {
         let alert = UIAlertController(title: "Delete All History", message: "Are you sure you want to delete all history data?", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
-            self.controller.deleteAllAddresses()
+            self.controller.deleteAllHistoryAddresses()
             self.showEmptyView()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
@@ -70,8 +69,8 @@ class HistoryViewController: AddressViewController {
     }
     
     // MARK: CheckHistoryItems
-    private func checkHistoryItems() {
-        if self.controller.quantity > 0 {
+    func checkHistoryItems() {
+        if self.controller.historyQuantity > 0 {
             self.emptyView.isHidden = true
         }else {
             self.showEmptyView()

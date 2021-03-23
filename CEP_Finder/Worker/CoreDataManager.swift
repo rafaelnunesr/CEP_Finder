@@ -28,12 +28,14 @@ struct CoreDataManager {
 
     typealias completion <T> = (_ result: T, _ failure: ErrorHandler?) -> Void
     
+    // MARK: SetRequest
     private func setRequest(coreData: CoreData) -> NSFetchRequest<NSManagedObject> {
         let request = NSFetchRequest<NSManagedObject>(entityName: coreData.rawValue)
         request.returnsObjectsAsFaults = false
         return request
     }
     
+    // MARK: GetAllAddresses
     func getAllAddresses(coreData: CoreData,completion: @escaping completion<[NSManagedObject]?>) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -64,6 +66,7 @@ struct CoreDataManager {
         return nil
     }
     
+    // MARK: PersistCoreData
     func persistCoreData(coreData: CoreData) {
 
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -95,6 +98,7 @@ struct CoreDataManager {
         }
     }
     
+    // MARK: SetValueCoreData
     private func setValueCoreData(address: NSManagedObject) {
         address.setValue(self.addressData?.zipCode, forKey: CoreDataKeys.zipCode.rawValue)
         address.setValue(self.addressData?.streeName, forKey: CoreDataKeys.streetName.rawValue)

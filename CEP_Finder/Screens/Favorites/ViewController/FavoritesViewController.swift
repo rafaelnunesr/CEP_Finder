@@ -21,13 +21,13 @@ class FavoritesViewController: AddressViewController {
     // MARK: Setup
     private func setup() {
         self.loadFavoriteController()
-        self.checkHistoryItems()
+        self.checkFavoriteItems()
         self.setupComponents()
     }
     
     // MARK: LoadHistoryController
     private func loadFavoriteController() {
-        self.controller.getAllAddresses(completionHandler: { (result) in
+        self.controller.getAllFavoriteAddresses(completionHandler: { (result) in
             if result {
                 self.tableView.reloadData()
             }else {
@@ -44,15 +44,14 @@ class FavoritesViewController: AddressViewController {
     
     // MARK: SetupTitleLabel
     private func setupTitleLabel() {
-        self.header.headerTitle = "Favorites"
-        self.header.updateTitleLabel()
+        self.header.titleLabel.text = "Favorites"
     }
     
     // MARK: ClearButtonTapped
     override func clearButtonTapped() {
         let alert = UIAlertController(title: "Delete All Favorites", message: "Are you sure you want to delete all your favorites Addresses?", preferredStyle: .alert)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
-            self.controller.deleteAllAddresses()
+            self.controller.deleteAllFavoriteAddresses()
             self.showEmptyView()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
@@ -70,8 +69,8 @@ class FavoritesViewController: AddressViewController {
     }
     
     // MARK: CheckHistoryItems
-    private func checkHistoryItems() {
-        if self.controller.quantity > 0 {
+    func checkFavoriteItems() {
+        if self.controller.favoriteQuantity > 0 {
             self.emptyView.isHidden = true
         }else {
             self.showEmptyView()

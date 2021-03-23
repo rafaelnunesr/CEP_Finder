@@ -10,29 +10,29 @@ import Foundation
 class HistoryController {
     
     // MARK: Components
-    var coreData = CoreDataManager(addressData: nil)
+    var historyCoreData = CoreDataManager(addressData: nil)
     var arrayHistory: [CoreHistory]?
-    var address: AddressCoreData?
+    var historyAddress: AddressCoreData?
     var quantityHistory: Int?
     
     // MARK: SaveNewAddress
-    func saveNewAddress() {
-        guard let _address = self.address else { return }
-        self.coreData.addressData = _address
-        self.coreData.persistCoreData(coreData: CoreData.history)
+    func saveNewAddressToHistory() {
+        guard let _address = self.historyAddress else { return }
+        self.historyCoreData.addressData = _address
+        self.historyCoreData.persistCoreData(coreData: CoreData.history)
     }
     
     // MARK: DeleteSpecificAddress
-    func deleteSpecificAddress(withIndex index: Int) {
+    func deleteSpecificHistoryAddress(withIndex index: Int) {
         let zipCode = self.arrayHistory?[index].zipCode
         guard let _zipCode = zipCode else { return }
-        self.coreData.deleteOneAddress(coreData: CoreData.history, zipCode: _zipCode)
+        self.historyCoreData.deleteOneAddress(coreData: CoreData.history, zipCode: _zipCode)
     }
     
     // MARK: GetAllAddresses
-    func getAllAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
+    func getAllHistoryAddresses(completionHandler: @escaping (_ result: Bool)-> Void) {
         
-        self.coreData.getAllAddresses(coreData: CoreData.history, completion: { (result, error) in
+        self.historyCoreData.getAllAddresses(coreData: CoreData.history, completion: { (result, error) in
             guard let _result = result else {
                 completionHandler(false)
                 return
@@ -46,12 +46,12 @@ class HistoryController {
     }
     
     // MARK: DeleteAllAddresses
-    func deleteAllAddresses() {
-        self.coreData.deleteAllAddresses(coreData: CoreData.history)
+    func deleteAllHistoryAddresses() {
+        self.historyCoreData.deleteAllAddresses(coreData: CoreData.history)
     }
     
     // MARK: Quantity
-    var quantity: Int {
+    var historyQuantity: Int {
         return self.arrayHistory?.count ?? 0
     }
     

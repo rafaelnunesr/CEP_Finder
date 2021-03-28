@@ -1,7 +1,5 @@
 # CEP Finder
 
-⚠️ This app is under construction 🚧 🔨🔧
-
 <h2>Basic Overview</h2>
 
 <p>Have you ever needed to find a specific address based on zip code? Cep Finder is an app to find any brazilian address based on cep (zip code). Maybe you're thinking: "Well, Google does it for me". Yes, you're right. But Google doesn't save your favorites addresses and doesn't save a history with all zip codes you've searched. Also Google doesn't have this nice and clean design with so beautiful orange color. Cep Finder will be your favorite app when you need to find that address.</p>

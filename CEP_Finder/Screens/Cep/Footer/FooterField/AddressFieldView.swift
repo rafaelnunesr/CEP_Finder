@@ -79,6 +79,7 @@ class AddressFieldView: UIView {
         self.label.text = _address.addressInfo
         self.label.textColor = .white
         self.label.font = UIFont.recursiveMedium(size: 20)
+        self.label.adjustsFontSizeToFitWidth = true
         
         setupLabelConstraints()
     }

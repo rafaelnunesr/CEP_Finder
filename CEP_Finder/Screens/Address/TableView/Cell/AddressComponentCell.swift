@@ -60,6 +60,7 @@ class AddressComponentCell: UIView {
         self.label.textColor = .darkGray
         self.label.font = UIFont.recursiveMedium(size: 15)
         self.label.numberOfLines = 0
+        self.label.adjustsFontSizeToFitWidth = true
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true

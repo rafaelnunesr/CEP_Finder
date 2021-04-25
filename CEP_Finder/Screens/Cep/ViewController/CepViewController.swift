@@ -11,26 +11,26 @@ import SideMenu
 import MapKit
 import CoreLocation
 
-class CepViewController: BaseViewController {
+final class CepViewController: BaseViewController {
     
     // MARK: Controller
-    var controller = CepController()
+    private(set) var controller = CepController()
     
     // MARK: Map Settings
-    let regionRadius: CLLocationDistance = 1000
+    private(set) var regionRadius: CLLocationDistance = 1000
     var previousLocation: CLLocation?
-    let locationManager = CLLocationManager()
+    private(set) var locationManager = CLLocationManager()
     
     // MARK: Components
-    var sideMenu: SideMenuNavigationController?
-    let map: MKMapView = MKMapView()
-    let backHeaderView: UIView = UIView()
-    let topHeaderView: UIView = UIView()
-    let menuButton: UIButton = UIButton()
-    let searchField: SwiftMaskTextfield = SwiftMaskTextfield()
-    let searchButton: UIButton = UIButton()
-    let footerView: FooterView = FooterView()
-    let footerLine: UIView = UIView()
+    private(set) var sideMenu: SideMenuNavigationController?
+    private(set) var map: MKMapView!
+    private(set) var backHeaderView: UIView!
+    private(set) var topHeaderView: UIView!
+    private(set) var menuButton: UIButton!
+    private(set) var searchField: SwiftMaskTextfield!
+    private(set) var searchButton: UIButton!
+    private(set) var footerView: FooterView!
+    private(set) var footerLine: UIView!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -45,11 +45,23 @@ class CepViewController: BaseViewController {
     
     // MARK: Setup()
     private func setup() {
+        self.initiateComponents()
         self.checkLocationServices()
         self.setupObservers()
         self.buildViewHierarchy()
         self.setupSideMenu()
         self.setupComponents()
+    }
+    
+    private func initiateComponents() {
+        self.map = MKMapView()
+        self.backHeaderView = UIView()
+        self.topHeaderView = UIView()
+        self.menuButton = UIButton()
+        self.searchField = SwiftMaskTextfield()
+        self.searchButton = UIButton()
+        self.footerView = FooterView()
+        self.footerLine = UIView()
     }
     
     // MARK: SetupMapDelegate

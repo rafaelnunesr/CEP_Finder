@@ -11,10 +11,25 @@ import SideMenu
 import MapKit
 import CoreLocation
 
+protocol CepViewProtocol: class {
+    var address: AddressCoreData? { get set }
+    
+    func addNewAddressToHistory()
+    func addFavoriteAddress()
+    func removeFavoriteAddress()
+    func checkIfAddressIsFavorited()
+    func getFavoriteAddress()
+    func getCoordinates()
+    func getAddressByZipCode(with zipCode: String, completionHandler: @escaping GenericTypes.completionWithBoolean)
+    func updateMap(zipCode: String, completionHandler: @escaping GenericTypes.completionWithBoolean)
+    func notificateUpdateMap()
+}
+
+
 final class CepViewController: BaseViewController {
     
     // MARK: Controller
-    private(set) var controller = CepController()
+    private(set) var cepViewModel = CepViewModel()
     
     // MARK: Map Settings
     private(set) var regionRadius: CLLocationDistance = 1000
@@ -88,9 +103,9 @@ final class CepViewController: BaseViewController {
         
         DispatchQueue.main.async {
             if result == true {
-                self.controller.addFavoriteAddress()
+                self.cepViewModel.addFavoriteAddress()
             }else {
-                self.controller.removeFavoriteAddress()
+                self.cepViewModel.removeFavoriteAddress()
             }
         }
     }
@@ -109,10 +124,10 @@ final class CepViewController: BaseViewController {
     @objc private func showSavedMap(_ notification: Notification) {
         let address = notification.object as? AddressCoreData
         self.searchField.text = address?.zipCode
-        self.controller.address = address
+        self.cepViewModel.address = address
         self.updateLabels()
         self.footerView.isHidden = false
-        self.controller.notificateUpdateMap(coordinate: Coordinate(lat: address?.latitude ?? 0, lng: address?.longitude ?? 0))
+        self.cepViewModel.notificateUpdateMap(coordinate: Coordinate(lat: address?.latitude ?? 0, lng: address?.longitude ?? 0))
     }
     
     // MARK: SetupSubviews
@@ -219,7 +234,7 @@ final class CepViewController: BaseViewController {
     
     // MARK: GetAddressByZipCode
     private func getAddressByZipCode(with zipCode: String) {
-        self.controller.getAddressByZipCode(with: zipCode) { (result, error) in
+        self.cepViewModel.getAddressByZipCode(with: zipCode) { (result, error) in
             
             if result == true {
                 self.hiddenLoadingView()
@@ -235,7 +250,7 @@ final class CepViewController: BaseViewController {
     
     // MARK: UpdateMap
     private func updateMap(with zipCode: String) {
-        self.controller.updateMap(zipCode: zipCode) { (result, error) in
+        self.cepViewModel.updateMap(zipCode: zipCode) { (result, error) in
             
             DispatchQueue.main.async {
                 if result == false {
@@ -248,7 +263,7 @@ final class CepViewController: BaseViewController {
     
     // MARK: UpdateLabels
     private func updateLabels() {
-        guard let address = self.controller.address else { return }
+        guard let address = self.cepViewModel.address else { return }
         NotificationCenter.default.post(name: Notification.Name("updateAddress"), object: address)
     }
     

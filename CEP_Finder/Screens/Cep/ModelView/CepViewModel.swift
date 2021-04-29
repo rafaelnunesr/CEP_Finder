@@ -1,5 +1,5 @@
 //
-//  CepController.swift
+//  CepViewModel.swift
 //  CEP_Finder
 //
 //  Created by Rafael Nunes Rios on 3/16/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CepController {
+class CepViewModel {
     
     // MARK: Components
     private var coreData = CoreDataManager(addressData: nil)
@@ -74,7 +74,7 @@ class CepController {
     }
     
     // MARK: GetAddressByZipCode
-    func getAddressByZipCode(with zipCode: String, completionHandler: @escaping (_ result: Bool, _ error: ErrorHandler?) -> Void) {
+    func getAddressByZipCode(with zipCode: String, completionHandler: @escaping GenericTypes.completionWithBoolean) {
         
         let numericZipCode = zipCode.filter { $0 != "-" }
         
@@ -105,7 +105,7 @@ class CepController {
     }
     
     // MARK: UpdateMap
-    func updateMap(zipCode: String, completionHandler: @escaping (_ result: Bool?, _ error: ErrorHandler?) -> Void) {
+    func updateMap(zipCode: String, completionHandler: @escaping GenericTypes.completionWithBoolean) {
         
         self.getCoordinates(with: zipCode) { (result, error) in
             

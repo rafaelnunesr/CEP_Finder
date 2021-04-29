@@ -9,9 +9,9 @@ import UIKit
 class AddressViewController: UIViewController {
     
     // MARK: Components
-    let header: HistoryAndFavoriteHeaderView = HistoryAndFavoriteHeaderView()
-    let tableView: UITableView = UITableView()
-    var emptyView: EmptyView = EmptyView()
+    private(set) var header: HistoryAndFavoriteHeaderView!
+    private(set) var tableView: UITableView!
+    private(set) var emptyView: EmptyView!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -21,9 +21,17 @@ class AddressViewController: UIViewController {
     
     // MARK: Setup
     private func setup() {
+        self.initializeComponents()
         self.setupBackgroundColor()
         self.buildViewHierarchy()
         self.setupComponents()
+    }
+    
+    // MARK: InitializeComponents
+    private func initializeComponents() {
+        self.header = HistoryAndFavoriteHeaderView()
+        self.tableView = UITableView()
+        self.emptyView = EmptyView()
     }
     
     // MARK: SetupBackgroundColor

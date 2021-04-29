@@ -17,8 +17,8 @@ class AddressTableViewCell: UITableViewCell {
     }
     
     // MARK: Components
-    let cepLabel: AddressComponentCell = AddressComponentCell()
-    let addressLabel: AddressComponentCell = AddressComponentCell()
+    private(set) var cepLabel: AddressComponentCell!
+    private(set) var addressLabel: AddressComponentCell!
 
     // MARK: AwakeFromNib
     override func awakeFromNib() {
@@ -34,8 +34,15 @@ class AddressTableViewCell: UITableViewCell {
     
     // MARK: Setup
     private func setup() {
+        self.initializeComponents()
         self.setupSubviews()
         self.setupComponents()
+    }
+    
+    // MARK: InitializeComponents
+    private func initializeComponents() {
+        self.cepLabel = AddressComponentCell()
+        self.addressLabel = AddressComponentCell()
     }
     
     // MARK: SetupSubviews

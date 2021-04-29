@@ -9,8 +9,8 @@ import UIKit
 
 class EmptyView: UIView {
     
-    let imageView: UIImageView = UIImageView()
-    let messageLabel: UILabel = UILabel()
+    private(set) var imageView: UIImageView!
+    private(set) var messageLabel: UILabel!
 
     var message: String?
     
@@ -24,8 +24,14 @@ class EmptyView: UIView {
     }
     
     private func setup() {
+        self.initializeComponents()
         self.buildViewHierarchy()
         self.setupComponents()
+    }
+    
+    private func initializeComponents() {
+        self.imageView = UIImageView()
+        self.messageLabel = UILabel()
     }
     
     private func buildViewHierarchy() {

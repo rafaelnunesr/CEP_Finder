@@ -25,6 +25,7 @@
 		1B41D17826064BF6002C9171 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41D17726064BF6002C9171 /* Coordinate.swift */; };
 		1B41D18326064E78002C9171 /* HistoryAndFavoriteHeaderViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41D18226064E78002C9171 /* HistoryAndFavoriteHeaderViewConstraints.swift */; };
 		1B41D18826064FB6002C9171 /* AboutViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41D18726064FB6002C9171 /* AboutViewControllerConstraints.swift */; };
+		1B450FEF263B47CD0080F6B1 /* GenericTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B450FEE263B47CD0080F6B1 /* GenericTypes.swift */; };
 		1B46DCD02602ECEE00B56AF2 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */; };
 		1B46DCD52602EEA500B56AF2 /* AddressViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */; };
 		1B4726732602719400FD9067 /* CepViewControllerConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */; };
@@ -53,7 +54,7 @@
 		1B7E2A8725FC217E00F55AB8 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */; };
 		1B93303425FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93303325FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift */; };
 		1B9D1FD726018EFF001385AC /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FD626018EFF001385AC /* HistoryController.swift */; };
-		1B9D1FDC26019881001385AC /* CepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepController.swift */; };
+		1B9D1FDC26019881001385AC /* CepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9D1FDB26019881001385AC /* CepViewModel.swift */; };
 		1BAD11C225FABFF800FD700E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD11C125FABFF800FD700E /* UIFontExtension.swift */; };
 		1BB15B7A25FA2EDB002A1C9E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB15B7925FA2EDB002A1C9E /* UITextFieldExtension.swift */; };
 		1BBCD3D025FBB6F300F4F4FE /* CepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBCD3CF25FBB6F300F4F4FE /* CepModel.swift */; };
@@ -125,6 +126,7 @@
 		1B41D17726064BF6002C9171 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1B41D18226064E78002C9171 /* HistoryAndFavoriteHeaderViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAndFavoriteHeaderViewConstraints.swift; sourceTree = "<group>"; };
 		1B41D18726064FB6002C9171 /* AboutViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControllerConstraints.swift; sourceTree = "<group>"; };
+		1B450FEE263B47CD0080F6B1 /* GenericTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTypes.swift; sourceTree = "<group>"; };
 		1B46DCCF2602ECEE00B56AF2 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		1B46DCD42602EEA500B56AF2 /* AddressViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewControllerConstraints.swift; sourceTree = "<group>"; };
 		1B4726722602719400FD9067 /* CepViewControllerConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepViewControllerConstraints.swift; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 		1B7E2A8125FC217E00F55AB8 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		1B93303325FFB04400C43011 /* HistoryAndFavoriteHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAndFavoriteHeaderView.swift; sourceTree = "<group>"; };
 		1B9D1FD626018EFF001385AC /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
-		1B9D1FDB26019881001385AC /* CepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepController.swift; sourceTree = "<group>"; };
+		1B9D1FDB26019881001385AC /* CepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepViewModel.swift; sourceTree = "<group>"; };
 		1BAD11B925FABED000FD700E /* Recursive-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Light.ttf"; sourceTree = "<group>"; };
 		1BAD11BA25FABED000FD700E /* Recursive-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Bold.ttf"; sourceTree = "<group>"; };
 		1BAD11BB25FABED000FD700E /* Recursive-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Recursive-Regular.ttf"; sourceTree = "<group>"; };
@@ -250,8 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				1B41D17626064BE8002C9171 /* Model */,
-				1BAB09692602724F001D52B0 /* ViewController */,
-				1BAB096826027241001D52B0 /* Controller */,
+				1BAB09692602724F001D52B0 /* View */,
+				1BAB096826027241001D52B0 /* ModelView */,
 				1B4726712602716800FD9067 /* Extensions */,
 				1BE4B25326000EE800902D47 /* SideMenu */,
 				1BCEA1EA25FD2F1600D1A2AB /* Footer */,
@@ -325,20 +327,20 @@
 			path = HeaderView;
 			sourceTree = "<group>";
 		};
-		1BAB096826027241001D52B0 /* Controller */ = {
+		1BAB096826027241001D52B0 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
-				1B9D1FDB26019881001385AC /* CepController.swift */,
+				1B9D1FDB26019881001385AC /* CepViewModel.swift */,
 			);
-			path = Controller;
+			path = ModelView;
 			sourceTree = "<group>";
 		};
-		1BAB09692602724F001D52B0 /* ViewController */ = {
+		1BAB09692602724F001D52B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				1BD7AE1425F9B31B0036A743 /* CepViewController.swift */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		1BAB096A2602729F001D52B0 /* Controller */ = {
@@ -531,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				1BCEA1BE25FCDD0B00D1A2AB /* ErrorHandler.swift */,
+				1B450FEE263B47CD0080F6B1 /* GenericTypes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -871,7 +874,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B46DCD02602ECEE00B56AF2 /* AddressViewController.swift in Sources */,
-				1B9D1FDC26019881001385AC /* CepController.swift in Sources */,
+				1B9D1FDC26019881001385AC /* CepViewModel.swift in Sources */,
 				1BE4B22F260005CC00902D47 /* Colors.swift in Sources */,
 				1BE4B2212600024400902D47 /* UIButtonExtension.swift in Sources */,
 				1B0329072603752F00960DF8 /* FavoriteController.swift in Sources */,
@@ -895,6 +898,7 @@
 				1BE4B23926000B1800902D47 /* FooterViewConstraints.swift in Sources */,
 				1BFA5E0A26003225007FDDFE /* HistoryViewControllerUITableViewDataSource.swift in Sources */,
 				1B40F53D25FE89D3008E1096 /* HistoryViewController.swift in Sources */,
+				1B450FEF263B47CD0080F6B1 /* GenericTypes.swift in Sources */,
 				1B41D18326064E78002C9171 /* HistoryAndFavoriteHeaderViewConstraints.swift in Sources */,
 				1B65B06726051ECE0037EF44 /* GeocodingApi.swift in Sources */,
 				1B46DCD52602EEA500B56AF2 /* AddressViewControllerConstraints.swift in Sources */,
